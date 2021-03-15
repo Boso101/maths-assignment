@@ -132,18 +132,7 @@ namespace MathClasses
         }
 
 
-        //15/03/21 
-        /// <summary>
-        ///Returns Cross Product of leftSide and rightSide Vec as float
-        /// </summary>
-        /// <param name="leftSide"></param>
-        /// <param name="rightSide"></param>
-        /// <returns> </returns>
-        public static float Cross(Vector3 leftSide, Vector3 rightSide)
-        {
-            //TODO: Implement this
-            return 0;
-        }
+       
 
 
    
@@ -191,11 +180,25 @@ namespace MathClasses
         /// <summary>
         /// Class instance version of Dot
         /// </summary>
-        /// <param name="v3b"></param>
+        /// <param name="otherVector"></param>
         /// <returns></returns>
-        public float Dot(Vector3 v3b)
+        public float Dot(Vector3 otherVector)
         {
-            throw new NotImplementedException();
+            return (x * otherVector.x) + (y * otherVector.y) + (z * otherVector.z);
         }
+
+        //15/03/21 
+        /// <summary>
+        ///Calculates the cross product of this and another vector3
+        /// </summary>
+        /// <param name="otherVector"></param>
+        /// <returns> Returns Cross Product vector and other vector as a float </returns>
+        public static float Cross(Vector3 otherVector)
+        {
+            //TODO: Implement this
+            return 0;
+        }
+
+
     }
 }
