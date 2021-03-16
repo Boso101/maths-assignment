@@ -67,7 +67,6 @@ namespace MathClasses
         }
 
 
-        //15/03/21 
         /// <summary>
         /// Vector3 Multiplier Function
         /// </summary>
@@ -80,7 +79,6 @@ namespace MathClasses
         }
 
 
-        //15/03/21 
         /// <summary>
         /// Vector3 Subtraction Function
         /// </summary>
@@ -92,7 +90,6 @@ namespace MathClasses
             return new Vector3(leftSide.x - rightSide.x, leftSide.y - rightSide.y, leftSide.z - rightSide.z);
         }
 
-        //15/03/21 
         /// <summary>
         /// Vector3 Division Function
         /// </summary>
@@ -187,6 +184,18 @@ namespace MathClasses
         }
 
 
+        /// <summary>
+        /// Matrix Multiplication with Vector3
+        /// </summary>
+        /// <param name="lhs"></param>
+        /// <param name="rhs"></param>
+        /// <returns>Vector 3</returns>
+        public static Vector3 operator *(Matrix3 lhs, Vector3 rhs)
+        {
+            return new Vector3((lhs.m1 * rhs.x) + (lhs.m4 * rhs.y) + (lhs.m7 * rhs.z),
+            …,
+            …);
+        }
 
     }
 }
