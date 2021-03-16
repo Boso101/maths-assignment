@@ -191,15 +191,15 @@ namespace UnitTestProject
         [TestMethod]
         public void Vector3Cross()
         {
-            Assert.Fail("TODO: Vector3Cross");
+           
 
-            /*
+     
             Vector3 v3a = new Vector3(13.5f, -48.23f, 862);
             Vector3 v3b = new Vector3(5, 3.99f, -12);
             Vector3 v3c = v3a.Cross(v3b);
 
             Assert.IsTrue(compare(v3c, new Vector3(-2860.62011719f, 4472.00000000f, 295.01498413f)));
-            */
+        
         }
 
         [TestMethod]
@@ -219,14 +219,14 @@ namespace UnitTestProject
         [TestMethod]
         public void Vector3Magnitude()
         {
-            Assert.Fail("TODO: Vector3Magnitude");
+        
 
-            /*
+           
             Vector3 v3a = new Vector3(13.5f, -48.23f, 862);
             float mag3 = v3a.Magnitude();
 
             Assert.AreEqual(mag3, 863.453735352f, DEFAULT_TOLERANCE);
-            */
+          
         }
 
         [TestMethod]

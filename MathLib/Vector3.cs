@@ -192,11 +192,10 @@ namespace MathClasses
         ///Calculates the cross product of this and another vector3
         /// </summary>
         /// <param name="otherVector"></param>
-        /// <returns> Returns Cross Product vector and other vector as a float </returns>
-        public static float Cross(Vector3 otherVector)
+        /// <returns> Returns Cross Product vector and other vector as a new Vector3</returns>
+        public  Vector3 Cross(Vector3 otherVector)
         {
-            //TODO: Implement this
-            return 0;
+            return new Vector3(y * otherVector.z - z * otherVector.y, z * otherVector.x - x *otherVector.z, x * otherVector.y - y * otherVector.x);
         }
 
 
