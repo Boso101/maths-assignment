@@ -6,9 +6,7 @@
 
         public Matrix3()
         {
-            m1 = 1; m4 = 0; m7 = 0;
-            m2 = 0; m5 = 1; m8 = 0;
-            m3 = 0; m6 = 0; m9 = 1;
+            SetIdentity();
 
 
         }
@@ -26,6 +24,16 @@
             this.m9 = m9;
         }
 
+        /// <summary>
+        /// Sets the matrix to the identity version
+        /// </summary>
+        public void SetIdentity()
+        {
+            m1 = 1; m4 = 0; m7 = 0;
+            m2 = 0; m5 = 1; m8 = 0;
+            m3 = 0; m6 = 0; m9 = 1;
+
+        }
 
         /// <summary>
         /// Matrix3 Multiplication
@@ -39,6 +47,28 @@
        
          
         
+        }
+
+        /// <summary>
+        /// Multiplies a matrix3 with a vector3
+        /// </summary>
+        /// <param name="leftSide"></param>
+        /// <param name="rightSide"></param>
+        /// <returns>A new Vector3 </returns>
+        public static Vector3 operator *(Matrix3 leftSide, Vector3 rightSide)
+        {
+            return new Vector3
+                (
+                rightSide.x * leftSide.m1 + rightSide.y * leftSide.m4 + rightSide.z * leftSide.m7,
+                rightSide.x * leftSide.m2 + rightSide.y * leftSide.m5 + rightSide.z * leftSide.m8,
+                rightSide.x * leftSide.m3 + rightSide.y * leftSide.m6 + rightSide.z * leftSide.m9
+
+
+
+                );
+
+
+
         }
 
 

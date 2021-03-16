@@ -6,11 +6,8 @@
 
         public Matrix4()
         {
-            m1 = 1; m5 = 0; m9 = 0; m13 = 0;
-            m2 = 0; m6 = 1; m10 = 0; m14 = 0;
-            m3 = 0; m7 = 0; m11 = 1; m15 = 0;
-            m4 = 0; m8 = 0; m12 = 0; m16 = 1;
 
+            SetIdentity();
 
 
         }
@@ -33,6 +30,17 @@
             this.m14 = m14;
             this.m15 = m15;
             this.m16 = m16;
+        }
+
+        /// <summary>
+        /// Sets matrix to identity version
+        /// </summary>
+        public void SetIdentity()
+        {
+            m1 = 1; m5 = 0; m9 = 0; m13 = 0;
+            m2 = 0; m6 = 1; m10 = 0; m14 = 0;
+            m3 = 0; m7 = 0; m11 = 1; m15 = 0;
+            m4 = 0; m8 = 0; m12 = 0; m16 = 1;
         }
     }
 }
