@@ -103,21 +103,7 @@ namespace MathClasses
         }
 
 
-        //15/03/21 
-        /// <summary>
-        /// Vector3 Vector Transformation With Matrix3
-        /// </summary>
-        /// <param name="leftSide"></param>
-        /// <param name="rightSide"></param>
-        /// <returns></returns>
-        public static Vector3 operator *(Matrix3 leftSide, Vector3 rightSide)
-        {
-            return new Vector3();
-        }
-
-
-       
-
+   
 
       
    
@@ -127,7 +113,17 @@ namespace MathClasses
         /// <returns>The magnitude of this Vector 3 </returns>
         public float Magnitude()
         {
-            return (float)Math.Sqrt(x * x + y * y + z*z);
+            return (float)Math.Sqrt(MagnitudeSqr());
+        }
+
+
+        /// <summary>
+        /// Helper method for getting the magnitude
+        /// </summary>
+        /// <returns> float of the magnitude squared </returns>
+        private float MagnitudeSqr()
+        {
+            return (x * x + y * y + z * z);
         }
 
         /// <summary>
@@ -135,6 +131,8 @@ namespace MathClasses
         /// </summary>
         public void Normalize()
         {
+
+            //Magnitude is the length of vector, so lets get it
             float length = Magnitude();
             
             if (length > 0)
@@ -192,9 +190,12 @@ namespace MathClasses
         /// <returns>Vector 3</returns>
         public static Vector3 operator *(Matrix3 lhs, Vector3 rhs)
         {
-            return new Vector3((lhs.m1 * rhs.x) + (lhs.m4 * rhs.y) + (lhs.m7 * rhs.z),
-            …,
-            …);
+            return new Vector3();
+        }
+
+        public override string ToString()
+        {
+            return $"({x},{y},{z})\nLength: {Magnitude()}";
         }
 
     }

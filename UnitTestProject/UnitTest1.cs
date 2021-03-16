@@ -122,14 +122,13 @@ namespace UnitTestProject
         [TestMethod]
         public void Vector4PostScale()
         {
-            Assert.Fail("TODO: Vector4PostScale");
+         
 
-            /*
+           
             Vector4 v4a = new Vector4(13.5f, -48.23f, 862, 0);
             Vector4 v4c = v4a * 4.89f;
 
             Assert.IsTrue(compare(new Vector4(66.0149993896f, -235.844696045f, 4215.1796875f, 0), v4c));
-            */
         }
 
         [TestMethod]
@@ -148,14 +147,13 @@ namespace UnitTestProject
         [TestMethod]
         public void Vector4PreScale()
         {
-            Assert.Fail("TODO: Vector4PreScale");
 
-            /*
+          
             Vector4 v4a = new Vector4(13.5f, -48.23f, 862, 0);
             Vector4 v4c = 4.89f * v4a;
 
             Assert.IsTrue(compare(new Vector4(66.0149993896f, -235.844696045f, 4215.1796875f, 0), v4c));
-            */
+         
         }
 
         [TestMethod]
