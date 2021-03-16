@@ -111,14 +111,14 @@ namespace UnitTestProject
         [TestMethod]
         public void Vector3PostScale()
         {
-            Assert.Fail("TODO: Vector3PostScale");
+          
 
-            /*
+         
             Vector3 v3a = new Vector3(13.5f, -48.23f, 862);
             Vector3 v3c = v3a * 0.256f;
 
             Assert.IsTrue(compare(new Vector3(3.45600008965f, -12.3468809128f, 220.672012329f), v3c));
-            */
+        
         }
 
         [TestMethod]
@@ -137,14 +137,14 @@ namespace UnitTestProject
         [TestMethod]
         public void Vector3PreScale()
         {
-            Assert.Fail("TODO: Vector3PreScale");
+          
 
-            /*
+         
             Vector3 v3a = new Vector3(13.5f, -48.23f, 862);
             Vector3 v3c = 0.256f * v3a;
 
             Assert.IsTrue(compare(new Vector3(3.45600008965f, -12.3468809128f, 220.672012329f), v3c));
-            */
+        
         }
 
         [TestMethod]
@@ -202,6 +202,37 @@ namespace UnitTestProject
         
         }
 
+
+        [TestMethod]
+        public void Vector3Scale()
+        {
+
+
+
+            Vector3 v3a = new Vector3(4,4,2);
+            float scale = 2f;
+
+            Vector3 scaled = v3a / 2;
+
+            Assert.IsTrue(compare(scaled, new Vector3(2f,2f,1f)));
+
+        }
+
+        [TestMethod]
+        public void Vector3Multiply()
+        {
+
+
+
+            Vector3 v3a = new Vector3(4, 4, 2);
+            float scale = 2f;
+
+            Vector3 scaled = v3a * 2;
+
+            Assert.IsTrue(compare(scaled, new Vector3(8f, 8f, 4f)));
+
+        }
+
         [TestMethod]
         public void Vector4Cross()
         {
@@ -245,14 +276,13 @@ namespace UnitTestProject
         [TestMethod]
         public void Vector3Normalise()
         {
-            Assert.Fail("TODO: Vector3Normalise");
+       
 
-            /*
+       
             Vector3 v3a = new Vector3(13.5f, -48.23f, 862);
             v3a.Normalize();
 
             Assert.IsTrue(compare(v3a, new Vector3(0.0156349f, -0.0558571f, 0.998316f)));
-            */
         }
 
         [TestMethod]
