@@ -1,4 +1,6 @@
-﻿namespace MathClasses
+﻿using System;
+
+namespace MathClasses
 {
     public class Vector4
     {
@@ -44,7 +46,7 @@
         }
 
         /// <summary>
-        /// 15/03/21 - Vector4 Addition Function
+        /// Vector4 Addition Function
         /// </summary>
         /// <param name="leftSide"></param>
         /// <param name="rightSide"></param>
@@ -53,6 +55,120 @@
         {
             return new Vector4(leftSide.x + rightSide.x, leftSide.y + rightSide.y, + leftSide.z + rightSide.z, leftSide.w + rightSide.w);
         }
+
+        /// <summary>
+        /// Vector4 Subtraction Function
+        /// </summary>
+        /// <param name="leftSide"></param>
+        /// <param name="rightSide"></param>
+        /// <returns> Vector4 of subtracted vectors </returns>
+        public static Vector4 operator -(Vector4 leftSide, Vector4 rightSide)
+        {
+            return new Vector4(leftSide.x - rightSide.x, leftSide.y - rightSide.y, leftSide.z - rightSide.z, leftSide.w - rightSide.w);
+        }
+
+        /// <summary>
+        /// Vector3 Multiplier Function
+        /// </summary>
+        /// <param name="multiplier"></param>
+        /// <param name="rightSide"></param>
+        /// <returns>Vector4 of the multiplied modifier with Vector </returns>
+        public static Vector4 operator *(float multiplier, Vector4 rightSide)
+        {
+            return new Vector4(rightSide.x * multiplier, rightSide.y * multiplier, rightSide.z * multiplier, rightSide.w * multiplier);
+        }
+
+        /// <summary>
+        /// Vector3 Multiplier Function
+        /// </summary>
+        /// <param name="leftSide"></param>
+        /// <param name="multiplier"></param>
+        /// <returns>Vector4 of the multiplied modifier with Vector </returns>
+        public static Vector4 operator *(Vector4 leftSide, float multiplier)
+        {
+            return new Vector4(leftSide.x * multiplier, leftSide.y * multiplier, leftSide.z * multiplier, leftSide.w * multiplier);
+        }
+
+
+        /// <summary>
+        /// Vector4 Division Function
+        /// </summary>
+        /// <param name="leftSide"></param>
+        /// <param name="divideNumb"></param>
+        /// <returns></returns>
+        public static Vector4 operator /(Vector4 leftSide, float divideNumb)
+        {
+            // Use multiplication function to divide
+            return leftSide * (1 / divideNumb);
+        }
+
+
+
+
+
+
+        /// <summary>
+        /// Calculate the magnitude of this instance of a Vector4
+        /// </summary>
+        /// <returns>The magnitude of this Vector 4 </returns>
+        public float Magnitude()
+        {
+            return (float)Math.Sqrt(x * x + y * y + z * z + w*w);
+        }
+
+        /// <summary>
+        /// Normalises this instance of a Vector4.
+        /// </summary>
+        public void Normalize()
+        {
+            float length = Magnitude();
+
+            if (length > 0)
+            {
+                x /= length;
+                y /= length;
+                z /= length;
+                w /= length;
+            }
+        }
+
+
+
+        public void SetRotateX(float rotation)
+        {
+
+        }
+
+        public void SetRotateY(float rotation)
+        {
+
+        }
+
+        public void SetRotateZ(float rotation)
+        {
+
+        }
+
+        /// <summary>
+        /// Class instance version of Dot
+        /// </summary>
+        /// <param name="otherVector"></param>
+        /// <returns> the Dot Product as a float </returns>
+        public float Dot(Vector4 otherVector)
+        {
+            return (x * otherVector.x) + (y * otherVector.y) + (z * otherVector.z) + (w * otherVector.w);
+        }
+
+        /// <summary>
+        ///Calculates the cross product of this and another vector4
+        /// </summary>
+        /// <param name="otherVector"></param>
+        /// <returns> Returns Cross Product vector and other vector as a new Vector4</returns>
+        public Vector4 Cross(Vector4 otherVector)
+        {
+            return new Vector4(y * otherVector.z - z * otherVector.y, z * otherVector.x - x * otherVector.z, x * otherVector.y - y * otherVector.x, );
+        }
+
 
     }
 }

@@ -70,15 +70,14 @@ namespace UnitTestProject
         [TestMethod]
         public void Vector4Addition()
         {
-            Assert.Fail("TODO: Vector4Addition");
 
-            /*
+            
             Vector4 v4a = new Vector4(13.5f, -48.23f, 862, 0);
             Vector4 v4b = new Vector4(5, 3.99f, -12, 1);
             Vector4 v4c = v4a + v4b;
 
             Assert.IsTrue(compare(new Vector4(18.5f, -44.24f, 850, 1), v4c));
-            */
+            
         }
 
         [TestMethod]
@@ -97,15 +96,14 @@ namespace UnitTestProject
         [TestMethod]
         public void Vector4Subtraction()
         {
-            Assert.Fail("TODO: Vector4Subtraction");
 
-            /*
+        
             Vector4 v4a = new Vector4(13.5f, -48.23f, 862, 0);
             Vector4 v4b = new Vector4(5, 3.99f, -12, 1);
             Vector4 v4c = v4a - v4b;
 
             Assert.IsTrue(compare(new Vector4(8.5f, -52.22f, 874, -1), v4c));
-            */
+        
         }
 
         [TestMethod]
@@ -177,15 +175,15 @@ namespace UnitTestProject
         [TestMethod]
         public void Vector4Dot()
         {
-            Assert.Fail("TODO: Vector4Dot");
+         
 
-            /*
+    
             Vector4 v4a = new Vector4(13.5f, -48.23f, 862, 0);
             Vector4 v4b = new Vector4(5, 3.99f, -12, 1);
             float dot4 = v4a.Dot(v4b);
 
             Assert.AreEqual(dot4, -10468.9375f, DEFAULT_TOLERANCE);
-            */
+         
         }
 
         [TestMethod]
@@ -236,15 +234,13 @@ namespace UnitTestProject
         [TestMethod]
         public void Vector4Cross()
         {
-            Assert.Fail("TODO: Vector4Cross");
-
-            /*
+      
             Vector4 v4a = new Vector4(13.5f, -48.23f, 862, 0);
             Vector4 v4b = new Vector4(5, 3.99f, -12, 1);
             Vector4 v4c = v4a.Cross(v4b);
 
             Assert.IsTrue(compare(v4c, new Vector4(-2860.62011719f, 4472.00000000f, 295.01498413f, 0)));
-            */
+        
         }
 
         [TestMethod]
@@ -263,14 +259,14 @@ namespace UnitTestProject
         [TestMethod]
         public void Vector4Magnitude()
         {
-            Assert.Fail("TODO: Vector4Magnitude");
+       
 
-            /*
+       
             Vector4 v4a = new Vector4(13.5f, -48.23f, 862, 0);
             float mag4 = v4a.Magnitude();
 
             Assert.AreEqual(mag4, 863.453735352f, DEFAULT_TOLERANCE);
-            */
+          
         }
 
         [TestMethod]

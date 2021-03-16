@@ -119,22 +119,10 @@ namespace MathClasses
         }
 
 
-        //15/03/21 
-        /// <summary>
-        /// Static version of the dot function
-        /// </summary>
-        /// <param name="leftSide"></param>
-        /// <param name="rightSide"></param>
-        /// <returns>Returns Dot of the leftSide and rightSide Vec as float</returns>
-        public static float Dot(Vector3 leftSide, Vector3 rightSide)
-        {
-            return (leftSide.x * rightSide.x) + (leftSide.y * rightSide.y) + (leftSide.z * rightSide.z);
-        }
-
-
        
 
 
+      
    
         /// <summary>
         /// Calculate the magnitude of this instance of a Vector3
@@ -198,15 +186,6 @@ namespace MathClasses
             return new Vector3(y * otherVector.z - z * otherVector.y, z * otherVector.x - x *otherVector.z, x * otherVector.y - y * otherVector.x);
         }
 
-        /// <summary>
-        ///Static version of the Cross function
-        /// </summary>
-        /// <param name="otherVector"></param>
-        /// <returns> Returns Cross Product vector and other vector as a new Vector3</returns>
-        public static Vector3 Cross(Vector3 leftSide, Vector3 rightSide)
-        {
-            return new Vector3(leftSide.y * rightSide.z - leftSide.z * rightSide.y, leftSide.z * rightSide.x - leftSide.x * rightSide.z, leftSide.x * rightSide.y - leftSide.y * rightSide.x);
-        }
 
 
     }
