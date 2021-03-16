@@ -284,14 +284,13 @@ namespace UnitTestProject
         [TestMethod]
         public void Vector4Normalise()
         {
-            Assert.Fail("TODO: Vector4Normalise");
 
-            /*
+            
             Vector4 v4a = new Vector4(243, -48.23f, 862, 0);
             v4a.Normalize();
 
             Assert.IsTrue(compare(v4a, new Vector4(0.270935f, -0.0537745f, 0.961094f, 0)));
-            */
+           
         }
 
         [TestMethod]
