@@ -43,5 +43,16 @@
             return new System.Numerics.Vector4(v.x, v.y, v.z, v.w);
         }
 
+        /// <summary>
+        /// 15/03/21 - Vector4 Addition Function
+        /// </summary>
+        /// <param name="leftSide"></param>
+        /// <param name="rightSide"></param>
+        /// <returns> Vector4 of added vectors </returns>
+        public static Vector4 operator +(Vector4 leftSide, Vector4 rightSide)
+        {
+            return new Vector4(leftSide.x + rightSide.x, leftSide.y + rightSide.y, + leftSide.z + rightSide.z, leftSide.w + rightSide.w);
+        }
+
     }
 }

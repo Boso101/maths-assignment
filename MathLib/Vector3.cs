@@ -48,7 +48,7 @@ namespace MathClasses
         /// </summary>
         /// <param name="leftSide"></param>
         /// <param name="rightSide"></param>
-        /// <returns></returns>
+        /// <returns>Vector3 of the added Vectors </returns>
         public static Vector3 operator+(Vector3 leftSide, Vector3 rightSide)
         {
             return new Vector3(leftSide.x + rightSide.x, leftSide.y + rightSide.y, leftSide.z + rightSide.z);
@@ -60,7 +60,7 @@ namespace MathClasses
         /// </summary>
         /// <param name="leftSide"></param>
         /// <param name="multiplier"></param>
-        /// <returns></returns>
+        /// <returns>Vector3 of the multiplied Vector with multiplier </returns>
         public static Vector3 operator *(Vector3 leftSide, float multiplier)
         {
             return new Vector3(leftSide.x*multiplier, leftSide.y * multiplier, leftSide.z * multiplier);
@@ -73,7 +73,7 @@ namespace MathClasses
         /// </summary>
         /// <param name="multiplier"></param>
         /// <param name="rightSide"></param>
-        /// <returns></returns>
+        /// <returns>Vector3 of the multiplied modifier with Vector </returns>
         public static Vector3 operator *(float multiplier, Vector3 rightSide)
         {
             return new Vector3(rightSide.x * multiplier, rightSide.y * multiplier, rightSide.z * multiplier);
