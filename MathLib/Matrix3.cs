@@ -97,9 +97,9 @@ namespace MathClasses
         /// <param name="radians"></param>
         public void SetRotateY(float radians)
         {
-            m1 = 1; m4 = 0; m7 = 0;
+            m1 = (float)Math.Cos(radians); m4 = 0; m7 = (float)Math.Sin(radians);
             m2 = 0; m5 = 1; m8 = 0;
-            m3 = 0; m6 = 0; m9 = 1;
+            m3 = -1 * (float)Math.Sin(radians); m6 = 0; m9 = (float)Math.Cos(radians);
         }
 
         /// <summary>
