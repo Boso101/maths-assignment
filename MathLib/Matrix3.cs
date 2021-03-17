@@ -87,7 +87,7 @@ namespace MathClasses
         public void SetRotateX(float radians)
         {
             m1 = 1; m4 = 0; m7 = 0;
-            m2 = 0; m5 = (float)Math.Cos(radians); m8 = -1 * (float)Math.Sin(radians);
+            m2 = 0; m5 = (float)Math.Cos(radians); m8 = (float)-Math.Sin(radians);
             m3 = 0; m6 = (float)Math.Sin(radians); m9 = (float)Math.Cos(radians);
         }
 
@@ -99,7 +99,7 @@ namespace MathClasses
         {
             m1 = (float)Math.Cos(radians); m4 = 0; m7 = (float)Math.Sin(radians);
             m2 = 0; m5 = 1; m8 = 0;
-            m3 = -1 * (float)Math.Sin(radians); m6 = 0; m9 = (float)Math.Cos(radians);
+            m3 =(float)-Math.Sin(radians); m6 = 0; m9 = (float)Math.Cos(radians);
         }
 
         /// <summary>
@@ -108,8 +108,8 @@ namespace MathClasses
         /// <param name="radians"></param>
         public void SetRotateZ(float radians)
         {
-            m1 = 1; m4 = 0; m7 = 0;
-            m2 = 0; m5 = 1; m8 = 0;
+            m1 = (float)Math.Cos(radians); m4 = (float)-Math.Sin(radians); m7 = 0;
+            m2 = (float)Math.Sin(radians); m5 = (float)Math.Cos(radians); m8 = 0;
             m3 = 0; m6 = 0; m9 = 1;
         }
 
