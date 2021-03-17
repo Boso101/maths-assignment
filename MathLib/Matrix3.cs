@@ -43,7 +43,13 @@
         /// <returns>A new Matrix3 with multiplied version of parameters</returns>
         public static Matrix3 operator *(Matrix3 leftSide, Matrix3 rightSide)
         {
-            return new Matrix3();
+            return new Matrix3
+                
+                
+                (
+                
+                
+                );
        
          
         

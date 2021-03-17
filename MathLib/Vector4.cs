@@ -68,7 +68,7 @@ namespace MathClasses
         }
 
         /// <summary>
-        /// Vector3 Multiplier Function
+        /// Vector4 Multiplier Function
         /// </summary>
         /// <param name="multiplier"></param>
         /// <param name="rightSide"></param>
@@ -79,7 +79,7 @@ namespace MathClasses
         }
 
         /// <summary>
-        /// Vector3 Multiplier Function
+        /// Vector4 Multiplier Function
         /// </summary>
         /// <param name="leftSide"></param>
         /// <param name="multiplier"></param>

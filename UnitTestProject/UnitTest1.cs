@@ -446,9 +446,7 @@ namespace UnitTestProject
         [TestMethod]
         public void Matrix3Multiply()
         {
-            Assert.Fail("TODO: Matrix3Multiply");
 
-            /*
             Matrix3 m3a = new Matrix3();
             m3a.SetRotateX(3.98f);
 
@@ -459,7 +457,7 @@ namespace UnitTestProject
 
             Assert.IsTrue(compare(m3d,
                 new Matrix3(-0.981004655361f, 0.129707172513f, 0.14424264431f, 0.193984255195f, 0.655946731567f, 0.729454636574f, 0, 0.743579149246f, -0.668647944927f)));
-            */
+  
         }
 
         [TestMethod]

@@ -42,5 +42,48 @@
             m3 = 0; m7 = 0; m11 = 1; m15 = 0;
             m4 = 0; m8 = 0; m12 = 0; m16 = 1;
         }
+
+
+
+        /// <summary>
+        /// Multiplies a matrix4 with a vector4
+        /// </summary>
+        /// <param name="leftSide"></param>
+        /// <param name="rightSide"></param>
+        /// <returns>A new Vector3 </returns>
+        public static Vector4 operator *(Matrix4 leftSide, Vector4 rightSide)
+        {
+            return new Vector4
+                (
+         leftSide.m1 * rightSide.x + leftSide.m5 * rightSide.y + leftSide.m9 * rightSide.z + leftSide.m13 * rightSide.w,
+         leftSide.m2 * rightSide.x + leftSide.m6 * rightSide.y + leftSide.m10 * rightSide.z + leftSide.m14 * rightSide.w,
+         leftSide.m3 * rightSide.x + leftSide.m7 * rightSide.y + leftSide.m11 * rightSide.z + leftSide.m15 * rightSide.w,
+         leftSide.m4 * rightSide.x + leftSide.m8 * rightSide.y + leftSide.m12 * rightSide.z + leftSide.m16 * rightSide.w
+                );
+
+
+
+        }
+
+
+        /// <summary>
+        /// Matrix4 Multiplication
+        /// </summary>
+        /// <param name="leftSide"></param>
+        /// <param name="rightSide"></param>
+        /// <returns>A new Matrix4 with multiplied version of parameters</returns>
+        public static Matrix4 operator *(Matrix4 leftSide, Matrix4 rightSide)
+        {
+            return new Matrix4
+
+
+                (
+
+
+                );
+
+
+
+        }
     }
 }
