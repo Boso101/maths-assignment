@@ -49,8 +49,20 @@ namespace MathClasses
                 
                 
                 (
-                
-                
+                leftSide.GetRow(1).Dot(rightSide.GetColumn(1)),
+                leftSide.GetRow(2).Dot(rightSide.GetColumn(1)),
+                leftSide.GetRow(3).Dot(rightSide.GetColumn(1)),
+
+                leftSide.GetRow(1).Dot(rightSide.GetColumn(2)),
+                leftSide.GetRow(2).Dot(rightSide.GetColumn(2)),
+                leftSide.GetRow(3).Dot(rightSide.GetColumn(2)),
+
+                 leftSide.GetRow(1).Dot(rightSide.GetColumn(3)),
+                leftSide.GetRow(2).Dot(rightSide.GetColumn(3)),
+                leftSide.GetRow(3).Dot(rightSide.GetColumn(3))
+
+
+
                 );
        
          
@@ -67,9 +79,9 @@ namespace MathClasses
         {
             return new Vector3
                 (
-                rightSide.x * leftSide.m1 + rightSide.y * leftSide.m4 + rightSide.z * leftSide.m7,
-                rightSide.x * leftSide.m2 + rightSide.y * leftSide.m5 + rightSide.z * leftSide.m8,
-                rightSide.x * leftSide.m3 + rightSide.y * leftSide.m6 + rightSide.z * leftSide.m9
+                leftSide.GetRow(1).Dot(rightSide),
+                leftSide.GetRow(2).Dot(rightSide),
+                leftSide.GetRow(3).Dot(rightSide)
 
 
 
@@ -137,15 +149,39 @@ namespace MathClasses
                     // bad number
                     return null;
 
+            }
 
 
 
+        }
 
 
+        /// <summary>
+        /// Helper Method to grab column data from Matrix
+        /// </summary>
+        /// <param name="columnNumb"></param>
+        public Vector3 GetColumn(int columnNumb)
+        {
+
+            switch (columnNumb)
+            {
+                case 1:
+                    return new Vector3(m1, m2, m3);
+
+                case 2:
+                    return new Vector3(m4,m5,m6);
+
+                case 3:
+                    return new Vector3(m7,m8,m9);
+
+  
+
+                default:
+                    // bad number
+                    return null;
 
 
             }
-
 
 
         }

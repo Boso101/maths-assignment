@@ -59,10 +59,10 @@ namespace MathClasses
         {
             return new Vector4
                 (
-         leftSide.m1 * rightSide.x + leftSide.m5 * rightSide.y + leftSide.m9 * rightSide.z + leftSide.m13 * rightSide.w,
-         leftSide.m2 * rightSide.x + leftSide.m6 * rightSide.y + leftSide.m10 * rightSide.z + leftSide.m14 * rightSide.w,
-         leftSide.m3 * rightSide.x + leftSide.m7 * rightSide.y + leftSide.m11 * rightSide.z + leftSide.m15 * rightSide.w,
-         leftSide.m4 * rightSide.x + leftSide.m8 * rightSide.y + leftSide.m12 * rightSide.z + leftSide.m16 * rightSide.w
+        leftSide.GetRow(1).Dot(rightSide),
+        leftSide.GetRow(2).Dot(rightSide),
+        leftSide.GetRow(3).Dot(rightSide),
+        leftSide.GetRow(4).Dot(rightSide)
                 );
 
 
@@ -82,7 +82,25 @@ namespace MathClasses
 
 
                 (
+                leftSide.GetRow(1).Dot(rightSide.GetColumn(1)),
+                leftSide.GetRow(2).Dot(rightSide.GetColumn(1)),
+                leftSide.GetRow(3).Dot(rightSide.GetColumn(1)),
+                leftSide.GetRow(4).Dot(rightSide.GetColumn(1)),
 
+                leftSide.GetRow(1).Dot(rightSide.GetColumn(2)),
+                leftSide.GetRow(2).Dot(rightSide.GetColumn(2)),
+                leftSide.GetRow(3).Dot(rightSide.GetColumn(2)),
+                leftSide.GetRow(4).Dot(rightSide.GetColumn(2)),
+
+                leftSide.GetRow(1).Dot(rightSide.GetColumn(3)),
+                leftSide.GetRow(2).Dot(rightSide.GetColumn(3)),
+                leftSide.GetRow(3).Dot(rightSide.GetColumn(3)),
+                leftSide.GetRow(4).Dot(rightSide.GetColumn(3)),
+
+                leftSide.GetRow(1).Dot(rightSide.GetColumn(4)),
+                leftSide.GetRow(2).Dot(rightSide.GetColumn(4)),
+                leftSide.GetRow(3).Dot(rightSide.GetColumn(4)),
+                leftSide.GetRow(4).Dot(rightSide.GetColumn(4))
 
                 );
 
