@@ -1,14 +1,43 @@
-﻿using System.Collections.Generic;
+﻿using MathClasses;
+using System.Collections.Generic;
 using System.Diagnostics;
 
 namespace Project2D
 {
 
-
+    /// <summary>
+    /// Base Parent class for most if not all objects we will use.
+    /// It is pretty much the GameObject class from Unity
+    /// </summary>
     public class SceneObject
     {
         protected SceneObject parent = null;
         protected List<SceneObject> children = new List<SceneObject>();
+
+
+        /// <summary>
+        /// local coordinates
+        /// </summary>
+        protected Matrix3 localTransform = new Matrix3();
+        
+        /// <summary>
+        /// World space coordinates
+        /// </summary>
+        protected Matrix3 globalTransform = new Matrix3();
+
+
+        public Matrix3 LocalTransform
+        {
+            get { return localTransform; }
+        }
+        public Matrix3 GlobalTransform
+        {
+            get { return globalTransform; }
+        }
+
+
+
+
         public SceneObject Parent
         {
             get { return parent; }
@@ -78,8 +107,105 @@ namespace Project2D
             }
         }
 
+        /// <summary>
+        /// Called every frame
+        /// </summary>
+        /// <param name="deltaTime"></param>
+        public void Update(float deltaTime)
+        {
+            // run OnUpdate behaviour
+            OnUpdate(deltaTime);
+            // update children
+            foreach (SceneObject child in children)
+            {
+                child.Update(deltaTime);
+            }
+        }
+
+        /// <summary>
+        /// Draws the object 
+        /// </summary>
+        public void Draw()
+        {
+            // run OnDraw behaviour
+            OnDraw();
+            // draw children
+            foreach (SceneObject child in children)
+            {
+                child.Draw();
+            }
+        }
+
+        /// <summary>
+        /// Called on every update tick
+        /// Custom logic for children of this class
+        /// </summary>
+        /// <param name="deltaTime"></param>
+        public virtual void OnUpdate(float deltaTime)
+        {
+
+        }
+
+        /// <summary>
+        /// Called on draw
+        /// Custom logic for children of this class
+        /// </summary>
+        public virtual void OnDraw()
+        {
+        }
+
+        /// <summary>
+        /// constantly updates both global and local transform data
+        /// </summary>
+        public void UpdateTransform()
+        {
+            if (parent != null)
+                globalTransform = parent.globalTransform * localTransform;
+            else
+                globalTransform = localTransform;
+
+            // Foreach loop that calls this on children
+            foreach (SceneObject child in children)
+                child.UpdateTransform();
+        }
 
 
+
+
+
+
+
+        
+        public void SetPosition(float x, float y)
+        {
+            localTransform.SetTranslation(x, y);
+            UpdateTransform();
+        }
+        public void SetRotate(float radians)
+        {
+            localTransform.SetRotateZ(radians);
+            UpdateTransform();
+        }
+        public void SetScale(float width, float height)
+        {
+            localTransform.SetScaled(width, height, 1);
+            UpdateTransform();
+        }
+        public void Translate(float x, float y)
+        {
+            localTransform.Translate(x, y);
+            UpdateTransform();
+        }
+        public void Rotate(float radians)
+        {
+            localTransform.SetRotateZ(radians);
+            UpdateTransform();
+        }
+        public void Scale(float width, float height)
+        {
+            localTransform.Scale(width, height, 1);
+            UpdateTransform();
+        }
 
     }
 }
