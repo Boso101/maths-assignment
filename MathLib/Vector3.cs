@@ -174,7 +174,7 @@ namespace MathClasses
     
         public override string ToString()
         {
-            return $"({x},{y},{z})\nLength: {Magnitude()}";
+            return $"({x},{y},{z})";
         }
 
         

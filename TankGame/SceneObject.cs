@@ -14,15 +14,13 @@ namespace Project2D
         protected SceneObject parent = null;
         protected List<SceneObject> children = new List<SceneObject>();
 
+        protected string objectName = "";
 
-        /// <summary>
-        /// local coordinates
-        /// </summary>
+
+      
         protected Matrix3 localTransform = new Matrix3();
         
-        /// <summary>
-        /// World space coordinates
-        /// </summary>
+     
         protected Matrix3 globalTransform = new Matrix3();
 
 
@@ -44,6 +42,11 @@ namespace Project2D
         }
         public SceneObject()
         {
+        }
+
+        public SceneObject(string name)
+        {
+            objectName = name;
         }
 
         /// <summary>
@@ -174,8 +177,6 @@ namespace Project2D
 
 
 
-
-        
         public void SetPosition(float x, float y)
         {
             localTransform.SetTranslation(x, y);
@@ -198,13 +199,26 @@ namespace Project2D
         }
         public void Rotate(float radians)
         {
-            localTransform.SetRotateZ(radians);
+            localTransform.RotateZ(radians);
             UpdateTransform();
         }
         public void Scale(float width, float height)
         {
             localTransform.Scale(width, height, 1);
             UpdateTransform();
+        }
+
+
+
+
+
+        /// <summary>
+        /// Debug ToString Method
+        /// </summary>
+        /// <returns>String representation</returns>
+        public override string ToString()
+        {
+            return $"SceneObject: {objectName}\nLocalCoordinates: {localTransform.GetColumn(1)}\nGlobalCoordinates: {globalTransform.GetColumn(1)}";
         }
 
     }

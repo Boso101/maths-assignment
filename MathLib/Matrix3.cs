@@ -186,6 +186,47 @@ namespace MathClasses
 
         }
 
+        /// <summary>
+        /// Copy Function
+        /// </summary>
+        /// <param name="otherMatrix"></param>
+        public void CopyFrom(Matrix3 otherMatrix)
+        {
+            this.m1 = otherMatrix.m1;
+            this.m2 = otherMatrix.m2;
+            this.m3 = otherMatrix.m3;
+            this.m4 = otherMatrix.m4;
+            this.m5 = otherMatrix.m5;
+            this.m6 = otherMatrix.m6;
+            this.m7 = otherMatrix.m7;
+            this.m8 = otherMatrix.m8;
+            this.m9 = otherMatrix.m9;
 
+
+        }
+        public void RotateX(double radians)
+        {
+            Matrix3 matrix = new Matrix3();
+            matrix.SetRotateX(radians);
+
+            //Make this matrix the result from multiplying with the rotated version
+            CopyFrom(this * matrix);
+        }
+        public void RotateY(double radians)
+        {
+            Matrix3 matrix = new Matrix3();
+            matrix.SetRotateY(radians);
+
+            //Make this matrix the result from multiplying with the rotated version
+            CopyFrom(this * matrix);
+        }
+        public void RotateZ(double radians)
+        {
+            Matrix3 matrix = new Matrix3();
+            matrix.SetRotateZ(radians);
+
+            //Make this matrix the result from multiplying with the rotated version
+            CopyFrom(this * matrix);
+        }
     }
 }
