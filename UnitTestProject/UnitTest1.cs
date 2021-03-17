@@ -294,85 +294,78 @@ namespace UnitTestProject
         [TestMethod]
         public void Matrix3SetRotateX()
         {
-            Assert.Fail("TODO: Matrix3SetRotateX");
 
-            /*
+         
             Matrix3 m3a = new Matrix3();
             m3a.SetRotateX(3.98f);
 
             Assert.IsTrue(compare(m3a,
                 new Matrix3(1, 0, 0, 0, -0.668648f, -0.743579f, 0, 0.743579f, -0.668648f)));
-            */
+            
         }
 
         [TestMethod]
         public void Matrix4SetRotateX()
         {
-            Assert.Fail("TODO: Matrix4SetRotateX");
 
-            /*
             Matrix4 m4a = new Matrix4();
             m4a.SetRotateX(4.5f);
 
             Assert.IsTrue(compare(m4a,
                 new Matrix4(1, 0, 0, 0, 0, -0.210796f, -0.97753f, 0, 0, 0.97753f, -0.210796f, 0, 0, 0, 0, 1)));
-            */
+       
         }
 
         [TestMethod]
         public void Matrix3SetRotateY()
         {
-            Assert.Fail("TODO: Matrix3SetRotateY");
 
-            /*
+  
             Matrix3 m3b = new Matrix3();
             m3b.SetRotateY(1.76f);
 
             Assert.IsTrue(compare(m3b,
                 new Matrix3(-0.188077f, 0, -0.982154f, 0, 1, 0, 0.982154f, 0, -0.188077f)));
-            */
+    
         }
 
         [TestMethod]
         public void Matrix4SetRotateY()
         {
-            Assert.Fail("TODO: Matrix4SetRotateY");
 
-            /*
+
             Matrix4 m4b = new Matrix4();
             m4b.SetRotateY(-2.6f);
 
             Assert.IsTrue(compare(m4b,
                 new Matrix4(-0.856889f, 0, 0.515501f, 0, 0, 1, 0, 0, -0.515501f, 0, -0.856889f, 0, 0, 0, 0, 1)));
-            */
+       
         }
 
         [TestMethod]
         public void Matrix3SetRotateZ()
         {
-            Assert.Fail("TODO: Matrix3SetRotateZ");
 
-            /*
+           
             Matrix3 m3c = new Matrix3();
             m3c.SetRotateZ(9.62f);
 
             Assert.IsTrue(compare(m3c,
                 new Matrix3(-0.981005f, -0.193984f, 0, 0.193984f, -0.981005f, 0, 0, 0, 1)));
-            */
+         
         }
 
         [TestMethod]
         public void Matrix4SetRotateZ()
         {
-            Assert.Fail("TODO: Matrix4SetRotateZ");
 
-            /*
+   
             Matrix4 m4c = new Matrix4();
             m4c.SetRotateZ(0.72f);
 
             Assert.IsTrue(compare(m4c,
                 new Matrix4(0.751806f, 0.659385f, 0, 0, -0.659385f, 0.751806f, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)));
-            */
+    
         }
 
         [TestMethod]

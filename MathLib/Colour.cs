@@ -11,7 +11,7 @@ namespace MathClasses
             colour = 0;
         }
 
-        public Colour(byte red, byte green, byte blue)
+        public Colour(byte red, byte green, byte blue, byte alpha)
         {
             
         }

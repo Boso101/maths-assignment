@@ -1,4 +1,6 @@
-﻿namespace MathClasses
+﻿using System;
+
+namespace MathClasses
 {
     public class Matrix4
     {
@@ -94,8 +96,8 @@
         public void SetRotateX(float radians)
         {
             m1 = 1; m5 = 0; m9 = 0; m13 = 0;
-            m2 = 0; m6 = 1; m10 = 0; m14 = 0;
-            m3 = 0; m7 = 0; m11 = 1; m15 = 0;
+            m2 = 0; m6 = (float)Math.Cos(radians); m10 = (float)Math.Sin(radians); m14 = 0;
+            m3 = 0; m7 = (float)Math.Sin(radians); m11 = (float)Math.Cos(radians); m15 = 0;
             m4 = 0; m8 = 0; m12 = 0; m16 = 1;
         }
 
@@ -105,9 +107,9 @@
         /// <param name="radians"></param>
         public void SetRotateY(float radians)
         {
-            m1 = 1; m5 = 0; m9 = 0; m13 = 0;
+            m1 = (float)Math.Cos(radians); m5 = 0; m9 = (float)-Math.Sin(radians); ; m13 = 0;
             m2 = 0; m6 = 1; m10 = 0; m14 = 0;
-            m3 = 0; m7 = 0; m11 = 1; m15 = 0;
+            m3 = (float)Math.Sin(radians); m7 = 0; m11 = (float)Math.Cos(radians); m15 = 0;
             m4 = 0; m8 = 0; m12 = 0; m16 = 1;
         }
 
@@ -117,8 +119,8 @@
         /// <param name="radians"></param>
         public void SetRotateZ(float radians)
         {
-            m1 = 1; m5 = 0; m9 = 0; m13 = 0;
-            m2 = 0; m6 = 1; m10 = 0; m14 = 0;
+            m1 = (float)Math.Cos(radians); m5 = (float)Math.Sin(radians); m9 = 0; m13 = 0;
+            m2 = (float)-Math.Sin(radians); m6 = (float)Math.Cos(radians); m10 = 0; m14 = 0;
             m3 = 0; m7 = 0; m11 = 1; m15 = 0;
             m4 = 0; m8 = 0; m12 = 0; m16 = 1;
         }
