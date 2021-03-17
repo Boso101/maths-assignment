@@ -134,20 +134,7 @@ namespace MathClasses
 
 
 
-        public void SetRotateX(float rotation)
-        {
-
-        }
-
-        public void SetRotateY(float rotation)
-        {
-
-        }
-
-        public void SetRotateZ(float rotation)
-        {
-
-        }
+     
 
         /// <summary>
         /// Class instance version of Dot
