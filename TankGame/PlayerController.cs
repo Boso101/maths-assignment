@@ -15,7 +15,7 @@ namespace Project2D
             player = controllingTank;
         }
 
-        public void HandleHumanInput()
+        public void HandleHumanInput(float deltatime)
         {
 
         }
