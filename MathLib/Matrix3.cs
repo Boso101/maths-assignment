@@ -84,7 +84,7 @@ namespace MathClasses
         /// Set the X Rotation
         /// </summary>
         /// <param name="radians"></param>
-        public void SetRotateX(float radians)
+        public void SetRotateX(double radians)
         {
             m1 = 1; m4 = 0; m7 = 0;
             m2 = 0; m5 = (float)Math.Cos(radians); m8 = (float)-Math.Sin(radians);
@@ -95,7 +95,7 @@ namespace MathClasses
         /// Set the Y Rotation
         /// </summary>
         /// <param name="radians"></param>
-        public void SetRotateY(float radians)
+        public void SetRotateY(double radians)
         {
             m1 = (float)Math.Cos(radians); m4 = 0; m7 = (float)Math.Sin(radians);
             m2 = 0; m5 = 1; m8 = 0;
@@ -106,7 +106,7 @@ namespace MathClasses
         /// Set the Z Rotation
         /// </summary>
         /// <param name="radians"></param>
-        public void SetRotateZ(float radians)
+        public void SetRotateZ(double radians)
         {
             m1 = (float)Math.Cos(radians); m4 = (float)-Math.Sin(radians); m7 = 0;
             m2 = (float)Math.Sin(radians); m5 = (float)Math.Cos(radians); m8 = 0;

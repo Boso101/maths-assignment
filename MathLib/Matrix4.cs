@@ -34,6 +34,8 @@ namespace MathClasses
             this.m16 = m16;
         }
 
+
+        
         /// <summary>
         /// Sets matrix to identity version
         /// </summary>
@@ -93,10 +95,10 @@ namespace MathClasses
         /// Set the X Rotation
         /// </summary>
         /// <param name="radians"></param>
-        public void SetRotateX(float radians)
+        public void SetRotateX(double radians)
         {
             m1 = 1; m5 = 0; m9 = 0; m13 = 0;
-            m2 = 0; m6 = (float)Math.Cos(radians); m10 = (float)Math.Sin(radians); m14 = 0;
+            m2 = 0; m6 = (float)Math.Cos(radians); m10 = (float)-Math.Sin(radians); m14 = 0;
             m3 = 0; m7 = (float)Math.Sin(radians); m11 = (float)Math.Cos(radians); m15 = 0;
             m4 = 0; m8 = 0; m12 = 0; m16 = 1;
         }
@@ -105,24 +107,22 @@ namespace MathClasses
         /// Set the Y Rotation
         /// </summary>
         /// <param name="radians"></param>
-        public void SetRotateY(float radians)
+        public void SetRotateY(double radians)
         {
-            m1 = (float)Math.Cos(radians); m5 = 0; m9 = (float)-Math.Sin(radians); ; m13 = 0;
-            m2 = 0; m6 = 1; m10 = 0; m14 = 0;
-            m3 = (float)Math.Sin(radians); m7 = 0; m11 = (float)Math.Cos(radians); m15 = 0;
-            m4 = 0; m8 = 0; m12 = 0; m16 = 1;
+            m1 = (float)Math.Cos(radians); m4 = 0; m7 = (float)Math.Sin(radians);
+            m2 = 0; m5 = 1; m8 = 0;
+            m3 = (float)-Math.Sin(radians); m6 = 0; m9 = (float)Math.Cos(radians);
         }
 
         /// <summary>
         /// Set the Z Rotation
         /// </summary>
         /// <param name="radians"></param>
-        public void SetRotateZ(float radians)
+        public void SetRotateZ(double radians)
         {
-            m1 = (float)Math.Cos(radians); m5 = (float)Math.Sin(radians); m9 = 0; m13 = 0;
-            m2 = (float)-Math.Sin(radians); m6 = (float)Math.Cos(radians); m10 = 0; m14 = 0;
-            m3 = 0; m7 = 0; m11 = 1; m15 = 0;
-            m4 = 0; m8 = 0; m12 = 0; m16 = 1;
+            m1 = (float)Math.Cos(radians); m4 = (float)-Math.Sin(radians); m7 = 0;
+            m2 = (float)Math.Sin(radians); m5 = (float)Math.Cos(radians); m8 = 0;
+            m3 = 0; m6 = 0; m9 = 1; m10 = 0;  ;
         }
     }
 }
