@@ -109,9 +109,11 @@ namespace MathClasses
         /// <param name="radians"></param>
         public void SetRotateY(double radians)
         {
-            m1 = (float)Math.Cos(radians); m4 = 0; m7 = (float)Math.Sin(radians);
-            m2 = 0; m5 = 1; m8 = 0;
-            m3 = (float)-Math.Sin(radians); m6 = 0; m9 = (float)Math.Cos(radians);
+            m1 = (float)Math.Cos(radians); m5 = 0; m9 = (float)Math.Sin(radians); m13 = 0;
+            m2 = 0; m6 = 1; m10 = 0; m14 = 0;
+            m3 = (float)-Math.Sin(radians); m7 = 0; m11 = (float)Math.Cos(radians); m15 = 0;
+            m4 = 0; m8 = 0; m12 = 0; m16 = 1;
+
         }
 
         /// <summary>
