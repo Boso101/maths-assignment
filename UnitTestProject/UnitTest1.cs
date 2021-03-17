@@ -208,7 +208,7 @@ namespace UnitTestProject
             Vector3 v3a = new Vector3(4,4,2);
             float scale = 2f;
 
-            Vector3 scaled = v3a / 2;
+            Vector3 scaled = v3a / scale;
 
             Assert.IsTrue(compare(scaled, new Vector3(2f,2f,1f)));
 
@@ -223,7 +223,7 @@ namespace UnitTestProject
             Vector3 v3a = new Vector3(4, 4, 2);
             float scale = 2f;
 
-            Vector3 scaled = v3a * 2;
+            Vector3 scaled = v3a * scale;
 
             Assert.IsTrue(compare(scaled, new Vector3(8f, 8f, 4f)));
 
@@ -463,9 +463,9 @@ namespace UnitTestProject
         [TestMethod]
         public void Matrix4Multiply()
         {
-            Assert.Fail("TODO: Matrix4Multiply");
+            
 
-            /*
+           
             Matrix4 m4b = new Matrix4();
             m4b.SetRotateY(-2.6f);
 
@@ -476,7 +476,7 @@ namespace UnitTestProject
 
             Assert.IsTrue(compare(m4d,
                 new Matrix4(-0.644213855267f, -0.565019249916f, 0.515501439571f, 0, -0.659384667873f, 0.751805722713f, 0, 0, -0.387556940317f, -0.339913755655f, -0.856888711452f, 0, 0, 0, 0, 1)));
-            */
+           
         }
 
         [TestMethod]

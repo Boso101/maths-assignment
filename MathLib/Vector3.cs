@@ -102,11 +102,13 @@ namespace MathClasses
             return leftSide * (1 / divideNumb);
         }
 
-
-   
-
       
-   
+
+
+
+
+
+
         /// <summary>
         /// Calculate the magnitude of this instance of a Vector3
         /// </summary>
