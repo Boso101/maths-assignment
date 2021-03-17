@@ -78,5 +78,35 @@
         }
 
 
+        /// <summary>
+        /// Set the X Rotation
+        /// </summary>
+        /// <param name="radians"></param>
+        public void SetRotateX(float radians)
+        {
+            m1 = 1; m4 = 0; m7 = 0;
+            m2 = 0; m5 = 1; m8 = 0;
+            m3 = 0; m6 = 0; m9 = 1;
+        }
+
+        /// <summary>
+        /// Set the Y Rotation
+        /// </summary>
+        /// <param name="radians"></param>
+        public void SetRotateY(float radians)
+        {
+
+        }
+
+        /// <summary>
+        /// Set the Z Rotation
+        /// </summary>
+        /// <param name="radians"></param>
+        public void SetRotateZ(float radians)
+        {
+
+        }
+
+
     }
 }
