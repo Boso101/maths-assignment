@@ -166,7 +166,7 @@ namespace MathClasses
         /// <returns> Returns Cross Product vector and other vector as a new Vector4</returns>
         public Vector4 Cross(Vector4 otherVector)
         {
-            return new Vector4();
+            return new Vector4(y * otherVector.z - z * otherVector.y, z * otherVector.x - x * otherVector.z, x * otherVector.y - y * otherVector.x, 0);
         }
 
 

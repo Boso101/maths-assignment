@@ -184,17 +184,7 @@ namespace MathClasses
         }
 
 
-        /// <summary>
-        /// Matrix Multiplication with Vector3
-        /// </summary>
-        /// <param name="lhs"></param>
-        /// <param name="rhs"></param>
-        /// <returns>Vector 3</returns>
-        public static Vector3 operator *(Matrix3 lhs, Vector3 rhs)
-        {
-            return new Vector3();
-        }
-
+    
         public override string ToString()
         {
             return $"({x},{y},{z})\nLength: {Magnitude()}";
