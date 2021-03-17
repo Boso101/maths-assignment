@@ -114,5 +114,42 @@ namespace MathClasses
         }
 
 
+        /// <summary>
+        /// Helper Method to grab row data from Matrix
+        /// </summary>
+        /// <param name="rowNumb"></param>
+        public Vector3 GetRow(int rowNumb)
+        {
+
+            switch (rowNumb)
+            {
+                case 1:
+                    return new Vector3(m1, m4, m7);
+
+                case 2:
+                    return new Vector3(m2, m5, m8);
+
+
+                case 3:
+                    return new Vector3(m3, m6, m9);
+
+                default:
+                    // bad number
+                    return null;
+
+
+
+
+
+
+
+
+            }
+
+
+
+        }
+
+
     }
 }

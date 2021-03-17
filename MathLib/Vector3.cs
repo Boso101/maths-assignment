@@ -190,5 +190,7 @@ namespace MathClasses
             return $"({x},{y},{z})\nLength: {Magnitude()}";
         }
 
+        
+
     }
 }
