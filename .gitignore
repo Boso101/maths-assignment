@@ -17,8 +17,7 @@
 mono_crash.*
 
 
-# Allow
-raylib.dll
+
 
 # Build results
 [Dd]ebug/
