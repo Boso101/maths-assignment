@@ -1,6 +1,7 @@
 ﻿using Raylib;
 using static Raylib.Raylib;
 using MathClasses;
+using System.Diagnostics;
 
 namespace Project2D
 {
@@ -26,12 +27,15 @@ namespace Project2D
                 // Rotation
                 if (IsKeyDown(KeyboardKey.KEY_A))
                 {
-                    player.Rotate(-(1 * deltatime));
+                    player.TankBase.Rotate(-(1 * deltatime));
+                    Debug.WriteLine("Looking Left");
                 }
 
                 if (IsKeyDown(KeyboardKey.KEY_D))
                 {
-                    player.Rotate((1 * deltatime));
+                    player.TankBase.Rotate((1 * deltatime));
+                    Debug.WriteLine("Looking Right");
+
                 }
 
 
@@ -47,8 +51,6 @@ namespace Project2D
                     player.Move(player.LocalTransform.Backward, deltatime);
                 }
 
-
-                TraceLog(TraceLogType.LOG_DEBUG, player.ToString());
 
             }
         }

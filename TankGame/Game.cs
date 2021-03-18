@@ -33,10 +33,7 @@ namespace Project2D
             world.Draw();
         }
 
-        public void AddNewObject(SceneObject obj)
-        {
-            world.AddChild(obj);
-        }
+       
    
         public void SetupTankGame()
         {

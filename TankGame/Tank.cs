@@ -15,7 +15,7 @@ namespace Project2D
     /// </summary>
     public class Tank : SceneObject
     {
-        protected float moveSpeed = 0.25f;
+        protected float moveSpeed = 0.5f;
 
 
 
@@ -29,6 +29,9 @@ namespace Project2D
 
         public float Speed { get => moveSpeed; }
         public SceneObject Turret { get => turretBase; }
+        public SceneObject TankBase { get => tankBase; }
+
+        public SceneObject TankBarrel { get => tankBarrel; }
 
         /// <summary>
         /// Default constructor 
@@ -51,7 +54,7 @@ namespace Project2D
 
         }
 
-        public Tank(SceneObject world,string name, Color colour)
+        public Tank(SceneObject world,string name, Color colour) :base(name)
         {
             tankColour = colour;
             SetupChildren();
@@ -92,6 +95,8 @@ namespace Project2D
             SetupColor();
 
             Debug.WriteLine($"Created Tank at {globalTransform.X},{globalTransform.Y} ");
+            Debug.WriteLine("");
+            Debug.WriteLine($"Hierachy{this.ToString()}");
         }
 
         /// <summary>
@@ -118,8 +123,12 @@ namespace Project2D
         /// <param name="deltaTime"></param>
         public void Move(MathClasses.Vector3 movement, float deltaTime)
         {
-            MathClasses.Vector3 move = movement * moveSpeed * deltaTime;
+            Debug.WriteLine($"Original: {GetCoordinates()}");
+            MathClasses.Vector3 move = movement * deltaTime * moveSpeed;
             Translate(move.x,move.y);
+            Debug.WriteLine($"New: {GetCoordinates()}");
+
+
         }
 
 

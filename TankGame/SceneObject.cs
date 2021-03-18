@@ -78,6 +78,15 @@ namespace Project2D
         }
 
         /// <summary>
+        /// Simpler coordinate display
+        /// </summary>
+        /// <returns></returns>
+        public Vector3 GetCoordinates()
+        {
+            return new Vector3(localTransform.X, localTransform.Y, 0);
+        }
+
+        /// <summary>
         /// Easily grab child by index
         /// </summary>
         /// <param name="index"></param>
@@ -221,7 +230,7 @@ namespace Project2D
         /// <returns>String representation</returns>
         public override string ToString()
         {
-            return $"Parent: {parent}\nSceneObject: {objectName}\nLocalCoordinates: {localTransform.GetColumn(1)}\nGlobalCoordinates: {globalTransform.GetColumn(1)}";
+            return $"Parent: {parent?.objectName}\nSceneObject: {objectName}\nLocalCoordinates: {localTransform.GetColumn(1)}\nGlobalCoordinates: {globalTransform.GetColumn(1)}";
         }
 
     }
