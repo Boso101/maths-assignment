@@ -221,7 +221,7 @@ namespace Project2D
         /// <returns>String representation</returns>
         public override string ToString()
         {
-            return $"SceneObject: {objectName}\nLocalCoordinates: {localTransform.GetColumn(1)}\nGlobalCoordinates: {globalTransform.GetColumn(1)}";
+            return $"Parent: {parent}\nSceneObject: {objectName}\nLocalCoordinates: {localTransform.GetColumn(1)}\nGlobalCoordinates: {globalTransform.GetColumn(1)}";
         }
 
     }

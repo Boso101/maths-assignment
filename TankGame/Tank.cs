@@ -15,31 +15,48 @@ namespace Project2D
     /// </summary>
     public class Tank : SceneObject
     {
-        protected float moveSpeed = 2f;
+        protected float moveSpeed = 0.25f;
 
 
-        protected SceneObject tankBase;
-        protected SceneObject turretBase;
 
 
+
+        protected Shape tankBase;
+        protected Shape turretBase;
+        protected Shape tankBarrel;
+
+        protected Color tankColour = Color.GRAY;
+
+        public float Speed { get => moveSpeed; }
         public SceneObject Turret { get => turretBase; }
 
         /// <summary>
         /// Default constructor 
         /// </summary>
-        public Tank() : base()
+        public Tank(SceneObject world) : base()
         {
 
 
             SetupChildren();
+            AddToWorld(world);
         }
 
         /// <summary>
-        /// Custom Color Constructor
+        /// Constructor with name
         /// </summary>
-        public Tank(string name) : base(name)
+        public Tank(SceneObject world, string name) : base(name)
         {
             SetupChildren();
+            AddToWorld(world);
+
+        }
+
+        public Tank(SceneObject world,string name, Color colour)
+        {
+            tankColour = colour;
+            SetupChildren();
+            AddToWorld(world);
+
         }
 
         public void SetupChildren()
@@ -70,12 +87,26 @@ namespace Project2D
             // then make easy references to this information
             this.tankBase = tankBase;
             this.turretBase = turretBase;
+            this.tankBarrel = tankBarrel;
+
+            SetupColor();
 
             Debug.WriteLine($"Created Tank at {globalTransform.X},{globalTransform.Y} ");
         }
 
+        /// <summary>
+        /// This function sets up the colours for all of the tanks components
+        /// </summary>
+        /// <param name="color"></param>
+        public void SetupColor()
+        {
+            tankBase.Colour   = tankColour;
+            turretBase.Colour = tankColour;
+            tankBarrel.Colour = tankColour;
 
+           
 
+        }
 
 
 
@@ -87,7 +118,8 @@ namespace Project2D
         /// <param name="deltaTime"></param>
         public void Move(MathClasses.Vector3 movement, float deltaTime)
         {
-            Translate(movement.x, movement.y);
+            MathClasses.Vector3 move = movement * moveSpeed * deltaTime;
+            Translate(move.x,move.y);
         }
 
 
@@ -102,6 +134,14 @@ namespace Project2D
 
         }
 
-       
+
+        public void AddToWorld(SceneObject world)
+        {
+            world.AddChild(this);
+        }
+
+
+   
+
     }
 }

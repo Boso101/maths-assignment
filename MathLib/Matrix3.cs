@@ -10,6 +10,48 @@ namespace MathClasses
         public float X { get => m7; }
         public float Y { get => m8; }
 
+
+        public Vector3 Forward
+        { 
+        
+        get
+            {
+                return new Vector3(m4, m5, 0);
+            }
+        
+        }
+
+        public Vector3 Right
+        {
+
+            get
+            {
+                return new Vector3(m1, m2, 0);
+            }
+
+        }
+
+        public Vector3 Backward
+        {
+
+            get
+            {
+                return -1 * Forward;
+            }
+
+        }
+
+        public Vector3 Left
+        {
+
+            get
+            {
+                return -1 * Right;
+            }
+
+        }
+
+
         public Matrix3()
         {
             SetIdentity();
@@ -324,7 +366,7 @@ namespace MathClasses
             SetIdentity();
 
             Matrix3 newMatrix = new Matrix3();
-            newMatrix.Translate(x,y);
+            newMatrix.SetTranslation(x,y);
 
             CopyFrom(this * newMatrix);
         }

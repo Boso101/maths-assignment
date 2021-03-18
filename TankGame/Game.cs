@@ -43,8 +43,12 @@ namespace Project2D
             world = new SceneObject("World");
 
 
-            Tank firstTank = new Tank("Player");
-            AddNewObject(firstTank);
+            Tank firstTank = new Tank(world, "Player", Color.RED);
+            Tank enemy = new Tank(world, "Enemy", Color.WHITE);
+
+
+          
+         
             
             
             player = new PlayerController(firstTank);
@@ -99,6 +103,7 @@ namespace Project2D
 
             // insert game logic here 
             //Input will be here using PlayerController
+            player.HandleHumanInput(deltaTime);
         }
 
         public void Draw()
