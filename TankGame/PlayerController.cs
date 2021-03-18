@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MathClasses;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,6 +19,16 @@ namespace Project2D
         public void HandleHumanInput(float deltatime)
         {
 
+        }
+
+        public void ChangeTurretRotation(MathClasses.Vector2 position, float deltaTime)
+        {
+            player.Turret.Rotate(position.x);
+        }
+
+        public void ChangeTurretRotation(Raylib.Vector2 position, float deltaTime)
+        {
+            player.Turret.Rotate(position.y);
         }
 
 

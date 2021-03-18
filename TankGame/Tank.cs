@@ -21,6 +21,9 @@ namespace Project2D
         protected SceneObject tankBase;
         protected SceneObject turretBase;
 
+
+        public SceneObject Turret { get => turretBase; }
+
         /// <summary>
         /// Default constructor 
         /// </summary>
@@ -41,11 +44,28 @@ namespace Project2D
 
         public void SetupChildren()
         {
-            SceneObject tankBase = new Rectangle("TankBase", 48, 28);
-            SceneObject turretBase = new Circle("TankTurretCircle", 8);
+            Rectangle tankBase = new Rectangle("TankBase", 48, 28);
+            Circle turretBase = new Circle("TankTurretCircle", 8);
+            Rectangle tankBarrel = new Rectangle("TankBarrel", 24, 6);
+
+            
 
             AddChild(tankBase);
             AddChild(turretBase);
+
+            //Make Barrel a child of turret
+            turretBase.AddChild(tankBarrel);
+
+            //Init Positions
+            tankBase.SetPosition(0, 0);
+
+            //Set it to middle of rectangle
+            MathClasses.Vector2 pos = tankBase.GetCenter();
+            turretBase.SetPosition(pos.x, pos.y);
+
+            //Make Barrel end of circle
+            // For now just shift it up manually
+            tankBarrel.SetPosition(tankBarrel.LocalTransform.X-3, tankBarrel.LocalTransform.Y - 30);
 
             // then make easy references to this information
             this.tankBase = tankBase;

@@ -97,8 +97,8 @@ namespace Project2D
             }
             frames++;
 
-            // insert game logic here      
-            
+            // insert game logic here 
+            //Input will be here using PlayerController
         }
 
         public void Draw()

@@ -15,7 +15,8 @@ namespace Project2D
         protected int length;
         protected int width;
 
-      
+      public int Length { get => length; }
+      public int Width { get => width; }
 
         public Rectangle(string name, int length, int width) : base(name)
         {
@@ -23,6 +24,11 @@ namespace Project2D
             this.width = width;
 
         
+        }
+
+        public MathClasses.Vector2 GetCenter()
+        {
+            return new MathClasses.Vector2(width / 2, length / 2);
         }
 
         public Rectangle(string name, Color colour, int length, int width) : base(name, colour)
