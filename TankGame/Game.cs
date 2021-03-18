@@ -18,9 +18,10 @@ namespace Project2D
 
         private float deltaTime = 0.005f;
 
+        private PlayerController player;
 
-        Image logo;
-        Texture2D texture;
+
+   
 
         public Game()
         {
@@ -36,10 +37,8 @@ namespace Project2D
                 Console.WriteLine("Stopwatch high-resolution frequency: {0} ticks per second", Stopwatch.Frequency);
             }
 
-            //logo = LoadImage("..\\Images\\aie-logo-dark.jpg");
-            //logo = LoadImage(@"..\Images\aie-logo-dark.jpg");
-            logo = LoadImage("../Images/aie-logo-dark.jpg");
-            texture = LoadTextureFromImage(logo);
+            Tank firstTank = new Tank("Player");
+            player = new PlayerController(firstTank);
         }
 
         public void Shutdown()
@@ -71,8 +70,7 @@ namespace Project2D
 
             DrawText(fps.ToString(), 10, 10, 14, Color.RED);
 
-            DrawTexture(texture,
-                GetScreenWidth() / 2 - texture.width / 2, GetScreenHeight() / 2 - texture.height / 2, Color.WHITE);
+
 
             EndDrawing();
         }

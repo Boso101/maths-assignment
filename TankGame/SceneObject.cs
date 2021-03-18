@@ -33,6 +33,8 @@ namespace Project2D
             get { return globalTransform; }
         }
 
+        public string ObjectName { get => objectName; }
+
 
 
 
@@ -42,6 +44,7 @@ namespace Project2D
         }
         public SceneObject()
         {
+            objectName = "Scene Object";
         }
 
         public SceneObject(string name)
