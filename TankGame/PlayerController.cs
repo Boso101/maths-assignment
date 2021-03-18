@@ -47,6 +47,9 @@ namespace Project2D
                     player.Move(player.LocalTransform.Backward, deltatime);
                 }
 
+
+                TraceLog(TraceLogType.LOG_DEBUG, player.ToString());
+
             }
         }
 
