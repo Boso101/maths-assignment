@@ -16,14 +16,16 @@ namespace Project2D
     public class Tank : SceneObject
     {
         protected float moveSpeed = 0.5f;
+        protected float damage = 2f;
 
 
 
 
 
-        protected Shape tankBase;
-        protected Shape turretBase;
-        protected Shape tankBarrel;
+        protected Rectangle tankBase;
+        protected Circle turretBase;
+        protected Rectangle tankBarrel;
+        protected SceneObject shotSpot;
 
         protected Color tankColour = Color.GRAY;
 
@@ -64,9 +66,11 @@ namespace Project2D
 
         public void SetupChildren()
         {
-            Rectangle tankBase = new Rectangle("TankBase", 48, 28);
-            Circle turretBase = new Circle("TankTurretCircle", 8);
-            Rectangle tankBarrel = new Rectangle("TankBarrel", 24, 6);
+             tankBase = new Rectangle("TankBase", 48, 28);
+             turretBase = new Circle("TankTurretCircle", 8);
+             tankBarrel = new Rectangle("TankBarrel", 24, 6);
+            shotSpot = new SceneObject("ShotSpot");
+
 
             
 
@@ -75,6 +79,9 @@ namespace Project2D
 
             //Make Barrel a child of turret
             turretBase.AddChild(tankBarrel);
+
+            //Make Shotspot child of turret
+            turretBase.AddChild(shotSpot);
 
             //Init Positions
             tankBase.SetPosition(0, 0);
@@ -87,10 +94,8 @@ namespace Project2D
             // For now just shift it up manually
             tankBarrel.SetPosition(tankBarrel.LocalTransform.X-3, tankBarrel.LocalTransform.Y - 30);
 
-            // then make easy references to this information
-            this.tankBase = tankBase;
-            this.turretBase = turretBase;
-            this.tankBarrel = tankBarrel;
+            //Make shot spot end of the barrel
+            shotSpot.SetPosition(tankBarrel.LocalTransform.X, tankBarrel.LocalTransform.Y - 4);
 
             SetupColor();
 
@@ -139,7 +144,13 @@ namespace Project2D
 
         public void Fire()
         {
-            //Create bullet at the tank shotSpot
+            //Create bullet at the tank shotSpot and make it move forward
+            Bullet bullet = new Bullet(parent, "Bullet", tankColour, 7, damage, 1f);
+
+            //set position to where shotspot is
+            MathClasses.Vector3 coords = shotSpot.GetCoordinates();
+            bullet.SetPosition(coords.x, coords.y);
+
 
         }
 

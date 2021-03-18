@@ -52,6 +52,15 @@ namespace Project2D
                 }
 
 
+                // Shoot
+                if(IsKeyDown(KeyboardKey.KEY_SPACE))
+                {
+                    HumanShoot();
+
+                }
+
+
+
             }
         }
 

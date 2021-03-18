@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Bullet.cs" />
     <Compile Include="Circle.cs" />
     <Compile Include="Game.cs" />
     <Compile Include="PlayerController.cs" />
