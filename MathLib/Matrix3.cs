@@ -204,6 +204,8 @@ namespace MathClasses
 
 
         }
+        // These rotate functions are assuming the 
+        // Matrix represents a SceneObject
         public void RotateX(double radians)
         {
             Matrix3 matrix = new Matrix3();
@@ -227,6 +229,100 @@ namespace MathClasses
 
             //Make this matrix the result from multiplying with the rotated version
             CopyFrom(this * matrix);
+        }
+
+        /// <summary>
+        /// Sets the scale of the matrix with 3 values
+        /// Allows to be multiplied by other scale matrices
+        /// </summary>
+        /// <param name="x"></param>
+        /// <param name="y"></param>
+        /// <param name="z"></param>
+        public void SetScaled(float x, float y, float z)
+        {
+            //Reset to identity
+            SetIdentity();
+
+            // then change coords
+            m1 = x;
+            m5 = y;
+            m9 = z;
+        }
+
+        /// <summary>
+        /// Sets the scale of the matrix with a Vector3
+        /// Allows to be multiplied by other scale matrices
+        /// </summary>
+        /// <param name="vector"></param>
+        public void SetScaled(Vector3 vector)
+        {
+            SetIdentity();
+
+            m1 = vector.x;
+            m5 = vector.y;
+            m9 = vector.z;
+        }
+
+        // In most of these functions,
+        // we multiply ourself with a identity matrix
+        // which has been affected by whatever
+        // in this scale function we multiply ourselves
+        // by a scaled matrix3
+
+        /// <summary>
+        /// Actually scales the Scene Object using 3 values
+        /// </summary>
+        /// <param name="x"></param>
+        /// <param name="y"></param>
+        /// <param name="z"></param>
+        public void Scale(float x, float y, float z)
+        {
+            Matrix3 newMatrix = new Matrix3();
+            newMatrix.SetScaled(x, y, z);
+
+            CopyFrom(this * newMatrix);
+        }
+
+        /// <summary>
+        /// Actually scales the Scene Object using a Vector3
+        /// </summary>
+        /// <param name="scaleVector"></param>
+        public void Scale(Vector3 scaleVector)
+        {
+            Matrix3 newMatrix = new Matrix3();
+            newMatrix.SetScaled(scaleVector);
+
+            CopyFrom(this * newMatrix);
+        }
+
+        /// <summary>
+        /// Translates object to the coordinates
+        /// Basically teleports
+        /// </summary>
+        /// <param name="x"></param>
+        /// <param name="y"></param>
+        public void SetTranslation(float x, float y)
+        {
+            SetIdentity();
+
+            m7 = x;
+            m8 = y;
+        }
+
+        /// <summary>
+        /// Translates object to the coordinates
+        /// Adds onto coordinatees
+        /// </summary>
+        /// <param name="x"></param>
+        /// <param name="y"></param>
+        public void Translate(float x, float y)
+        {
+            SetIdentity();
+
+            Matrix3 newMatrix = new Matrix3();
+            newMatrix.Translate(x,y);
+
+            CopyFrom(this * newMatrix);
         }
     }
 }
