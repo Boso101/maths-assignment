@@ -8,7 +8,7 @@ namespace Project2D
         {
             Game game = new Game();
 
-            InitWindow(640, 480, "Hello World");
+            InitWindow(800, 600, "Hello World");
 
             game.Init();
 

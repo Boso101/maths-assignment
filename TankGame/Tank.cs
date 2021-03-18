@@ -1,9 +1,12 @@
 ﻿using MathClasses;
+using Raylib;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+
 
 namespace Project2D
 {
@@ -14,7 +17,9 @@ namespace Project2D
     {
         protected float moveSpeed = 2f;
 
-        
+
+        protected SceneObject tankBase;
+        protected SceneObject turretBase;
 
         /// <summary>
         /// Default constructor 
@@ -36,11 +41,17 @@ namespace Project2D
 
         public void SetupChildren()
         {
-            AddChild(new Rectangle("TankBase", 4, 2));
-            AddChild(new Circle("TankTurretCircle", 4));
+            SceneObject tankBase = new Rectangle("TankBase", 48, 28);
+            SceneObject turretBase = new Circle("TankTurretCircle", 8);
 
-            // We will need a rectangle base
-            // and a circle turret for now
+            AddChild(tankBase);
+            AddChild(turretBase);
+
+            // then make easy references to this information
+            this.tankBase = tankBase;
+            this.turretBase = turretBase;
+
+            Debug.WriteLine($"Created Tank at {globalTransform.X},{globalTransform.Y} ");
         }
 
 
@@ -54,19 +65,23 @@ namespace Project2D
         /// </summary>
         /// <param name="movement"></param>
         /// <param name="deltaTime"></param>
-        public void Move(Vector2 movement, float deltaTime)
+        public void Move(MathClasses.Vector3 movement, float deltaTime)
         {
             Translate(movement.x, movement.y);
         }
 
+
+        public void HandleTurretRotation(MathClasses.Vector3 aimPos, float deltaTime)
+        {
+           
+        }
+
         public void Fire()
         {
+            //Create bullet at the tank shotSpot
 
         }
 
-        public override void OnDraw()
-        {
-            
-        }
+       
     }
 }

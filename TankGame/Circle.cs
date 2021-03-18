@@ -34,6 +34,8 @@ namespace Project2D
         public override void OnDraw()
         {
             DrawCircle((int)globalTransform.X, (int)globalTransform.Y, radius, colour);
+            DrawCircleLines((int)globalTransform.X, (int)globalTransform.Y, radius, Color.BLACK);
+
         }
     }
 }

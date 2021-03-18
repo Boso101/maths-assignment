@@ -3,6 +3,7 @@ using System;
 using System.Diagnostics;
 using static Raylib.Raylib;
 using MathClasses;
+using System.Collections.Generic;
 
 namespace Project2D
 {
@@ -20,8 +21,44 @@ namespace Project2D
 
         private PlayerController player;
 
+      
+        
+        private SceneObject world;
 
+        /// <summary>
+        /// Called every frame to draw the world and every gameobject
+        /// </summary>
+        public void DrawWorld()
+        {
+            world.Draw();
+        }
+
+        public void AddNewObject(SceneObject obj)
+        {
+            world.AddChild(obj);
+        }
    
+        public void SetupTankGame()
+        {
+            world = new SceneObject("World");
+
+
+            Tank firstTank = new Tank("Player");
+            AddNewObject(firstTank);
+            
+            
+            player = new PlayerController(firstTank);
+
+            TeleportObjectCenter(firstTank);
+
+     
+        }
+
+        public void TeleportObjectCenter(SceneObject obj)
+        {
+            // Should use vars instead of hardcode
+            obj.SetPosition(400, 300);
+        }
 
         public Game()
         {
@@ -37,8 +74,9 @@ namespace Project2D
                 Console.WriteLine("Stopwatch high-resolution frequency: {0} ticks per second", Stopwatch.Frequency);
             }
 
-            Tank firstTank = new Tank("Player");
-            player = new PlayerController(firstTank);
+            SetupTankGame();
+
+            
         }
 
         public void Shutdown()
@@ -59,19 +97,20 @@ namespace Project2D
             }
             frames++;
 
-            // insert game logic here            
+            // insert game logic here      
+            
         }
 
         public void Draw()
         {
             BeginDrawing();
 
-            ClearBackground(Color.WHITE);
+            ClearBackground(Color.ORANGE);
 
-            DrawText(fps.ToString(), 10, 10, 14, Color.RED);
+            DrawText(fps.ToString(), 10, 10, 14, Color.GREEN);
 
-
-
+            // Draw world
+            DrawWorld();
             EndDrawing();
         }
 
