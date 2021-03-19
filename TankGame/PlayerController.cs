@@ -42,12 +42,14 @@ namespace Project2D
                 // Movement
                 if (IsKeyDown(KeyboardKey.KEY_W))
                 {
-               
-                    player.Move(player.LocalTransform.Forward, deltatime);
+                    Debug.WriteLine(player.GlobalTransform.Forward);
+                   player.Move(player.LocalTransform.Forward, deltatime);
                 }
 
                 if (IsKeyDown(KeyboardKey.KEY_S))
                 {
+                    Debug.WriteLine(player.GlobalTransform.Backward);
+
                     player.Move(player.LocalTransform.Backward, deltatime);
                 }
 

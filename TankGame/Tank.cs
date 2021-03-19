@@ -15,7 +15,7 @@ namespace Project2D
     /// </summary>
     public class Tank : SceneObject
     {
-        protected float moveSpeed = 0.5f;
+        protected float moveSpeed = 1f;
         protected float damage = 2f;
 
 
@@ -35,32 +35,34 @@ namespace Project2D
 
         public SceneObject TankBarrel { get => tankBarrel; }
 
+        public float Damage { get => damage; }
+
+        public Color Color { get => tankColour; }
+
         /// <summary>
         /// Default constructor 
         /// </summary>
-        public Tank(SceneObject world) : base()
+        public Tank() : base()
         {
 
 
             SetupChildren();
-            AddToWorld(world);
+         
         }
 
         /// <summary>
         /// Constructor with name
         /// </summary>
-        public Tank(SceneObject world, string name) : base(name)
+        public Tank(string name) : base(name)
         {
             SetupChildren();
-            AddToWorld(world);
 
         }
 
-        public Tank(SceneObject world,string name, Color colour) :base(name)
+        public Tank(string name, Color colour) :base(name)
         {
             tankColour = colour;
             SetupChildren();
-            AddToWorld(world);
 
         }
 
@@ -83,8 +85,7 @@ namespace Project2D
             //Make Shotspot child of turret
             turretBase.AddChild(shotSpot);
 
-            //Init Positions
-            tankBase.SetPosition(0, 0);
+        
 
             //Set it to middle of rectangle
             MathClasses.Vector2 pos = tankBase.GetCenter();
@@ -95,13 +96,16 @@ namespace Project2D
             tankBarrel.SetPosition(tankBarrel.LocalTransform.X-3, tankBarrel.LocalTransform.Y - 30);
 
             //Make shot spot end of the barrel
-            shotSpot.SetPosition(tankBarrel.LocalTransform.X, tankBarrel.LocalTransform.Y - 4);
+            shotSpot.SetPosition(tankBarrel.LocalTransform.X, tankBarrel.LocalTransform.Y - 1);
 
             SetupColor();
 
             Debug.WriteLine($"Created Tank at {globalTransform.X},{globalTransform.Y} ");
             Debug.WriteLine("");
             Debug.WriteLine($"Hierachy{this.ToString()}");
+
+
+
         }
 
         /// <summary>
@@ -128,10 +132,8 @@ namespace Project2D
         /// <param name="deltaTime"></param>
         public void Move(MathClasses.Vector3 movement, float deltaTime)
         {
-            Debug.WriteLine($"Original: {GetCoordinates()}");
             MathClasses.Vector3 move = movement * deltaTime * moveSpeed;
             Translate(move.x,move.y);
-            Debug.WriteLine($"New: {GetCoordinates()}");
 
 
         }
@@ -145,11 +147,10 @@ namespace Project2D
         public void Fire()
         {
             //Create bullet at the tank shotSpot and make it move forward
-            Bullet bullet = new Bullet(parent, "Bullet", tankColour, 7, damage, 1f);
+           Game.CreateBullet(this, shotSpot.GetCoordinates());
 
-            //set position to where shotspot is
-            MathClasses.Vector3 coords = shotSpot.GetCoordinates();
-            bullet.SetPosition(coords.x, coords.y);
+            
+
 
 
         }

@@ -9,17 +9,22 @@ namespace Project2D
 {
     public class Bullet : Circle
     {
+        protected SceneObject owner;
         protected float moveSpeed;
         protected float damage;
-        public Bullet(SceneObject world, string name, Color colour, float radius, float damage, float flySpeed) : base(name, colour, radius)
+        public Bullet(Tank owner, string name, Color colour, float radius, float flySpeed) : base(name, colour, radius)
         {
-            this.damage = damage;
+            this.owner = owner;
+            this.damage = owner.Damage;
             moveSpeed = flySpeed;
 
 
 
 
-            world.AddChild(this);
+
+
+
+   
 
         }
 
@@ -27,9 +32,9 @@ namespace Project2D
         public override void OnUpdate(float deltaTime)
         {
             
-            MathClasses.Vector3 movement = localTransform.Forward * moveSpeed * deltaTime;
+            MathClasses.Vector3 movement = localTransform.Forward * deltaTime * moveSpeed;
             // Move forward
-            localTransform.Translate(movement.x, movement.y);
+            localTransform.Translate(0, movement.y);
 
         }
 

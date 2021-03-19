@@ -21,36 +21,40 @@ namespace Project2D
 
         private PlayerController player;
 
-      
-        
-        private SceneObject world;
+
+
+        private static List<SceneObject> allObjects;
 
         /// <summary>
         /// Called every frame to draw the world and every gameobject
         /// </summary>
         public void DrawWorld()
         {
-            world.Draw();
+            foreach(SceneObject obj in allObjects)
+            {
+                obj.Update(deltaTime);
+                obj.Draw();
+            }
         }
 
        
    
         public void SetupTankGame()
         {
-            world = new SceneObject("World");
 
 
-            Tank firstTank = new Tank(world, "Player", Color.RED);
-            Tank enemy = new Tank(world, "Enemy", Color.WHITE);
+            Tank firstTank = new Tank("Player", Color.RED);
+            allObjects.Add(firstTank);
 
 
-          
-         
-            
-            
-            player = new PlayerController(firstTank);
+
 
             TeleportObjectCenter(firstTank);
+
+            player = new PlayerController(firstTank);
+
+
+
 
      
         }
@@ -75,6 +79,7 @@ namespace Project2D
                 Console.WriteLine("Stopwatch high-resolution frequency: {0} ticks per second", Stopwatch.Frequency);
             }
 
+            allObjects = new List<SceneObject>();
             SetupTankGame();
 
             
@@ -109,11 +114,19 @@ namespace Project2D
 
             ClearBackground(Color.ORANGE);
 
-            DrawText(fps.ToString(), 10, 10, 14, Color.GREEN);
+            DrawText(player.player.GetCoordinates().ToString(), 40, 40, 14, Color.GREEN);
 
             // Draw world
             DrawWorld();
             EndDrawing();
+        }
+
+        public static Bullet CreateBullet(Tank owner, MathClasses.Vector3 spawnPosition)
+        {
+            Bullet bullet = new Bullet(owner, "Bullet", owner.Color, 7f, 1f);
+            bullet.SetPosition(spawnPosition.x, spawnPosition.y);
+            allObjects.Add(bullet);
+            return bullet;
         }
 
     }
