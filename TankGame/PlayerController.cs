@@ -24,21 +24,22 @@ namespace Project2D
             {
 
 
-                // Rotation
+                #region "Rotation"
                 if (IsKeyDown(KeyboardKey.KEY_A))
                 {
-                    player.TankBase.Rotate(-(1 * deltatime));
+                    player.Rotate(new MathClasses.Vector3(0, -1, 0), deltatime);
                     Debug.WriteLine("Looking Left");
                 }
 
                 if (IsKeyDown(KeyboardKey.KEY_D))
                 {
-                    player.TankBase.Rotate((1 * deltatime));
+                    player.Rotate(new MathClasses.Vector3(0, 1, 0), deltatime);
                     Debug.WriteLine("Looking Right");
 
                 }
 
-
+                #endregion
+                #region "Movement"
                 // Movement
                 if (IsKeyDown(KeyboardKey.KEY_W))
                 {
@@ -52,10 +53,10 @@ namespace Project2D
 
                     player.Move(player.LocalTransform.Backward, deltatime);
                 }
-
+                #endregion
 
                 // Shoot
-                if(IsKeyDown(KeyboardKey.KEY_SPACE))
+                if (IsKeyDown(KeyboardKey.KEY_SPACE))
                 {
                     HumanShoot();
 

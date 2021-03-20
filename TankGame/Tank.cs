@@ -15,7 +15,7 @@ namespace Project2D
     /// </summary>
     public class Tank : SceneObject
     {
-        protected float moveSpeed = 16f;
+        protected float moveSpeed = 64f;
         protected float damage = 2f;
 
 
@@ -132,10 +132,16 @@ namespace Project2D
         /// <param name="deltaTime"></param>
         public void Move(MathClasses.Vector3 movement, float deltaTime)
         {
-            MathClasses.Vector3 move = movement * deltaTime * moveSpeed;
+            MathClasses.Vector3 move = movement   * moveSpeed * deltaTime;
             Translate(globalTransform.X + move.x,globalTransform.Y + move.y);
 
 
+        }
+
+        public void Rotate(MathClasses.Vector3 rotation, float deltaTime)
+        {
+            MathClasses.Vector3 newRot = rotation * 1f * deltaTime;
+            tankBase.Rotate(newRot.y);
         }
 
 

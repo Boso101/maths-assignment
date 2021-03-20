@@ -83,7 +83,7 @@ namespace Project2D
         /// <returns></returns>
         public Vector3 GetCoordinates()
         {
-            return new Vector3(localTransform.X, localTransform.Y, 0);
+            return new Vector3(globalTransform.X, globalTransform.Y, 0);
         }
 
         /// <summary>
