@@ -15,7 +15,7 @@ namespace Project2D
     /// </summary>
     public class Tank : SceneObject
     {
-        protected float moveSpeed = 1f;
+        protected float moveSpeed = 16f;
         protected float damage = 2f;
 
 
@@ -133,7 +133,7 @@ namespace Project2D
         public void Move(MathClasses.Vector3 movement, float deltaTime)
         {
             MathClasses.Vector3 move = movement * deltaTime * moveSpeed;
-            Translate(move.x,move.y);
+            Translate(globalTransform.X + move.x,globalTransform.Y + move.y);
 
 
         }

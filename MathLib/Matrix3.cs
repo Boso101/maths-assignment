@@ -11,7 +11,7 @@ namespace MathClasses
         public float Y { get => m8; }
 
 
-        public Vector3 Forward
+        public Vector3 Backward
         { 
         
         get
@@ -31,12 +31,12 @@ namespace MathClasses
 
         }
 
-        public Vector3 Backward
+        public Vector3 Forward
         {
 
             get
             {
-                return -1 * Forward;
+                return -1 * Backward;
             }
 
         }
