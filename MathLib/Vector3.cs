@@ -147,20 +147,7 @@ namespace MathClasses
 
 
 
-        public void SetRotateX(float rotation)
-        {
-
-        }
-
-        public void SetRotateY(float rotation)
-        {
-
-        }
-
-        public void SetRotateZ(float rotation)
-        {
-
-        }
+       
 
         /// <summary>
         /// Class instance version of Dot
@@ -187,8 +174,10 @@ namespace MathClasses
     
         public override string ToString()
         {
-            return $"({x},{y},{z})\nLength: {Magnitude()}";
+            return $"({x},{y},{z})";
         }
+
+        
 
     }
 }

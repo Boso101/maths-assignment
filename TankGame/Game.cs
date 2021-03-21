@@ -3,6 +3,7 @@ using System;
 using System.Diagnostics;
 using static Raylib.Raylib;
 using MathClasses;
+using System.Collections.Generic;
 
 namespace Project2D
 {
@@ -18,9 +19,51 @@ namespace Project2D
 
         private float deltaTime = 0.005f;
 
+        private PlayerController player;
 
-        Image logo;
-        Texture2D texture;
+
+
+        private static List<SceneObject> allObjects;
+
+        /// <summary>
+        /// Called every frame to draw the world and every gameobject
+        /// </summary>
+        public void DrawWorld()
+        {
+            foreach(SceneObject obj in allObjects)
+            {
+                obj.Update(deltaTime);
+                obj.Draw();
+            }
+        }
+
+       
+   
+        public void SetupTankGame()
+        {
+
+
+            Tank firstTank = new Tank("Player", Color.RED);
+            allObjects.Add(firstTank);
+
+
+
+
+            TeleportObjectCenter(firstTank);
+
+            player = new PlayerController(firstTank);
+
+
+
+
+     
+        }
+
+        public void TeleportObjectCenter(SceneObject obj)
+        {
+            // Should use vars instead of hardcode
+            obj.SetPosition(400, 300);
+        }
 
         public Game()
         {
@@ -36,10 +79,10 @@ namespace Project2D
                 Console.WriteLine("Stopwatch high-resolution frequency: {0} ticks per second", Stopwatch.Frequency);
             }
 
-            //logo = LoadImage("..\\Images\\aie-logo-dark.jpg");
-            //logo = LoadImage(@"..\Images\aie-logo-dark.jpg");
-            logo = LoadImage("../Images/aie-logo-dark.jpg");
-            texture = LoadTextureFromImage(logo);
+            allObjects = new List<SceneObject>();
+            SetupTankGame();
+
+            
         }
 
         public void Shutdown()
@@ -60,21 +103,30 @@ namespace Project2D
             }
             frames++;
 
-            // insert game logic here            
+            // insert game logic here 
+            //Input will be here using PlayerController
+            player.HandleHumanInput(deltaTime);
         }
 
         public void Draw()
         {
             BeginDrawing();
 
-            ClearBackground(Color.WHITE);
+            ClearBackground(Color.ORANGE);
 
-            DrawText(fps.ToString(), 10, 10, 14, Color.RED);
+            DrawText(player.player.GetCoordinates().ToString(), 40, 40, 14, Color.GREEN);
 
-            DrawTexture(texture,
-                GetScreenWidth() / 2 - texture.width / 2, GetScreenHeight() / 2 - texture.height / 2, Color.WHITE);
-
+            // Draw world
+            DrawWorld();
             EndDrawing();
+        }
+
+        public static Bullet CreateBullet(Tank owner, MathClasses.Vector3 spawnPosition)
+        {
+            Bullet bullet = new Bullet(owner, "Bullet", owner.Color, 7f, 1f);
+            bullet.SetPosition(spawnPosition.x, spawnPosition.y);
+            allObjects.Add(bullet);
+            return bullet;
         }
 
     }

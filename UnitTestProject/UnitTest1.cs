@@ -294,93 +294,85 @@ namespace UnitTestProject
         [TestMethod]
         public void Matrix3SetRotateX()
         {
-            Assert.Fail("TODO: Matrix3SetRotateX");
 
-            /*
+         
             Matrix3 m3a = new Matrix3();
             m3a.SetRotateX(3.98f);
 
             Assert.IsTrue(compare(m3a,
                 new Matrix3(1, 0, 0, 0, -0.668648f, -0.743579f, 0, 0.743579f, -0.668648f)));
-            */
+            
         }
 
         [TestMethod]
         public void Matrix4SetRotateX()
         {
-            Assert.Fail("TODO: Matrix4SetRotateX");
 
-            /*
             Matrix4 m4a = new Matrix4();
             m4a.SetRotateX(4.5f);
 
             Assert.IsTrue(compare(m4a,
                 new Matrix4(1, 0, 0, 0, 0, -0.210796f, -0.97753f, 0, 0, 0.97753f, -0.210796f, 0, 0, 0, 0, 1)));
-            */
+       
         }
 
         [TestMethod]
         public void Matrix3SetRotateY()
         {
-            Assert.Fail("TODO: Matrix3SetRotateY");
 
-            /*
+  
             Matrix3 m3b = new Matrix3();
             m3b.SetRotateY(1.76f);
 
             Assert.IsTrue(compare(m3b,
                 new Matrix3(-0.188077f, 0, -0.982154f, 0, 1, 0, 0.982154f, 0, -0.188077f)));
-            */
+    
         }
 
         [TestMethod]
         public void Matrix4SetRotateY()
         {
-            Assert.Fail("TODO: Matrix4SetRotateY");
 
-            /*
+
             Matrix4 m4b = new Matrix4();
             m4b.SetRotateY(-2.6f);
 
             Assert.IsTrue(compare(m4b,
                 new Matrix4(-0.856889f, 0, 0.515501f, 0, 0, 1, 0, 0, -0.515501f, 0, -0.856889f, 0, 0, 0, 0, 1)));
-            */
+       
         }
 
         [TestMethod]
         public void Matrix3SetRotateZ()
         {
-            Assert.Fail("TODO: Matrix3SetRotateZ");
 
-            /*
+           
             Matrix3 m3c = new Matrix3();
             m3c.SetRotateZ(9.62f);
 
             Assert.IsTrue(compare(m3c,
                 new Matrix3(-0.981005f, -0.193984f, 0, 0.193984f, -0.981005f, 0, 0, 0, 1)));
-            */
+         
         }
 
         [TestMethod]
         public void Matrix4SetRotateZ()
         {
-            Assert.Fail("TODO: Matrix4SetRotateZ");
 
-            /*
+   
             Matrix4 m4c = new Matrix4();
             m4c.SetRotateZ(0.72f);
 
             Assert.IsTrue(compare(m4c,
                 new Matrix4(0.751806f, 0.659385f, 0, 0, -0.659385f, 0.751806f, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)));
-            */
+    
         }
 
         [TestMethod]
         public void Vector3MatrixTransform()
         {
-            Assert.Fail("TODO: Vector3MatrixTransform");
 
-            /*
+       
             Matrix3 m3b = new Matrix3();
             m3b.SetRotateY(1.76f);
 
@@ -389,15 +381,14 @@ namespace UnitTestProject
 
             Assert.IsTrue(compare(v3b,
                 new Vector3(844.077941895f, -48.2299995422f, -175.38130188f)));
-            */
+          
         }
 
         [TestMethod]
         public void Vector3MatrixTransform2()
         {
-            Assert.Fail("TODO: Vector3MatrixTransform2");
 
-            /*
+         
             Matrix3 m3c = new Matrix3();
             m3c.SetRotateZ(9.62f);
 
@@ -406,15 +397,13 @@ namespace UnitTestProject
 
             Assert.IsTrue(compare(v3c,
                 new Vector3(-22.5994224548f, 44.6950683594f, 862)));
-            */
+          
         }
 
         [TestMethod]
         public void Vector4MatrixTransform()
         {
-            Assert.Fail("TODO: Vector4MatrixTransform");
 
-            /*
             Matrix4 m4b = new Matrix4();
             m4b.SetRotateY(-2.6f);
 
@@ -423,15 +412,12 @@ namespace UnitTestProject
 
             Assert.IsTrue(compare(v4b,
                 new Vector4(-455.930236816f, -48.2299995422f, -731.678771973f, 0)));
-            */
         }
 
         [TestMethod]
         public void Vector4MatrixTransform2()
         {
-            Assert.Fail("TODO: Vector4MatrixTransform2");
 
-            /*
             Matrix4 m4c = new Matrix4();
             m4c.SetRotateZ(0.72f);
 
@@ -440,7 +426,6 @@ namespace UnitTestProject
 
             Assert.IsTrue(compare(v4b,
                 new Vector4(41.951499939f, -27.3578968048f, 862, 0)));
-            */
         }
 
         [TestMethod]
@@ -482,9 +467,8 @@ namespace UnitTestProject
         [TestMethod]
         public void Vector3MatrixTranslation()
         {
-            Assert.Fail("TODO: Vector3MatrixTranslation");
 
-            /*
+        
             // homogeneous point translation
             Matrix3 m3b = new Matrix3(1, 0, 0,
                                       0, 1, 0,
@@ -495,15 +479,13 @@ namespace UnitTestProject
             Vector3 v3b = m3b * v3a;
 
             Assert.IsTrue(compare(v3b, new Vector3(68.5f, -4.23f, 1)));
-            */
+         
         }
 
         [TestMethod]
         public void Vector3MatrixTranslation2()
         {
-            Assert.Fail("TODO: Vector3MatrixTranslation2");
 
-            /*
             // homogeneous point translation
             Matrix3 m3c = new Matrix3();
             m3c.SetRotateZ(2.2f);
@@ -514,15 +496,13 @@ namespace UnitTestProject
             Vector3 v3c = m3c * v3a;
 
             Assert.IsTrue(compare(v3c, new Vector3(86.0490112305f, 83.2981109619f, 1)));
-            */
         }
 
         [TestMethod]
         public void Vector4MatrixTranslation()
         {
-            Assert.Fail("TODO: Vector4MatrixTranslation");
 
-            /*
+      
             // homogeneous point translation
             Matrix4 m4b = new Matrix4(1, 0, 0, 0,
                                       0, 1, 0, 0,
@@ -533,15 +513,14 @@ namespace UnitTestProject
 
             Vector4 v4c = m4b * v4a;
             Assert.IsTrue(compare(v4c, new Vector4(68.5f, -4.23f, 45, 1)));
-            */
+      
         }
 
         [TestMethod]
         public void Vector4MatrixTranslation2()
         {
-            Assert.Fail("TODO: Vector4MatrixTranslation2");
 
-            /*
+        
             // homogeneous point translation
             Matrix4 m4c = new Matrix4();
             m4c.SetRotateZ(2.2f);
@@ -551,15 +530,13 @@ namespace UnitTestProject
 
             Vector4 v4c = m4c * v4a;
             Assert.IsTrue(compare(v4c, new Vector4(86.0490112305f, 83.2981109619f, 45, 1)));
-            */
+        
         }
 
         [TestMethod]
         public void Vector3MatrixTranslation3()
         {
-            Assert.Fail("TODO: Vector3MatrixTranslation3");
 
-            /*
             // homogeneous point translation
             Matrix3 m3b = new Matrix3(1, 0, 0,
                                       0, 1, 0,
@@ -570,15 +547,13 @@ namespace UnitTestProject
             Vector3 v3b = m3b * v3a;
 
             Assert.IsTrue(compare(v3b, new Vector3(13.5f, -48.23f, 0)));
-            */
         }
 
         [TestMethod]
         public void Vector3MatrixTranslation4()
         {
-            Assert.Fail("TODO: Vector3MatrixTranslation4");
 
-            /*
+        
             // homogeneous point translation
             Matrix3 m3c = new Matrix3();
             m3c.SetRotateZ(2.2f);
@@ -589,15 +564,14 @@ namespace UnitTestProject
             Vector3 v3c = m3c * v3a;
 
             Assert.IsTrue(compare(v3c, new Vector3(31.0490131378f, 39.2981109619f, 0)));
-            */
+       
         }
 
         [TestMethod]
         public void Vector4MatrixTranslation3()
         {
-            Assert.Fail("TODO: Vector4MatrixTranslation3");
 
-            /*
+           
             // homogeneous point translation
             Matrix4 m4b = new Matrix4(1, 0, 0, 0,
                                       0, 1, 0, 0,
@@ -608,15 +582,14 @@ namespace UnitTestProject
 
             Vector4 v4c = m4b * v4a;
             Assert.IsTrue(compare(v4c, new Vector4(13.5f, -48.23f, -54, 0)));
-            */
+           
         }
 
         [TestMethod]
         public void Vector4MatrixTranslation4()
         {
-            Assert.Fail("TODO: Vector4MatrixTranslation4");
 
-            /*
+            
             // homogeneous point translation
             Matrix4 m4c = new Matrix4();
             m4c.SetRotateZ(2.2f);
@@ -626,129 +599,119 @@ namespace UnitTestProject
 
             Vector4 v4c = m4c * v4a;
             Assert.IsTrue(compare(v4c, new Vector4(31.0490131378f, 39.2981109619f, -54, 0)));
-            */
+          
         }
 
         [TestMethod]
         public void ColourConstructor()
         {
-            Assert.Fail("TODO: ColourConstructor");
 
-            /*
+      
             // homogeneous point translation
             Colour c = new Colour(0x12, 0x34, 0x56, 0x78);
 
             Assert.AreEqual<UInt32>(c.colour, 0x12345678);
-            */
+  
         }
 
         [TestMethod]
         public void ColourGetRed()
         {
-            Assert.Fail("TODO: ColourGetRed");
 
-            /*
             // homogeneous point translation
             Colour c = new Colour(0x12, 0x34, 0x56, 0x78);
 
             Assert.AreEqual<byte>(c.GetRed(), 0x12);
-            */
+       
         }
 
         [TestMethod]
         public void ColourGetGreen()
         {
-            Assert.Fail("TODO: ColourGetGreen");
 
-            /*
+         
             // homogeneous point translation
             Colour c = new Colour(0x12, 0x34, 0x56, 0x78);
 
             Assert.AreEqual<byte>(c.GetGreen(), 0x34);
-            */
+     
         }
 
 
         [TestMethod]
         public void ColourGetBlue()
         {
-            Assert.Fail("TODO: ColourGetBlue");
 
-            /*
+       
             // homogeneous point translation
             Colour c = new Colour(0x12, 0x34, 0x56, 0x78);
 
             Assert.AreEqual<byte>(c.GetBlue(), 0x56);
-            */
         }
 
         [TestMethod]
         public void ColourGetAlpha()
         {
-            Assert.Fail("TODO: ColourGetAlpha");
 
-            /*
+     
             // homogeneous point translation
             Colour c = new Colour(0x12, 0x34, 0x56, 0x78);
 
             Assert.AreEqual<byte>(c.GetAlpha(), 0x78);
-            */
+     
         }
 
         [TestMethod]
         public void ColourSetRed()
         {
-            Assert.Fail("TODO: ColourSetRed");
 
-            /*
+ 
             // homogeneous point translation
             Colour c = new Colour();
             c.SetRed(0x12);
 
             Assert.AreEqual<UInt32>(c.colour, 0x12000000);
-            */
+  
         }
 
         [TestMethod]
         public void ColourSetGreen()
         {
-            Assert.Fail("TODO: ColourSetGreen");
 
-            /*
+   
             // homogeneous point translation
             Colour c = new Colour();
             c.SetGreen(0x34);
 
             Assert.AreEqual<UInt32>(c.colour, 0x00340000);
-            */
+   
         }
 
         [TestMethod]
         public void ColourSetBlue()
         {
-            Assert.Fail("TODO: ColourSetBlue");
+   
 
-            /*
+
             // homogeneous point translation
             Colour c = new Colour();
             c.SetBlue(0x56);
 
             Assert.AreEqual<UInt32>(c.colour, 0x00005600);
-            */
+
         }
 
         [TestMethod]
         public void ColourSetAlpha()
         {
-            Assert.Fail("TODO: ColourSetAlpha");
 
-            /*
+ 
             // homogeneous point translation
             Colour c = new Colour();
             c.SetAlpha(0x78);
 
             Assert.AreEqual<UInt32>(c.colour, 0x00000078);
-            */
+ 
         }
     }
 }
