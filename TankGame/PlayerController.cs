@@ -25,15 +25,31 @@ namespace Project2D
 
 
                 #region "Rotation"
+
+                // Rotate Whole Tank
                 if (IsKeyDown(KeyboardKey.KEY_A))
                 {
-                    player.Rotate(new MathClasses.Vector3(-1, 0, 0), deltatime);
+                    player.Rotate(player,new MathClasses.Vector3(-1, 0, 0), deltatime);
                     Debug.WriteLine("Looking Left");
                 }
 
                 if (IsKeyDown(KeyboardKey.KEY_D))
                 {
-                    player.Rotate(new MathClasses.Vector3(1, 0, 0), deltatime);
+                    player.Rotate(player,new MathClasses.Vector3(1, 0, 0), deltatime);
+                    Debug.WriteLine("Looking Right");
+
+                }
+
+                // Rotate Turret
+                if (IsKeyDown(KeyboardKey.KEY_Q))
+                {
+                    player.Rotate(player.Turret, new MathClasses.Vector3(-1, 0, 0), deltatime);
+                    Debug.WriteLine("Looking Left");
+                }
+
+                if (IsKeyDown(KeyboardKey.KEY_E))
+                {
+                    player.Rotate(player.Turret, new MathClasses.Vector3(1, 0, 0), deltatime);
                     Debug.WriteLine("Looking Right");
 
                 }

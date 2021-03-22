@@ -139,10 +139,10 @@ namespace Project2D
 
         }
 
-        public void Rotate(MathClasses.Vector3 rotation, float deltaTime)
+        public void Rotate(SceneObject target, MathClasses.Vector3 rotation, float deltaTime)
         {
             MathClasses.Vector3 newRot = rotation * 40f * deltaTime;
-            tankHusk.Rotate(newRot.y);
+            target.Rotate(newRot.y);
         }
 
 
