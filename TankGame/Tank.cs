@@ -23,7 +23,7 @@ namespace Project2D
 
 
 
-        protected Rectangle tankBase;
+        protected Rectangle tankHusk;
         protected Circle turretBase;
         protected Rectangle tankBarrel;
         protected SceneObject shotSpot;
@@ -32,7 +32,7 @@ namespace Project2D
 
         public float Speed { get => moveSpeed; }
         public SceneObject Turret { get => turretBase; }
-        public SceneObject TankBase { get => tankBase; }
+        public SceneObject TankBase { get => tankHusk; }
 
         public SceneObject TankBarrel { get => tankBarrel; }
 
@@ -69,7 +69,7 @@ namespace Project2D
 
         public void SetupChildren()
         {
-            tankBase = new Rectangle("TankBase", 48, 28);
+            tankHusk = new Rectangle("TankBase", 48, 28);
             turretBase = new Circle("TankTurretCircle", 8);
             tankBarrel = new Rectangle("TankBarrel", 24, 6);
             shotSpot = new SceneObject("ShotSpot");
@@ -77,7 +77,7 @@ namespace Project2D
 
 
 
-            AddChild(tankBase);
+            AddChild(tankHusk);
             AddChild(turretBase);
 
             //Make Barrel a child of turret
@@ -89,7 +89,7 @@ namespace Project2D
 
 
             //Set it to middle of rectangle
-            MathClasses.Vector2 pos = tankBase.GetCenter();
+            MathClasses.Vector2 pos = tankHusk.GetCenter();
             turretBase.SetPosition(pos.x, pos.y);
 
             //Make Barrel end of circle
@@ -97,13 +97,13 @@ namespace Project2D
             tankBarrel.SetPosition(tankBarrel.LocalTransform.X - 3, tankBarrel.LocalTransform.Y - 30);
 
             //Make shot spot end of the barrel
-            shotSpot.SetPosition(tankBarrel.LocalTransform.X, tankBarrel.LocalTransform.Y - 1);
+            shotSpot.SetPosition(tankBarrel.LocalTransform.X - 6, tankBarrel.LocalTransform.Y - 1);
 
             SetupColor();
 
             Debug.WriteLine($"Created Tank at {globalTransform.X},{globalTransform.Y} ");
             Debug.WriteLine("");
-            Debug.WriteLine($"Hierachy{this.ToString()}");
+           
 
 
 
@@ -115,7 +115,7 @@ namespace Project2D
         /// <param name="color"></param>
         public void SetupColor()
         {
-            tankBase.Colour = tankColour;
+            tankHusk.Colour = tankColour;
             turretBase.Colour = tankColour;
             tankBarrel.Colour = tankColour;
 
@@ -142,7 +142,7 @@ namespace Project2D
         public void Rotate(MathClasses.Vector3 rotation, float deltaTime)
         {
             MathClasses.Vector3 newRot = rotation * 40f * deltaTime;
-            tankBase.Rotate(newRot.y + tankBase.GlobalTransform.Y);
+            tankHusk.Rotate(newRot.y);
         }
 
 
@@ -154,7 +154,7 @@ namespace Project2D
         public void Fire()
         {
             //Create bullet at the tank shotSpot and make it move forward
-            Game.CreateBullet(this, shotSpot.GlobalTransform.Forward);
+            Game.CreateBullet(this, shotSpot.GetCoordinates());
 
 
 

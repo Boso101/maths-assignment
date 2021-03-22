@@ -80,6 +80,9 @@ namespace UnitTestProject
             
         }
 
+        /// <summary>
+        /// Custom Test Method for Bit Shifting
+        /// </summary>
         [TestMethod]
         public void BitShiftRightTest()
         {
@@ -95,6 +98,9 @@ namespace UnitTestProject
 
         }
 
+        /// <summary>
+        /// Custom Test Method for Bit Shifting
+        /// </summary>
         [TestMethod]
         public void BitShiftLeftTest()
         {
