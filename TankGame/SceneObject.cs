@@ -160,11 +160,7 @@ namespace Project2D
         /// <param name="deltaTime"></param>
         public virtual void OnUpdate(float deltaTime)
         {
-#if DEBUG
-            DrawText(objectName + " Local", (int)localTransform.X, (int)localTransform.Y, 12, Color.GREEN);
-            DrawText(objectName + " Global", (int)globalTransform.X, (int)globalTransform.Y, 12, Color.GREEN);
-
-#endif
+      
         }
 
         /// <summary>
@@ -173,6 +169,11 @@ namespace Project2D
         /// </summary>
         public virtual void OnDraw()
         {
+#if DEBUG
+
+            DrawText(objectName + " Local", (int)localTransform.X, (int)localTransform.Y, 12, Color.GREEN);
+            DrawText(objectName + " Global", (int)globalTransform.X, (int)globalTransform.Y, 12, Color.GREEN);
+#endif
         }
 
         /// <summary>
