@@ -1,10 +1,21 @@
 ﻿using System;
+using Raylib;
 
 namespace MathClasses
 {
     public class Colour
     {
         public UInt32 colour;
+
+
+        public static implicit operator Colour(Color c)
+        {
+            return new Colour(c.r, c.g, c.b, c.a);
+        }
+        public static implicit operator Color(Colour c)
+        {
+            return new Color(c.GetRed(), c.GetGreen(), c.GetBlue(), c.GetAlpha());
+        }
 
         public Colour()
         {
@@ -103,6 +114,10 @@ namespace MathClasses
             colour &= 0xffffff00;
             colour |= (UInt32)alpha << 0;
         }
+
+     
+
+
 
     }
 }
