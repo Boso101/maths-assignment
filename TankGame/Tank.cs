@@ -48,7 +48,7 @@ namespace Project2D
 
 
             SetupChildren();
-         
+
         }
 
         /// <summary>
@@ -60,7 +60,7 @@ namespace Project2D
 
         }
 
-        public Tank(string name, Color colour) :base(name)
+        public Tank(string name, Color colour) : base(name)
         {
             tankColour = colour;
             SetupChildren();
@@ -69,13 +69,13 @@ namespace Project2D
 
         public void SetupChildren()
         {
-             tankBase = new Rectangle("TankBase", 48, 28);
-             turretBase = new Circle("TankTurretCircle", 8);
-             tankBarrel = new Rectangle("TankBarrel", 24, 6);
+            tankBase = new Rectangle("TankBase", 48, 28);
+            turretBase = new Circle("TankTurretCircle", 8);
+            tankBarrel = new Rectangle("TankBarrel", 24, 6);
             shotSpot = new SceneObject("ShotSpot");
 
 
-            
+
 
             AddChild(tankBase);
             AddChild(turretBase);
@@ -86,7 +86,7 @@ namespace Project2D
             //Make Shotspot child of turret
             turretBase.AddChild(shotSpot);
 
-        
+
 
             //Set it to middle of rectangle
             MathClasses.Vector2 pos = tankBase.GetCenter();
@@ -94,7 +94,7 @@ namespace Project2D
 
             //Make Barrel end of circle
             // For now just shift it up manually
-            tankBarrel.SetPosition(tankBarrel.LocalTransform.X-3, tankBarrel.LocalTransform.Y - 30);
+            tankBarrel.SetPosition(tankBarrel.LocalTransform.X - 3, tankBarrel.LocalTransform.Y - 30);
 
             //Make shot spot end of the barrel
             shotSpot.SetPosition(tankBarrel.LocalTransform.X, tankBarrel.LocalTransform.Y - 1);
@@ -115,11 +115,11 @@ namespace Project2D
         /// <param name="color"></param>
         public void SetupColor()
         {
-            tankBase.Colour   = tankColour;
+            tankBase.Colour = tankColour;
             turretBase.Colour = tankColour;
             tankBarrel.Colour = tankColour;
 
-           
+
 
         }
 
@@ -133,8 +133,8 @@ namespace Project2D
         /// <param name="deltaTime"></param>
         public void Move(MathClasses.Vector3 movement, float deltaTime)
         {
-            MathClasses.Vector3 move = movement   * moveSpeed * deltaTime;
-            Translate(globalTransform.X + move.x,globalTransform.Y + move.y);
+            MathClasses.Vector3 move = movement * moveSpeed * deltaTime;
+            Translate(globalTransform.X + move.x, globalTransform.Y + move.y);
 
 
         }
@@ -148,18 +148,20 @@ namespace Project2D
 
         public void HandleTurretRotation(MathClasses.Vector3 aimPos, float deltaTime)
         {
-           
+
         }
 
         public void Fire()
         {
             //Create bullet at the tank shotSpot and make it move forward
-           Game.CreateBullet(this, shotSpot.GetCoordinates());
+            Game.CreateBullet(this, shotSpot.GetCoordinates());
 
-            
+
 
 
 
         }
 
- 
+
+    }
+}
