@@ -43,6 +43,7 @@ namespace Project2D
 
         public override void OnDraw()
         {
+            base.OnDraw();
             DrawRectangle((int)globalTransform.X, (int)globalTransform.Y, width, length, colour);
             DrawRectangleLines((int)globalTransform.X, (int)globalTransform.Y, width, length, Color.BLACK);
         }

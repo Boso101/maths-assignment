@@ -69,7 +69,7 @@ namespace Project2D
 
         public void SetupChildren()
         {
-            tankHusk = new Rectangle("TankBase", 48, 28);
+            tankHusk = new Rectangle("TankHusk", 48, 28);
             turretBase = new Circle("TankTurretCircle", 8);
             tankBarrel = new Rectangle("TankBarrel", 24, 6);
             shotSpot = new SceneObject("ShotSpot");
@@ -97,7 +97,7 @@ namespace Project2D
             tankBarrel.SetPosition(tankBarrel.LocalTransform.X - 3, tankBarrel.LocalTransform.Y - 30);
 
             //Make shot spot end of the barrel
-            shotSpot.SetPosition(tankBarrel.LocalTransform.X - 6, tankBarrel.LocalTransform.Y - 1);
+            shotSpot.SetPosition(tankBarrel.GlobalTransform.X, tankBarrel.LocalTransform.Y - 1);
 
             SetupColor();
 
@@ -142,7 +142,7 @@ namespace Project2D
         public void Rotate(SceneObject target, MathClasses.Vector3 rotation, float deltaTime)
         {
             MathClasses.Vector3 newRot = rotation * 40f * deltaTime;
-            target.Rotate(newRot.y);
+            target.Rotate(newRot.z);
         }
 
 

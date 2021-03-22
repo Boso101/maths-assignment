@@ -12,6 +12,7 @@ namespace Project2D
         protected SceneObject owner;
         protected float moveSpeed;
         protected float damage;
+
         public Bullet(Tank owner, string name, Color colour, float radius, float flySpeed) : base(name, colour, radius)
         {
             this.owner = owner;
@@ -34,9 +35,20 @@ namespace Project2D
             
             MathClasses.Vector3 movement = globalTransform.Forward * deltaTime * moveSpeed;
             // Move forward
-            localTransform.Translate(0, movement.y + localTransform.Y);
+            globalTransform.Translate(0, movement.y + localTransform.Y);
 
+        
+        
         }
+
+        public override void OnDraw()
+        {
+            base.OnDraw();
+        }
+
+
+
+
 
 
     }

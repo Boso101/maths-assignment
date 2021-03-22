@@ -45,11 +45,15 @@ namespace Project2D
 
 
             Tank playerT = CreateTank("Player-1", Color.LIGHTGRAY);
+            CreateTank("Enemy-1", Color.RED).SetPosition(400,320);
+            CreateTank("Enemy-2", Color.RED).SetPosition(440,300);
 
 
 
 
-           // TeleportObjectCenter(playerT);
+            TeleportObjectCenter(playerT);
+
+
 
             player = new PlayerController(playerT);
 
@@ -114,7 +118,6 @@ namespace Project2D
 
             ClearBackground(Color.ORANGE);
 
-            DrawText(player.player.GetCoordinates().ToString(), 40, 40, 14, Color.GREEN);
 
             // Draw world
             DrawWorld();

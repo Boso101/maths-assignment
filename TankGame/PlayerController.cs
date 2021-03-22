@@ -29,13 +29,13 @@ namespace Project2D
                 // Rotate Whole Tank
                 if (IsKeyDown(KeyboardKey.KEY_A))
                 {
-                    player.Rotate(player,new MathClasses.Vector3(-1, 0, 0), deltatime);
+                    player.Rotate(player,new MathClasses.Vector3(0, 0, 0), deltatime);
                     Debug.WriteLine("Looking Left");
                 }
 
                 if (IsKeyDown(KeyboardKey.KEY_D))
                 {
-                    player.Rotate(player,new MathClasses.Vector3(1, 0, 0), deltatime);
+                    player.Rotate(player,new MathClasses.Vector3(0, 0, 0), deltatime);
                     Debug.WriteLine("Looking Right");
 
                 }

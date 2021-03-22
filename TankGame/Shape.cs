@@ -23,5 +23,11 @@ namespace Project2D
      
         public Color Colour { get => colour; set => colour = value; }
 
+
+        public override void OnDraw()
+        {
+            base.OnDraw();
+        }
+
     }
 }
