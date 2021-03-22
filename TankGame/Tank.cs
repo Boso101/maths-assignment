@@ -141,8 +141,8 @@ namespace Project2D
 
         public void Rotate(MathClasses.Vector3 rotation, float deltaTime)
         {
-            MathClasses.Vector3 newRot = rotation * 1f * deltaTime;
-            tankBase.Rotate(newRot.y);
+            MathClasses.Vector3 newRot = rotation * 40f * deltaTime;
+            tankBase.Rotate(newRot.y + tankBase.GlobalTransform.Y);
         }
 
 
@@ -154,7 +154,7 @@ namespace Project2D
         public void Fire()
         {
             //Create bullet at the tank shotSpot and make it move forward
-            Game.CreateBullet(this, shotSpot.GetCoordinates());
+            Game.CreateBullet(this, shotSpot.GlobalTransform.Forward);
 
 
 

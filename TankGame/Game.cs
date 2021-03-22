@@ -1,7 +1,7 @@
 ﻿using Raylib;
+using static Raylib.Raylib;
 using System;
 using System.Diagnostics;
-using static Raylib.Raylib;
 using MathClasses;
 using System.Collections.Generic;
 
@@ -44,7 +44,7 @@ namespace Project2D
           
 
 
-            Tank playerT = CreateTank("Player-1", new Colour(0,0,0,255));
+            Tank playerT = CreateTank("Player-1", Color.LIGHTGRAY);
 
 
 
@@ -134,7 +134,7 @@ namespace Project2D
         /// <returns> The bullet </returns>
         public static Bullet CreateBullet(Tank owner, MathClasses.Vector3 spawnPosition)
         {
-            Bullet bullet = new Bullet(owner, "Bullet", owner.Color, 7f, 1f);
+            Bullet bullet = new Bullet(owner, "Bullet", owner.Color, 7f, 64f);
             bullet.SetPosition(spawnPosition.x, spawnPosition.y);
             allObjects.Add(bullet);
             return bullet;

@@ -1,5 +1,5 @@
 ﻿using System;
-using Raylib;
+
 
 namespace MathClasses
 {
@@ -8,14 +8,14 @@ namespace MathClasses
         public UInt32 colour;
 
 
-        public static implicit operator Colour(Color c)
-        {
-            return new Colour(c.r, c.g, c.b, c.a);
-        }
-        public static implicit operator Color(Colour c)
-        {
-            return new Color(c.GetRed(), c.GetGreen(), c.GetBlue(), c.GetAlpha());
-        }
+        //public static implicit operator Colour(Color c)
+        //{
+        //    return new Colour(c.r, c.g, c.b, c.a);
+        //}
+        //public static implicit operator Color(Colour c)
+        //{
+        //    return new Color(c.GetRed(), c.GetGreen(), c.GetBlue(), c.GetAlpha());
+        //}
 
         public Colour()
         {
@@ -113,6 +113,19 @@ namespace MathClasses
 
             colour &= 0xffffff00;
             colour |= (UInt32)alpha << 0;
+        }
+
+        public void BitShift(int shiftNumb)
+        {
+            if(shiftNumb > 0)
+            {
+                colour >>= shiftNumb;
+            }
+            else
+            {
+                colour <<= -shiftNumb;
+
+            }
         }
 
      

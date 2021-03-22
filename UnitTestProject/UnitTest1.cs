@@ -81,6 +81,36 @@ namespace UnitTestProject
         }
 
         [TestMethod]
+        public void BitShiftRightTest()
+        {
+            Colour colour = new Colour(0x01, 0x00, 0x00, 0xFF);
+
+            colour.BitShift(8);
+
+
+
+
+
+            Assert.AreEqual((uint)0x00010000, colour.colour);
+
+        }
+
+        [TestMethod]
+        public void BitShiftLeftTest()
+        {
+            Colour colour = new Colour(0x00, 0x00, 0x00, 0xFF);
+
+            colour.BitShift(-8);
+
+
+
+
+
+            Assert.AreEqual((uint)0x0000FF00, colour.colour);
+
+        }
+
+        [TestMethod]
         public void Vector3Subtraction()
         {
 

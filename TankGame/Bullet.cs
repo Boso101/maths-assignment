@@ -32,9 +32,9 @@ namespace Project2D
         public override void OnUpdate(float deltaTime)
         {
             
-            MathClasses.Vector3 movement = localTransform.Forward * deltaTime * moveSpeed;
+            MathClasses.Vector3 movement = globalTransform.Forward * deltaTime * moveSpeed;
             // Move forward
-            localTransform.Translate(0, movement.y);
+            localTransform.Translate(0, movement.y + localTransform.Y);
 
         }
 
