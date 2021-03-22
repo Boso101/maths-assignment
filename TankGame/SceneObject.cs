@@ -161,7 +161,9 @@ namespace Project2D
         public virtual void OnUpdate(float deltaTime)
         {
 #if DEBUG
-            DrawText(objectName, (int)localTransform.X, (int)localTransform.Y, 12, Color.GREEN);
+            DrawText(objectName + " Local", (int)localTransform.X, (int)localTransform.Y, 12, Color.GREEN);
+            DrawText(objectName + " Global", (int)globalTransform.X, (int)globalTransform.Y, 12, Color.GREEN);
+
 #endif
         }
 

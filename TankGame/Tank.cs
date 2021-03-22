@@ -162,31 +162,4 @@ namespace Project2D
 
         }
 
-        /// <summary>
-        /// Text Debugging
-        /// </summary>
-        /// <param name="deltaTime"></param>
-        public override void OnUpdate(float deltaTime)
-        {
-            base.OnUpdate(deltaTime);
-
-#if DEBUG
-            MathClasses.Vector3 shotCoords = shotSpot.GetCoordinates();
-            DrawText("ShotSpotG", (int)shotCoords.x, (int)shotCoords.y, 14, Raylib.Color.GREEN);
-            DrawText("ShotSpotL", (int)shotSpot.LocalTransform.X, (int)shotSpot.LocalTransform.Y, 14, Raylib.Color.GREEN);
-
-
-            DrawText("TankBaseL", (int)tankBase.LocalTransform.X, (int)tankBase.LocalTransform.Y, 14, Raylib.Color.GREEN);
-            DrawText("TankBaseG", (int)tankBase.GlobalTransform.X, (int)tankBase.GlobalTransform.Y, 14, Raylib.Color.GREEN);
-
-            DrawText("TankTurretL", (int)turretBase.LocalTransform.X, (int)turretBase.LocalTransform.Y, 14, Raylib.Color.GREEN);
-            DrawText("TankTurretG", (int)turretBase.GlobalTransform.X, (int)turretBase.GlobalTransform.Y, 14, Raylib.Color.GREEN);
-
-#endif
-        }
-
-
-
-
-    }
-}
+ 
