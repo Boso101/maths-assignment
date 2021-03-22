@@ -68,9 +68,9 @@ namespace Project2D
 
         public void SetupChildren()
         {
-            tankBase = new Rectangle("TankBase", 48, 28);
-            turretBase = new Circle("TankTurretCircle", 8);
-            tankBarrel = new Rectangle("TankBarrel", 24, 6);
+             tankBase = new Rectangle("TankBase", 48, 28);
+             turretBase = new Circle("TankTurretCircle", 8);
+             tankBarrel = new Rectangle("TankBarrel", 24, 6);
             shotSpot = new SceneObject("ShotSpot");
 
 
@@ -83,7 +83,7 @@ namespace Project2D
             turretBase.AddChild(tankBarrel);
 
             //Make Shotspot child of turret
-            tankBarrel.AddChild(shotSpot);
+            turretBase.AddChild(shotSpot);
 
         
 
@@ -96,8 +96,7 @@ namespace Project2D
             tankBarrel.SetPosition(tankBarrel.LocalTransform.X-3, tankBarrel.LocalTransform.Y - 30);
 
             //Make shot spot end of the barrel
-            shotSpot.SetPosition(tankBarrel.GlobalTransform.X, tankBarrel.GlobalTransform.Y - 1);
-            Debug.WriteLine($"Shot Spot Coordinate: {shotSpot.GetCoordinates()}");
+            shotSpot.SetPosition(tankBarrel.LocalTransform.X, tankBarrel.LocalTransform.Y - 1);
 
             SetupColor();
 
@@ -146,7 +145,10 @@ namespace Project2D
         }
 
 
-       
+        public void HandleTurretRotation(MathClasses.Vector3 aimPos, float deltaTime)
+        {
+           
+        }
 
         public void Fire()
         {

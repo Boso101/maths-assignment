@@ -43,14 +43,15 @@ namespace Project2D
         {
 
 
-            Tank playerT = CreateTank("Player-1", Color.SKYBLUE);
+            Tank firstTank = new Tank("Player", Color.RED);
+            allObjects.Add(firstTank);
 
 
 
 
-            TeleportObjectCenter(playerT);
+            TeleportObjectCenter(firstTank);
 
-            player = new PlayerController(playerT);
+            player = new PlayerController(firstTank);
 
 
 
@@ -120,15 +121,6 @@ namespace Project2D
             EndDrawing();
         }
 
-
-
-        #region "Spawn Related"
-        /// <summary>
-        /// Construct a bullet
-        /// </summary>
-        /// <param name="owner"></param>
-        /// <param name="spawnPosition"></param>
-        /// <returns> The bullet </returns>
         public static Bullet CreateBullet(Tank owner, MathClasses.Vector3 spawnPosition)
         {
             Bullet bullet = new Bullet(owner, "Bullet", owner.Color, 7f, 1f);
@@ -137,25 +129,5 @@ namespace Project2D
             return bullet;
         }
 
-        /// <summary>
-        /// Construct a Tank
-        /// </summary>
-        /// <param name="name"></param>
-        /// <param name="tankColor"></param>
-        /// <returns> a Tank </returns>
-        public static Tank CreateTank(string name, Color tankColor, bool ai = false)
-        {
-            Tank theTank = new Tank(name, tankColor);
-            
-            if(ai)
-            {
-                // Do something to it if it's AI controlled
-
-            }
-
-            allObjects.Add(theTank);
-            return theTank;
-        }
-        #endregion
     }
 }
