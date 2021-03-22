@@ -1,6 +1,8 @@
 ﻿using MathClasses;
 using System.Collections.Generic;
 using System.Diagnostics;
+using Raylib;
+using static Raylib.Raylib;
 
 namespace Project2D
 {
@@ -81,9 +83,9 @@ namespace Project2D
         /// Simpler coordinate display
         /// </summary>
         /// <returns></returns>
-        public Vector3 GetCoordinates()
+        public MathClasses.Vector3 GetCoordinates()
         {
-            return new Vector3(globalTransform.X, globalTransform.Y, 0);
+            return new MathClasses.Vector3(globalTransform.X, globalTransform.Y, 0);
         }
 
         /// <summary>
@@ -158,7 +160,9 @@ namespace Project2D
         /// <param name="deltaTime"></param>
         public virtual void OnUpdate(float deltaTime)
         {
-
+#if DEBUG
+            DrawText(objectName, (int)localTransform.X, (int)localTransform.Y, 12, Color.GREEN);
+#endif
         }
 
         /// <summary>
