@@ -15,10 +15,22 @@ namespace Project2D
 
         public override void DrawWorld()
         {
+            base.DrawWorld();
+
+            // draw each scene object
+            foreach (SceneObject obj in allObjects)
+            {
+                obj.Draw();
+            }
+        }
+
+        public override void UpdateWorld()
+        {
+            base.UpdateWorld();
+            // update each scene object
             foreach (SceneObject obj in allObjects)
             {
                 obj.Update(deltaTime);
-                obj.Draw();
             }
         }
 

@@ -28,6 +28,14 @@ namespace Project2D
             
         }
 
+        /// <summary>
+        /// Called every frame to update the world and every gameobject
+        /// </summary>
+        public virtual void UpdateWorld()
+        {
+
+        }
+
 
 
     
@@ -40,6 +48,10 @@ namespace Project2D
 
         public Game()
         {
+
+
+
+
         }
 
         public virtual void Init()
@@ -65,6 +77,7 @@ namespace Project2D
 
         public virtual void Update()
         {
+            UpdateWorld();
             lastTime = currentTime;
             currentTime = stopwatch.ElapsedMilliseconds;
             deltaTime = (currentTime - lastTime) / 1000.0f;
