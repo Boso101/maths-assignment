@@ -16,7 +16,7 @@ namespace Project2D
         public override void DrawWorld()
         {
             base.DrawWorld();
-
+            
             // draw each scene object
             foreach (SceneObject obj in allObjects)
             {
@@ -117,5 +117,14 @@ namespace Project2D
             return theTank;
         }
         #endregion
+
+        /// <summary>
+        /// Called on death
+        /// </summary>
+        /// <param name="obj"></param>
+        public static void TryRemove(SceneObject obj)
+        {
+            allObjects.Remove(obj);
+        }
     }
 }

@@ -14,12 +14,12 @@ namespace Project2D
     /// <summary>
     /// The Base Tank class 
     /// </summary>
-    public class Tank : SceneObject
+    public class Tank : SceneObject, ILivingEntity
     {
         protected float moveSpeed = 64f;
         protected float damage = 2f;
+        protected float health = 5f;
 
-        float radiansPerSecRotation = 1f;
 
 
 
@@ -42,6 +42,8 @@ namespace Project2D
         public float Damage { get => damage; }
 
         public Color Color { get => tankColour; }
+
+        public bool IsAlive => throw new NotImplementedException();
 
         /// <summary>
         /// Default constructor 
@@ -209,6 +211,24 @@ namespace Project2D
 
         }
 
+        public void TakeDamage(float amount)
+        {
+            health -= amount;
+            if(!IsAlive)
+            {
+                Die();
+            }
+        }
 
+        public void Heal(float amount)
+        {
+            health += amount;
+        }
+
+        public void Die()
+        {
+            TankGame.TryRemove(this);
+
+        }
     }
 }

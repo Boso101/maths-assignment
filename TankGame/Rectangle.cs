@@ -51,7 +51,6 @@ namespace Project2D
             //TODO: Temporary work around for not being able to convert between the library vectors
 
             MathClasses.Vector2 center = GetCenter();
-            MathClasses.Vector3 forward = globalTransform.Forward;
             // Rectangle that can rotate
             DrawRectanglePro(rec, new Raylib.Vector2(center.x,center.y), globalTransform.RotationDegrees,Colour);
             //DrawRectanglePro(rec, new Raylib.Vector2(forward.x,forward.y), globalTransform.RotationDegrees, Color.RED);
