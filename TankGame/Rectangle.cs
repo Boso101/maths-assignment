@@ -18,7 +18,7 @@ namespace Project2D
       public int Length { get => length; }
       public int Width { get => width; }
 
-        public Rectangle(string name, int length, int width) : base(name)
+        public Rectangle(string name, int width, int length) : base(name)
         {
             this.length = length;
             this.width = width;
@@ -43,13 +43,21 @@ namespace Project2D
 
         public override void OnDraw()
         {
-            Raylib.Rectangle rec = new Raylib.Rectangle((int)globalTransform.X, (int)globalTransform.Y, width, length);
             base.OnDraw();
 
-            DrawRectangle((int)rec.x, (int)rec.y, (int)rec.width, (int)rec.height, Colour);
-            DrawRectangleLines((int)globalTransform.X, (int)globalTransform.Y, width, length, Color.BLACK);
+            
+            Raylib.Rectangle rec = new Raylib.Rectangle((int)globalTransform.X, (int)globalTransform.Y, width, length);
+
+            //TODO: Temporary work around for not being able to convert between the library vectors
+
+            MathClasses.Vector2 center = GetCenter();
+            MathClasses.Vector3 forward = globalTransform.Forward;
+            // Rectangle that can rotate
+            DrawRectanglePro(rec, new Raylib.Vector2(center.x,center.y), globalTransform.RotationDegrees,Colour);
+            //DrawRectanglePro(rec, new Raylib.Vector2(forward.x,forward.y), globalTransform.RotationDegrees, Color.RED);
+
         }
 
-        
+
     }
 }

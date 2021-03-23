@@ -37,8 +37,7 @@ namespace Project2D
         public  void SetupTankGame()
         {
             Tank playerT = CreateTank("Player-1", Color.LIGHTGRAY);
-            CreateTank("Enemy-1", Color.RED).SetPosition(400, 320);
-            CreateTank("Enemy-2", Color.RED).SetPosition(440, 300);
+          
 
 
 

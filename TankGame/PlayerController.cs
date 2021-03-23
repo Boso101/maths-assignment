@@ -29,13 +29,13 @@ namespace Project2D
                 // Rotate Whole Tank
                 if (IsKeyDown(KeyboardKey.KEY_A))
                 {
-                    player.Rotate(player, -40, deltatime);
+                    player.Rotate(-(1f * deltatime));
                     Debug.WriteLine("Looking Left");
                 }
 
                 if (IsKeyDown(KeyboardKey.KEY_D))
                 {
-                    player.Rotate(player,40, deltatime);
+                    player.Rotate((1f * deltatime));
                     Debug.WriteLine("Looking Right");
 
                 }
@@ -43,13 +43,13 @@ namespace Project2D
                 // Rotate Turret
                 if (IsKeyDown(KeyboardKey.KEY_Q))
                 {
-                    player.Rotate(player.Turret, -40, deltatime);
+                    player.Turret.Rotate(-(1f * deltatime));
                     Debug.WriteLine("Looking Left");
                 }
 
                 if (IsKeyDown(KeyboardKey.KEY_E))
                 {
-                    player.Rotate(player.Turret, 40, deltatime);
+                    player.Turret.Rotate((1f * deltatime));
                     Debug.WriteLine("Looking Right");
 
                 }
