@@ -154,7 +154,7 @@ namespace Project2D
         public void Fire()
         {
             //Create bullet at the tank shotSpot and make it move forward
-            Game.CreateBullet(this, shotSpot.GetCoordinates());
+            TankGame.CreateBullet(this, shotSpot.GetCoordinates());
 
 
 
