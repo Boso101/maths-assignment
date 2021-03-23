@@ -107,7 +107,7 @@ namespace Project2D
             }
             frames++;
 
-           
+
             //Input will be here using PlayerController
             player.HandleHumanInput(deltaTime);
         }

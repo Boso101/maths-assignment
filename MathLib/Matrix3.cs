@@ -21,6 +21,19 @@ namespace MathClasses
         
         }
 
+        public float Rotation
+        {
+
+
+
+
+            get
+            {
+                return m2;
+
+            }
+        }
+
         public Vector3 Right
         {
 

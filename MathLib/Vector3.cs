@@ -43,6 +43,7 @@ namespace MathClasses
             return new System.Numerics.Vector3(v.x, v.y, v.z);
         }
 
+      
         /// <summary>
         /// 15/03/21 - Vector3 Addition Function
         /// </summary>

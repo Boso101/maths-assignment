@@ -43,8 +43,10 @@ namespace Project2D
 
         public override void OnDraw()
         {
+            Raylib.Rectangle rec = new Raylib.Rectangle((int)globalTransform.X, (int)globalTransform.Y, width, length);
             base.OnDraw();
-            DrawRectangle((int)globalTransform.X, (int)globalTransform.Y, width, length, colour);
+
+            DrawRectanglePro(rec, GetCoordinates(), 0f, colour);
             DrawRectangleLines((int)globalTransform.X, (int)globalTransform.Y, width, length, Color.BLACK);
         }
 

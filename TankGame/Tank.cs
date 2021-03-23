@@ -139,10 +139,10 @@ namespace Project2D
 
         }
 
-        public void Rotate(SceneObject target, MathClasses.Vector3 rotation, float deltaTime)
+        public void Rotate(SceneObject target, float rotationDegrees, float deltaTime)
         {
-            MathClasses.Vector3 newRot = rotation * 40f * deltaTime;
-            target.Rotate(newRot.z);
+            float newRot = rotationDegrees * 3.14f/180.0f * deltaTime;
+            target.Rotate(newRot);
         }
 
 
