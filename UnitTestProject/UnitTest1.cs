@@ -391,6 +391,21 @@ namespace UnitTestProject
          
         }
 
+
+        [TestMethod]
+        public void ConversionExerciseTest()
+        {
+            Colour c = new Colour();
+            c.SetRed(0x5E);
+
+            Assert.AreEqual((uint)0x5E000000, c.colour);
+
+            c.BitShift(8);
+
+            Assert.AreEqual((uint)0x005E0000, c.colour);
+
+        }
+
         [TestMethod]
         public void Matrix4SetRotateZ()
         {
