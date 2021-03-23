@@ -46,7 +46,7 @@ namespace Project2D
             Raylib.Rectangle rec = new Raylib.Rectangle((int)globalTransform.X, (int)globalTransform.Y, width, length);
             base.OnDraw();
 
-            DrawRectanglePro(rec, GetCoordinates(), 0f, colour);
+            DrawRectangle((int)rec.x, (int)rec.y, (int)rec.width, (int)rec.height, colour);
             DrawRectangleLines((int)globalTransform.X, (int)globalTransform.Y, width, length, Color.BLACK);
         }
 
