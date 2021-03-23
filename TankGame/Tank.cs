@@ -24,17 +24,20 @@ namespace Project2D
 
 
         protected Rectangle tankHull;
+        
+        protected SceneObject turretContainer;
         protected Circle turretBase;
+        
+        protected SceneObject barrelContainer;
         protected Rectangle tankBarrel;
+        
         protected SceneObject shotSpot;
 
         protected Color tankColour = Color.GRAY;
 
         public float Speed { get => moveSpeed; }
-        public SceneObject Turret { get => turretBase; }
+        public SceneObject Turret { get => barrelContainer; }
         public SceneObject TankBase { get => tankHull; }
-
-        public SceneObject TankBarrel { get => tankBarrel; }
 
         public float Damage { get => damage; }
 
@@ -47,7 +50,7 @@ namespace Project2D
         {
 
 
-            SetupChildren();
+            InitChildren();
 
         }
 
@@ -56,16 +59,52 @@ namespace Project2D
         /// </summary>
         public Tank(string name) : base(name)
         {
-            SetupChildren();
+            InitChildren();
 
         }
 
         public Tank(string name, Color colour) : base(name)
         {
             tankColour = colour;
-            SetupChildren();
+            InitChildren();
 
         }
+
+
+
+
+        public void InitChildren()
+        {
+            tankHull = new Rectangle("TankHull", 48, 28);
+            AddChild(tankHull);
+
+            turretContainer = new SceneObject("Turret-Container");
+            turretBase = new Circle("TankTurretCircle", 8);
+
+
+            barrelContainer = new SceneObject("Barrel-Container");
+            tankBarrel = new Rectangle("TankBarrel", 32, 6);
+
+
+            shotSpot = new SceneObject("ShotSpot");
+
+
+
+            turretContainer.AddChild(turretBase);
+            AddChild(turretContainer);
+
+
+            barrelContainer.AddChild(tankBarrel);
+            barrelContainer.AddChild(shotSpot);
+            AddChild(barrelContainer);
+
+            // Move Barrel up a little
+            // TODO: For some reason if i offset this then it wont rotate properly
+            barrelContainer.SetPosition(0, 0);
+
+            SetupColor();
+        }
+
 
         public void SetupChildren()
         {

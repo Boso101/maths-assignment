@@ -43,13 +43,13 @@ namespace Project2D
                 // Rotate Turret
                 if (IsKeyDown(KeyboardKey.KEY_Q))
                 {
-                    player.Turret.Rotate(-(1f * deltatime));
+                    player.Turret.Rotate((1f * deltatime));
                     Debug.WriteLine("Looking Left");
                 }
 
                 if (IsKeyDown(KeyboardKey.KEY_E))
                 {
-                    player.Turret.Rotate((1f * deltatime));
+                    player.Turret.Rotate(-(1f * deltatime));
                     Debug.WriteLine("Looking Right");
 
                 }
