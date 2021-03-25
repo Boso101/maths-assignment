@@ -85,7 +85,7 @@ namespace Project2D
 
 
             barrelContainer = new SceneObject("Barrel-Container");
-            tankBarrel = new Rectangle("TankBarrel", 32, 6);
+            tankBarrel = new Rectangle("TankBarrel", 24, 6);
 
 
             shotSpot = new SceneObject("ShotSpot");
@@ -103,6 +103,8 @@ namespace Project2D
             // Move Barrel up a little
             // TODO: For some reason if i offset this then it wont rotate properly
             barrelContainer.SetPosition(0, 0);
+           
+            //tankBarrel.ToggleParentOriginDraw();
 
             SetupColor();
         }
