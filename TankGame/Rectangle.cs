@@ -64,7 +64,7 @@ namespace Project2D
             {
                 //Use this to draw it differently (fixes Tank Turret Barrel
                 rec = new Raylib.Rectangle((int)globalTransform.X, (int)globalTransform.Y, width, length);
-                DrawRectanglePro(rec, new Raylib.Vector2(parent.GlobalTransform.X, parent.GlobalTransform.Y), globalTransform.RotationDegrees, Colour);
+                DrawRectanglePro(rec, new Raylib.Vector2(parent.LocalTransform.X, parent.LocalTransform.Y), globalTransform.RotationDegrees, Colour);
 
             }
             //DrawRectanglePro(rec, new Raylib.Vector2(forward.x,forward.y), globalTransform.RotationDegrees, Color.RED);

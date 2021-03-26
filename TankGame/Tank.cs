@@ -102,9 +102,10 @@ namespace Project2D
 
             // Move Barrel up a little
             // TODO: For some reason if i offset this then it wont rotate properly
-            barrelContainer.SetPosition(0, 0);
+            barrelContainer.SetPosition(2, 0);
+         
            
-            //tankBarrel.ToggleParentOriginDraw();
+            tankBarrel.ToggleParentOriginDraw();
 
             SetupColor();
         }
