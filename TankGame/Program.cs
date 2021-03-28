@@ -6,7 +6,7 @@ namespace Project2D
     {
         static void Main(string[] args)
         {
-            Game game = new Game();
+            TankGame game = new TankGame();
 
             InitWindow(1366, 768, "Tank Game");
 
