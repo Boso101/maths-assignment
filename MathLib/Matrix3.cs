@@ -16,12 +16,12 @@ namespace MathClasses
         
         get
             {
-                return new Vector3(-m4, -m5, 0);
+                return new Vector3(m4, m5, 0);
             }
         
         }
 
-        public float RotationRadians
+        public float Rotation
         {
 
 
@@ -29,22 +29,7 @@ namespace MathClasses
 
             get
             {
-                return (float)Math.Atan2(m1, m2);
-
-            }
-        }
-
-
-
-        public float RotationDegrees
-        {
-
-
-
-
-            get
-            {
-                return (RotationRadians * (float)(180.0f/Math.PI));
+                return m2;
 
             }
         }

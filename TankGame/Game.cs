@@ -7,38 +7,61 @@ using System.Collections.Generic;
 
 namespace Project2D
 {
-    public abstract class Game
+    class Game
     {
         Stopwatch stopwatch = new Stopwatch();
 
-        protected long currentTime = 0;
-        protected long lastTime = 0;
-        protected float timer = 0;
-        protected int fps = 1;
-        protected int frames;
-        protected float deltaTime = 0.005f;
+        private long currentTime = 0;
+        private long lastTime = 0;
+        private float timer = 0;
+        private int fps = 1;
+        private int frames;
+
+        private float deltaTime = 0.005f;
+
+        private PlayerController player;
 
 
+
+        private static List<SceneObject> allObjects;
 
         /// <summary>
         /// Called every frame to draw the world and every gameobject
         /// </summary>
-        public virtual void DrawWorld()
+        public void DrawWorld()
         {
-            
+            foreach(SceneObject obj in allObjects)
+            {
+                obj.Update(deltaTime);
+                obj.Draw();
+            }
         }
 
-        /// <summary>
-        /// Called every frame to update the world and every gameobject
-        /// </summary>
-        public virtual void UpdateWorld()
+       
+   
+        public void SetupTankGame()
         {
+          
 
+
+            Tank playerT = CreateTank("Player-1", Color.LIGHTGRAY);
+            CreateTank("Enemy-1", Color.RED).SetPosition(400,320);
+            CreateTank("Enemy-2", Color.RED).SetPosition(440,300);
+
+
+
+
+            TeleportObjectCenter(playerT);
+
+
+
+            player = new PlayerController(playerT);
+
+
+
+
+     
         }
-
-
-
-    
 
         public void TeleportObjectCenter(SceneObject obj)
         {
@@ -48,13 +71,9 @@ namespace Project2D
 
         public Game()
         {
-
-
-
-
         }
 
-        public virtual void Init()
+        public void Init()
         {
             stopwatch.Start();
             lastTime = stopwatch.ElapsedMilliseconds;
@@ -64,20 +83,18 @@ namespace Project2D
                 Console.WriteLine("Stopwatch high-resolution frequency: {0} ticks per second", Stopwatch.Frequency);
             }
 
-       
+            allObjects = new List<SceneObject>();
+            SetupTankGame();
 
             
         }
 
-        public virtual void Shutdown()
+        public void Shutdown()
         {
-
         }
-  
 
-        public virtual void Update()
+        public void Update()
         {
-            UpdateWorld();
             lastTime = currentTime;
             currentTime = stopwatch.ElapsedMilliseconds;
             deltaTime = (currentTime - lastTime) / 1000.0f;
@@ -91,7 +108,8 @@ namespace Project2D
             frames++;
 
 
- 
+            //Input will be here using PlayerController
+            player.HandleHumanInput(deltaTime);
         }
 
         public void Draw()
@@ -108,6 +126,42 @@ namespace Project2D
 
 
 
-      
+        #region "Spawn Related"
+        // These method are so that when things are created, they are automatically added to the Object List
+
+        /// <summary>
+        /// Construct a bullet
+        /// </summary>
+        /// <param name="owner"></param>
+        /// <param name="spawnPosition"></param>
+        /// <returns> The bullet </returns>
+        public static Bullet CreateBullet(Tank owner, MathClasses.Vector3 spawnPosition)
+        {
+            Bullet bullet = new Bullet(owner, "Bullet", owner.Color, 7f, 64f);
+            bullet.SetPosition(spawnPosition.x, spawnPosition.y);
+            allObjects.Add(bullet);
+            return bullet;
+        }
+
+        /// <summary>
+        /// Construct a Tank
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="tankColor"></param>
+        /// <returns> a Tank </returns>
+        public static Tank CreateTank(string name, Color tankColor, bool ai = false)
+        {
+            Tank theTank = new Tank(name, tankColor);
+            
+            if(ai)
+            {
+                // Do something to it if it's AI controlled
+
+            }
+
+            allObjects.Add(theTank);
+            return theTank;
+        }
+        #endregion
     }
 }

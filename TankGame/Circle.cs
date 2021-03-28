@@ -35,6 +35,7 @@ namespace Project2D
         {
             base.OnDraw();
             DrawCircle((int)globalTransform.X, (int)globalTransform.Y, radius, colour);
+            DrawCircleLines((int)globalTransform.X, (int)globalTransform.Y, radius, Color.BLACK);
 
         }
     }

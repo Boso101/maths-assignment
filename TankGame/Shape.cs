@@ -10,7 +10,6 @@ namespace Project2D
     public class Shape : SceneObject
     {
         protected Color colour;
-        protected bool drawAtParentOrigin = false;
         public Shape(string name) :base(name)
         {
             colour = Color.GRAY;
