@@ -29,28 +29,24 @@ namespace Project2D
                 // Rotate Whole Tank
                 if (IsKeyDown(KeyboardKey.KEY_A))
                 {
-                    player.Rotate((1f * deltatime));
-                    Debug.WriteLine("Looking Left");
+                  
                 }
 
                 if (IsKeyDown(KeyboardKey.KEY_D))
                 {
-                    player.Rotate(-(1f * deltatime));
-                    Debug.WriteLine("Looking Right");
+              
 
                 }
 
                 // Rotate Turret
                 if (IsKeyDown(KeyboardKey.KEY_Q))
                 {
-                    player.Turret.Rotate((1f * deltatime));
-                    Debug.WriteLine("Looking Left");
+               
                 }
 
                 if (IsKeyDown(KeyboardKey.KEY_E))
                 {
-                    player.Turret.Rotate(-(1f * deltatime));
-                    Debug.WriteLine("Looking Right");
+              
 
                 }
 
@@ -59,22 +55,19 @@ namespace Project2D
                 // Movement
                 if (IsKeyDown(KeyboardKey.KEY_W))
                 {
-                    Debug.WriteLine(player.GlobalTransform.Forward);
-                   player.Move(player.LocalTransform.Backward, deltatime);
+                  
                 }
 
                 if (IsKeyDown(KeyboardKey.KEY_S))
                 {
-                    Debug.WriteLine(player.GlobalTransform.Backward);
-
-                    player.Move(player.LocalTransform.Forward, deltatime);
+                 
                 }
                 #endregion
 
                 // Shoot
                 if (IsKeyDown(KeyboardKey.KEY_SPACE))
                 {
-                    HumanShoot();
+             
 
                 }
 
@@ -85,18 +78,18 @@ namespace Project2D
 
         public void ChangeTurretRotation(MathClasses.Vector2 position, float deltaTime)
         {
-            player.Turret.Rotate(position.x);
+      
         }
 
         public void ChangeTurretRotation(Raylib.Vector2 position, float deltaTime)
         {
-            player.Turret.Rotate(position.y);
+           
         }
 
 
         public void HumanShoot()
         {
-            player.Fire();
+           
         }
 
         public void ChangeTank(Tank newTank)

@@ -36,17 +36,14 @@ namespace Project2D
 
         public  void SetupTankGame()
         {
-            Tank playerT = CreateTank("Player-1", Color.LIGHTGRAY);
           
+            player = new PlayerController(null);
 
 
 
 
-            TeleportObjectCenter(playerT);
 
 
-
-            player = new PlayerController(playerT);
 
         }
 
@@ -80,43 +77,6 @@ namespace Project2D
 
 
 
-        #region "Spawn Related"
-        // These method are so that when things are created, they are automatically added to the Object List
-
-        /// <summary>
-        /// Construct a bullet
-        /// </summary>
-        /// <param name="owner"></param>
-        /// <param name="spawnPosition"></param>
-        /// <returns> The bullet </returns>
-        public static Bullet CreateBullet(Tank owner, MathClasses.Vector3 spawnPosition)
-        {
-            Bullet bullet = new Bullet(owner, "Bullet", owner.Color, 7f, 64f);
-            bullet.SetPosition(spawnPosition.x, spawnPosition.y);
-            allObjects.Add(bullet);
-            return bullet;
-        }
-
-        /// <summary>
-        /// Construct a Tank
-        /// </summary>
-        /// <param name="name"></param>
-        /// <param name="tankColor"></param>
-        /// <returns> a Tank </returns>
-        public static Tank CreateTank(string name, Color tankColor, bool ai = false)
-        {
-            Tank theTank = new Tank(name, tankColor);
-
-            if (ai)
-            {
-                // Do something to it if it's AI controlled
-
-            }
-
-            allObjects.Add(theTank);
-            return theTank;
-        }
-        #endregion
 
         /// <summary>
         /// Called on death

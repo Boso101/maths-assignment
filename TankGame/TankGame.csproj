@@ -46,16 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Bullet.cs" />
-    <Compile Include="Circle.cs" />
     <Compile Include="Game.cs" />
     <Compile Include="ILivingEntity.cs" />
     <Compile Include="PlayerController.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Rectangle.cs" />
     <Compile Include="SceneObject.cs" />
-    <Compile Include="Shape.cs" />
     <Compile Include="Tank.cs" />
     <Compile Include="TankGame.cs" />
   </ItemGroup>
