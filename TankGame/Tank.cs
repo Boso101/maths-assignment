@@ -67,6 +67,47 @@ namespace Project2D
 
         }
 
+<<<<<<< HEAD
+=======
+
+
+
+        public void InitChildren()
+        {
+            tankHull = new Rectangle("TankHull", 48, 28);
+            AddChild(tankHull);
+
+            turretContainer = new SceneObject("Turret-Container");
+            turretBase = new Circle("TankTurretCircle", 8);
+
+
+            barrelContainer = new SceneObject("Barrel-Container");
+            tankBarrel = new Rectangle("TankBarrel", 24, 6);
+
+
+            shotSpot = new SceneObject("ShotSpot");
+
+
+
+            turretContainer.AddChild(turretBase);
+            AddChild(turretContainer);
+
+
+            barrelContainer.AddChild(tankBarrel);
+            barrelContainer.AddChild(shotSpot);
+            AddChild(barrelContainer);
+
+            // Move Barrel up a little
+            // TODO: For some reason if i offset this then it wont rotate properly
+            barrelContainer.SetPosition(0, 0);
+           
+            //tankBarrel.ToggleParentOriginDraw();
+
+            SetupColor();
+        }
+
+
+>>>>>>> parent of b0672b9 (Barrel Rotation is getting there)
         public void SetupChildren()
         {
             tankHusk = new Rectangle("TankHusk", 48, 28);
