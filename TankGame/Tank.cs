@@ -14,31 +14,36 @@ namespace Project2D
     /// <summary>
     /// The Base Tank class 
     /// </summary>
-    public class Tank : SceneObject
+    public class Tank : SceneObject, ILivingEntity
     {
         protected float moveSpeed = 64f;
         protected float damage = 2f;
+        protected float health = 5f;
 
 
 
 
-
-        protected Rectangle tankHusk;
+        protected Rectangle tankHull;
+        
+        protected SceneObject turretContainer;
         protected Circle turretBase;
+        
+        protected SceneObject barrelContainer;
         protected Rectangle tankBarrel;
+        
         protected SceneObject shotSpot;
 
         protected Color tankColour = Color.GRAY;
 
         public float Speed { get => moveSpeed; }
-        public SceneObject Turret { get => turretBase; }
-        public SceneObject TankBase { get => tankHusk; }
-
-        public SceneObject TankBarrel { get => tankBarrel; }
+        public SceneObject Turret { get => barrelContainer; }
+        public SceneObject TankBase { get => tankHull; }
 
         public float Damage { get => damage; }
 
         public Color Color { get => tankColour; }
+
+        public bool IsAlive => throw new NotImplementedException();
 
         /// <summary>
         /// Default constructor 
@@ -47,7 +52,7 @@ namespace Project2D
         {
 
 
-            SetupChildren();
+            InitChildren();
 
         }
 
@@ -56,19 +61,17 @@ namespace Project2D
         /// </summary>
         public Tank(string name) : base(name)
         {
-            SetupChildren();
+            InitChildren();
 
         }
 
         public Tank(string name, Color colour) : base(name)
         {
             tankColour = colour;
-            SetupChildren();
+            InitChildren();
 
         }
 
-<<<<<<< HEAD
-=======
 
 
 
@@ -99,18 +102,19 @@ namespace Project2D
 
             // Move Barrel up a little
             // TODO: For some reason if i offset this then it wont rotate properly
-            barrelContainer.SetPosition(0, 0);
+            barrelContainer.SetPosition(2, 0);
+         
            
-            //tankBarrel.ToggleParentOriginDraw();
+            tankBarrel.ToggleParentOriginDraw();
 
             SetupColor();
         }
 
 
->>>>>>> parent of b0672b9 (Barrel Rotation is getting there)
         public void SetupChildren()
         {
-            tankHusk = new Rectangle("TankHusk", 48, 28);
+            tankHull = new Rectangle("TankHull", 48, 28);
+
             turretBase = new Circle("TankTurretCircle", 8);
             tankBarrel = new Rectangle("TankBarrel", 24, 6);
             shotSpot = new SceneObject("ShotSpot");
@@ -118,9 +122,13 @@ namespace Project2D
 
 
 
-            AddChild(tankHusk);
-            AddChild(turretBase);
+            AddChild(tankHull);
+          
 
+
+            //Make Turret child of hull
+            tankHull.AddChild(turretBase);
+            
             //Make Barrel a child of turret
             turretBase.AddChild(tankBarrel);
 
@@ -128,17 +136,17 @@ namespace Project2D
             turretBase.AddChild(shotSpot);
 
 
-
             //Set it to middle of rectangle
-            MathClasses.Vector2 pos = tankHusk.GetCenter();
-            turretBase.SetPosition(pos.x, pos.y);
+            turretBase.SetPosition(0,0);
 
             //Make Barrel end of circle
             // For now just shift it up manually
-            tankBarrel.SetPosition(tankBarrel.LocalTransform.X - 3, tankBarrel.LocalTransform.Y - 30);
+            tankBarrel.SetPosition(0,  -20);
 
             //Make shot spot end of the barrel
-            shotSpot.SetPosition(tankBarrel.GlobalTransform.X, tankBarrel.LocalTransform.Y - 1);
+            shotSpot.SetPosition(0, tankBarrel.LocalTransform.Y - 1);
+
+            tankHull.SetPosition(0, 0);
 
             SetupColor();
 
@@ -156,9 +164,12 @@ namespace Project2D
         /// <param name="color"></param>
         public void SetupColor()
         {
-            tankHusk.Colour = tankColour;
-            turretBase.Colour = tankColour;
-            tankBarrel.Colour = tankColour;
+            tankHull.Colour = tankColour;
+
+
+            //  make turretBase darker
+            turretBase.Colour = new Color(tankColour.r - 40, tankColour.g - 40, tankColour.b - 40,255);
+            tankBarrel.Colour = turretBase.Colour;
 
 
 
@@ -174,15 +185,15 @@ namespace Project2D
         /// <param name="deltaTime"></param>
         public void Move(MathClasses.Vector3 movement, float deltaTime)
         {
+
             MathClasses.Vector3 move = movement * moveSpeed * deltaTime;
             Translate(globalTransform.X + move.x, globalTransform.Y + move.y);
 
-
         }
 
-        public void Rotate(SceneObject target, float rotationDegrees, float deltaTime)
+        public void Rotate(SceneObject target, float deltaTime)
         {
-            float newRot = rotationDegrees * 3.14f/180.0f * deltaTime;
+            float newRot =  globalTransform.RotationDegrees * deltaTime;
             target.Rotate(newRot);
         }
 
@@ -195,7 +206,7 @@ namespace Project2D
         public void Fire()
         {
             //Create bullet at the tank shotSpot and make it move forward
-            Game.CreateBullet(this, shotSpot.GetCoordinates());
+            TankGame.CreateBullet(this, shotSpot.GetCoordinates());
 
 
 
@@ -203,6 +214,24 @@ namespace Project2D
 
         }
 
+        public void TakeDamage(float amount)
+        {
+            health -= amount;
+            if(!IsAlive)
+            {
+                Die();
+            }
+        }
 
+        public void Heal(float amount)
+        {
+            health += amount;
+        }
+
+        public void Die()
+        {
+            TankGame.TryRemove(this);
+
+        }
     }
 }
