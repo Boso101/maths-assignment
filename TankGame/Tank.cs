@@ -111,52 +111,7 @@ namespace Project2D
         }
 
 
-        public void SetupChildren()
-        {
-            tankHull = new Rectangle("TankHull", 48, 28);
-
-            turretBase = new Circle("TankTurretCircle", 8);
-            tankBarrel = new Rectangle("TankBarrel", 24, 6);
-            shotSpot = new SceneObject("ShotSpot");
-
-
-
-
-            AddChild(tankHull);
-          
-
-
-            //Make Turret child of hull
-            tankHull.AddChild(turretBase);
-            
-            //Make Barrel a child of turret
-            turretBase.AddChild(tankBarrel);
-
-            //Make Shotspot child of turret
-            turretBase.AddChild(shotSpot);
-
-
-            //Set it to middle of rectangle
-            turretBase.SetPosition(0,0);
-
-            //Make Barrel end of circle
-            // For now just shift it up manually
-            tankBarrel.SetPosition(0,  -20);
-
-            //Make shot spot end of the barrel
-            shotSpot.SetPosition(0, tankBarrel.LocalTransform.Y - 1);
-
-            tankHull.SetPosition(0, 0);
-
-            SetupColor();
-
-            Debug.WriteLine($"Created Tank at {globalTransform.X},{globalTransform.Y} ");
-            Debug.WriteLine("");
-           
-
-
-
-        }
+      
 
         /// <summary>
         /// This function sets up the colours for all of the tanks components
