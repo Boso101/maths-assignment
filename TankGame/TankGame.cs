@@ -12,26 +12,31 @@ namespace Project2D
 
         private PlayerController player;
         private static List<SceneObject> allObjects;
+        readonly static SceneObject root = new SceneObject("World");
 
         public override void DrawWorld()
         {
             base.DrawWorld();
-            
+
             // draw each scene object
-            foreach (SceneObject obj in allObjects)
-            {
-                obj.Draw();
-            }
+            //foreach (SceneObject obj in allObjects)
+            //{
+            //    obj.Draw();
+            //}
+
+            root.Draw();
         }
 
         public override void UpdateWorld()
         {
             base.UpdateWorld();
             // update each scene object
-            foreach (SceneObject obj in allObjects)
-            {
-                obj.Update(deltaTime);
-            }
+            //foreach (SceneObject obj in allObjects)
+            //{
+            //    obj.Update(deltaTime);
+            //}
+
+            root.Update(deltaTime);
         }
 
         public  void SetupTankGame()
