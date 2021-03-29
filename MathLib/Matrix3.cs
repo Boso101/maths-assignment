@@ -398,5 +398,17 @@ namespace MathClasses
 
             CopyFrom(this * newMatrix);
         }
+
+
+        /// <summary>
+        /// Translates objects via global coordinates
+        /// </summary>
+        /// <param name="x"></param>
+        /// <param name="y"></param>
+        public void TranslateGlobal(float x, float y)
+        {
+            m7 += x;
+            m8 += y;
+        }
     }
 }
