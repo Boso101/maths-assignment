@@ -11,18 +11,13 @@ namespace Project2D
     {
 
         private PlayerController player;
-        private static List<SceneObject> allObjects;
         readonly static SceneObject root = new SceneObject("World");
 
         public override void DrawWorld()
         {
             base.DrawWorld();
 
-            // draw each scene object
-            //foreach (SceneObject obj in allObjects)
-            //{
-            //    obj.Draw();
-            //}
+        
 
             root.Draw();
         }
@@ -30,11 +25,7 @@ namespace Project2D
         public override void UpdateWorld()
         {
             base.UpdateWorld();
-            // update each scene object
-            //foreach (SceneObject obj in allObjects)
-            //{
-            //    obj.Update(deltaTime);
-            //}
+           
 
             root.Update(deltaTime);
         }
@@ -55,7 +46,6 @@ namespace Project2D
         public override void Init()
         {
             base.Init();
-            allObjects = new List<SceneObject>();
             SetupTankGame();
         }
 
@@ -89,7 +79,16 @@ namespace Project2D
         /// <param name="obj"></param>
         public static void TryRemove(SceneObject obj)
         {
-            allObjects.Remove(obj);
+            root.RemoveChild(obj);
+        }
+
+        /// <summary>
+        ///Used to spawn
+        /// </summary>
+        /// <param name="obj"></param>
+        public static void TryCreate(SceneObject obj)
+        {
+            root.AddChild(obj);
         }
     }
 }
