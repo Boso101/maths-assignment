@@ -1,4 +1,8 @@
-﻿public interface ILivingEntity
+﻿namespace Project2D
+{
+
+
+public interface ILivingEntity
 {
 
 
@@ -13,4 +17,5 @@
 
     void Die();
 
+}
 }
