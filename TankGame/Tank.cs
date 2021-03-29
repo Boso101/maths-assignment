@@ -96,8 +96,9 @@ namespace Project2D
         public void Move(MathClasses.Vector3 dir, float deltaTime)
         {
             MathClasses.Vector3 movement = dir * deltaTime * movementSpeed;
-            
+
             // Translation
+            GlobalTransform.Translate(dir.x, dir.y);
         }
         #endregion
 
