@@ -98,7 +98,8 @@ namespace Project2D
         {
             BeginDrawing();
 
-            ClearBackground(Color.ORANGE);
+            // Grass
+            ClearBackground(new Color(128,190,31,255));
 
 
             // Draw world
