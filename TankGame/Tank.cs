@@ -30,8 +30,8 @@ namespace Project2D
 
             SetupChildren();
 
-            tankHull.Load("Images/Tanks/Tank_White.png");
-            tankTurret.Load("Images/Tanks/Barrel_White.png");
+            tankHull.Load("..Images/Tanks/Tank_White.png");
+            tankTurret.Load("..Images/Tanks/Barrel_White.png");
 
 
         }
@@ -43,8 +43,8 @@ namespace Project2D
 
             SetupChildren();
 
-            tankHull.Load("Images/Tanks/Tank_White.png");
-            tankTurret.Load("Images/Tanks/Barrel_White.png");
+            tankHull.Load("..Images/Tanks/Tank_White.png");
+            tankTurret.Load("..Images/Tanks/Barrel_White.png");
         }
 
 
@@ -52,6 +52,9 @@ namespace Project2D
         {
             tankHull = new SpriteObject(tankColor);
             tankTurret = new SpriteObject(tankColor);
+
+            AddChild(tankHull);
+            AddChild(tankTurret);
         }
 
      
