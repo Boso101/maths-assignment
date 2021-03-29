@@ -29,6 +29,14 @@ namespace Project2D
             this.isAi = isAi;
         }
 
+        public void LoadImage(string dir = "")
+        {
+            if (dir  != "")
+            {
+                this.Load(dir);
+            }
+        }
+
        
 
         #endregion
