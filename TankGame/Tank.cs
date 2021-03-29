@@ -7,41 +7,54 @@ namespace Project2D
     /// <summary>
     /// Main Tank Class
     /// </summary>
-    public class Tank : SpriteObject, ILivingEntity, IMoveable, IShooter
+    public class Tank : SceneObject, ILivingEntity, IMoveable, IShooter
     {
+        protected Color tankColor;
+
         // Some default values
         protected float currentHealth = 5f;
         protected float movementSpeed = 4f;
         protected bool isAi;
 
 
-
+        protected SpriteObject tankHull;
+        protected SpriteObject tankTurret;
 
 
         #region "Constructors"
 
-        public Tank() : base(Color.WHITE)
-        {
+        public Tank()
+        { 
             isAi = false;
-            LoadImage("Images/Tanks/Tank_White.png");
+            tankColor = Color.WHITE;
+
+            SetupChildren();
+
+            tankHull.Load("Images/Tanks/Tank_White.png");
+            tankTurret.Load("Images/Tanks/Barrel_White.png");
+
 
         }
 
-        public Tank(string name, Color color, bool isAi = false) : base(name, color)
+        public Tank(string name, Color color, bool isAi = false) : base(name)
         {
             this.isAi = isAi;
-            LoadImage("Images/Tanks/Tank_White.png");
+            tankColor = color;
+
+            SetupChildren();
+
+            tankHull.Load("Images/Tanks/Tank_White.png");
+            tankTurret.Load("Images/Tanks/Barrel_White.png");
         }
 
-        public void LoadImage(string dir = "")
+
+        public void SetupChildren()
         {
-            if (dir  != "")
-            {
-                Debug.WriteLine($"Load at {dir}");
-                this.Load(dir);
-            }
+            tankHull = new SpriteObject(tankColor);
+            tankTurret = new SpriteObject(tankColor);
         }
 
+     
        
 
         #endregion

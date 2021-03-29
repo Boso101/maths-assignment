@@ -33,7 +33,12 @@ namespace Project2D
 
         public void Load(string fileName)
         {
-            texture = Raylib.Raylib.LoadTexture(fileName);
+            if (fileName != "")
+            {
+             
+
+                texture = Raylib.Raylib.LoadTexture(fileName);
+            }
         }
 
         public override void OnDraw()
