@@ -41,12 +41,11 @@ namespace Project2D
                 // Rotate Turret
                 if (IsKeyDown(KeyboardKey.KEY_Q))
                 {
-               
                 }
 
                 if (IsKeyDown(KeyboardKey.KEY_E))
                 {
-              
+
 
                 }
 

@@ -13,6 +13,8 @@ namespace Project2D
         private PlayerController player;
         readonly static SceneObject root = new SceneObject("World");
 
+     
+
         public override void DrawWorld()
         {
             base.DrawWorld();
@@ -33,7 +35,7 @@ namespace Project2D
 
         public void DrawPlayerHealth()
         {
-            // Draw Health
+            // Draw Player stats
             if (player.player != null)
             {
                 Raylib.Raylib.DrawText($"Health: {player?.player.CurrentHealth}", 0, 0, 24, Color.RED);
@@ -43,7 +45,7 @@ namespace Project2D
 
         public  void SetupTankGame()
         {
-            Tank playerT = new Tank("Player-Tank", Color.BLUE);
+            Tank playerT = new Tank("Player-Tank", Color.PINK);
             TryCreate(playerT);
           
             player = new PlayerController(playerT);
@@ -52,6 +54,8 @@ namespace Project2D
             // Teleport to middle
             Vector2 pos = new Vector2(Raylib.Raylib.GetScreenWidth() / 2, Raylib.Raylib.GetScreenHeight() / 2);
             playerT.Translate(pos.x, pos.y);
+
+
 
 
 
@@ -65,12 +69,27 @@ namespace Project2D
 
         public override void Update()
         {
+            
+           
+
+
             base.Update();
-            
-            
+
+
+           
+        
+
             //Input will be here using PlayerController
             player.HandleHumanInput(deltaTime);
 
+        }
+
+
+        public void ChangeTankColor()
+        {
+            player.player.TankColor = new Color(Raylib.Raylib.GetRandomValue(0, 255), Raylib.Raylib.GetRandomValue(0, 255), Raylib.Raylib.GetRandomValue(0, 255), 255);
+            player.player.TankHull.Color = player.player.TankColor;
+            player.player.TankTurret.Color = player.player.TankColor;
         }
 
 

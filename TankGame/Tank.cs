@@ -21,6 +21,12 @@ namespace Project2D
         protected SpriteObject tankTurret;
 
 
+        public SpriteObject TankHull => tankHull;
+        public SpriteObject TankTurret => tankTurret;
+
+        public Color TankColor { get => tankColor; set => tankColor = value; }
+
+
         #region "Constructors"
 
         public Tank()
@@ -30,12 +36,12 @@ namespace Project2D
 
             SetupChildren();
 
-            tankHull.Load("../Images/Tanks/Tank_White.png");
-            tankTurret.Load("../Images/Tanks/Barrel_White.png");
+            
 
 
         }
 
+        // For some reason a lot of the colors don't seem to work as expected.
         public Tank(string name, Color color, bool isAi = false) : base(name)
         {
             this.isAi = isAi;
@@ -43,8 +49,7 @@ namespace Project2D
 
             SetupChildren();
 
-            tankHull.Load("../Images/Tanks/Tank_White.png");
-            tankTurret.Load("../Images/Tanks/Barrel_White.png");
+            
         }
 
 
@@ -55,6 +60,9 @@ namespace Project2D
 
             AddChild(tankHull);
             AddChild(tankTurret);
+
+            tankHull.Load("../Images/Tanks/Tank_White.png");
+            tankTurret.Load("../Images/Tanks/Barrel_White.png");
 
             //offset Turret
             tankTurret.SetPosition(0, 24);
@@ -98,7 +106,7 @@ namespace Project2D
             MathClasses.Vector3 movement = dir * deltaTime * movementSpeed;
 
             // Translation
-            GlobalTransform.Translate(dir.x, dir.y);
+            globalTransform.TranslateGlobal(movement.x, movement.y);
         }
         #endregion
 

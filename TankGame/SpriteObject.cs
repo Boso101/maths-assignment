@@ -13,6 +13,8 @@ namespace Project2D
         protected Texture2D texture;
         protected Color color;
 
+        public Color Color { get => color; set => color = value; }
+
 
         public SpriteObject(Color color)
         {
