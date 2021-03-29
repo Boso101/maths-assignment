@@ -15,7 +15,16 @@ namespace Project2D
 
 
 
+        #region "Constructors"
 
+        public Tank()
+        {
+            currentHealth = 5f;
+            movementSpeed = 4f;
+            isAi = false;
+        }
+
+        #endregion
 
 
 

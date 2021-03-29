@@ -17,7 +17,8 @@ namespace Project2D
         {
             base.DrawWorld();
 
-        
+            DrawPlayerHealth();
+
 
             root.Draw();
         }
@@ -28,6 +29,16 @@ namespace Project2D
            
 
             root.Update(deltaTime);
+        }
+
+        public void DrawPlayerHealth()
+        {
+            // Draw Health
+            if (player.player != null)
+            {
+                Raylib.Raylib.DrawText($"Health: {player?.player.CurrentHealth}", 0, 0, 24, Color.RED);
+
+            }
         }
 
         public  void SetupTankGame()
