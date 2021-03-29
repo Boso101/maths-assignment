@@ -10,7 +10,7 @@ namespace Project2D
     public class SpriteObject : SceneObject
     {
 
-        protected Texture2D texture = new Texture2D();
+        protected Texture2D texture;
         protected Color color;
 
 
