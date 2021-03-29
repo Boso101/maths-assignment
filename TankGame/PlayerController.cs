@@ -76,15 +76,7 @@ namespace Project2D
             }
         }
 
-        public void ChangeTurretRotation(MathClasses.Vector2 position, float deltaTime)
-        {
       
-        }
-
-        public void ChangeTurretRotation(Raylib.Vector2 position, float deltaTime)
-        {
-           
-        }
 
 
         public void HumanShoot()

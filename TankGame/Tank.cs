@@ -5,7 +5,7 @@ namespace Project2D
     /// <summary>
     /// Main Tank Class
     /// </summary>
-    public class Tank : Sprite, ILivingEntity, IMoveable
+    public class Tank : Sprite, ILivingEntity, IMoveable, IShooter
     {
         protected float currentHealth;
         protected float movementSpeed;
@@ -26,7 +26,20 @@ namespace Project2D
 
 
 
+        #region "IShooter"
+        public void Shoot()
+        {
+            // Create Bullet
+            SceneObject bullet = new SceneObject("Bullet");
 
+            // Do stuff to it
+
+
+            // Spawn in World
+            TankGame.TryCreate(bullet);
+            
+        }
+        #endregion
 
         #region "IMoveable"
         public float MovementSpeed => movementSpeed;
