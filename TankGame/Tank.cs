@@ -1,6 +1,6 @@
 ﻿namespace Project2D
 {
-    public class Tank : ILivingEntity
+    public class Tank : Sprite, ILivingEntity
     {
         protected float currentHealth;
 
