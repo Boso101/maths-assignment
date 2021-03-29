@@ -377,7 +377,7 @@ namespace MathClasses
         /// <param name="y"></param>
         public void SetTranslation(float x, float y)
         {
-            SetIdentity();
+            //SetIdentity();
 
             m7 = x;
             m8 = y;
@@ -391,7 +391,7 @@ namespace MathClasses
         /// <param name="y"></param>
         public void Translate(float x, float y)
         {
-            SetIdentity();
+           // SetIdentity();
 
             Matrix3 newMatrix = new Matrix3();
             newMatrix.SetTranslation(x,y);
