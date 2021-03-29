@@ -1,14 +1,16 @@
 ﻿using MathClasses;
+using Raylib;
 
 namespace Project2D
 {
     /// <summary>
     /// Main Tank Class
     /// </summary>
-    public class Tank : Sprite, ILivingEntity, IMoveable, IShooter
+    public class Tank : SpriteObject, ILivingEntity, IMoveable, IShooter
     {
-        protected float currentHealth;
-        protected float movementSpeed;
+        // Some default values
+        protected float currentHealth = 5f;
+        protected float movementSpeed = 4f;
         protected bool isAi;
 
 
@@ -17,12 +19,17 @@ namespace Project2D
 
         #region "Constructors"
 
-        public Tank()
+        public Tank() : base(Color.WHITE)
         {
-            currentHealth = 5f;
-            movementSpeed = 4f;
             isAi = false;
         }
+
+        public Tank(string name, Color color, bool isAi = false) : base(name, color)
+        {
+            this.isAi = isAi;
+        }
+
+       
 
         #endregion
 
@@ -54,9 +61,9 @@ namespace Project2D
         public float MovementSpeed => movementSpeed;
 
 
-        public void Move(Vector3 dir, float deltaTime)
+        public void Move(MathClasses.Vector3 dir, float deltaTime)
         {
-            Vector3 movement = dir * deltaTime * movementSpeed;
+            MathClasses.Vector3 movement = dir * deltaTime * movementSpeed;
             
             // Translation
         }

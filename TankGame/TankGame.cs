@@ -43,8 +43,10 @@ namespace Project2D
 
         public  void SetupTankGame()
         {
+            Tank playerT = new Tank("Player-Tank", Color.BLUE);
+            TryCreate(playerT);
           
-            player = new PlayerController(null);
+            player = new PlayerController(playerT);
 
 
 
@@ -67,6 +69,7 @@ namespace Project2D
             
             //Input will be here using PlayerController
             player.HandleHumanInput(deltaTime);
+
         }
 
 

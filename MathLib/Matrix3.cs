@@ -29,7 +29,7 @@ namespace MathClasses
 
             get
             {
-                return (float)Math.Atan2(m1, m2);
+                return (float)Math.Atan2(m2, m1);
 
             }
         }
