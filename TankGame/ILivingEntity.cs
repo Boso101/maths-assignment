@@ -1,7 +1,9 @@
 ﻿namespace Project2D
 {
 
-
+    /// <summary>
+    /// Interface for a living entity, can take damage and all that
+    /// </summary>
 public interface ILivingEntity
 {
 

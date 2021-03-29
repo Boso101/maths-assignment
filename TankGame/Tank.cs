@@ -2,6 +2,9 @@
 
 namespace Project2D
 {
+    /// <summary>
+    /// Main Tank Class
+    /// </summary>
     public class Tank : Sprite, ILivingEntity, IMoveable
     {
         protected float currentHealth;
@@ -45,6 +48,7 @@ namespace Project2D
 
         public void Die()
         {
+            // Calls static function to remove from the Scene Object List
             TankGame.TryRemove(this);
         }
 
