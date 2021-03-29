@@ -49,8 +49,9 @@ namespace Project2D
             player = new PlayerController(playerT);
 
 
-
-
+            // Teleport to middle
+            Vector2 pos = new Vector2(Raylib.Raylib.GetScreenWidth() / 2, Raylib.Raylib.GetScreenHeight() / 2);
+            playerT.Translate(pos.x, pos.y);
 
 
 

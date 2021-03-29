@@ -22,11 +22,14 @@ namespace Project2D
         public Tank() : base(Color.WHITE)
         {
             isAi = false;
+            LoadImage("Images/Tanks/Tank_White.png");
+
         }
 
         public Tank(string name, Color color, bool isAi = false) : base(name, color)
         {
             this.isAi = isAi;
+            LoadImage("Images/Tanks/Tank_White.png");
         }
 
         public void LoadImage(string dir = "")
