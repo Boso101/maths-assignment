@@ -1,5 +1,6 @@
 ﻿using MathClasses;
 using Raylib;
+using System.Diagnostics;
 
 namespace Project2D
 {
@@ -36,6 +37,7 @@ namespace Project2D
         {
             if (dir  != "")
             {
+                Debug.WriteLine($"Load at {dir}");
                 this.Load(dir);
             }
         }
