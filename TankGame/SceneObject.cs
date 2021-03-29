@@ -110,6 +110,8 @@ namespace Project2D
             child.parent = this;
             // add new child to collection
             children.Add(child);
+
+            child.UpdateTransform();
         }
 
         /// <summary>
@@ -171,7 +173,6 @@ namespace Project2D
         {
 #if DEBUG
 
-            DrawText(objectName + " Local", (int)localTransform.X, (int)localTransform.Y, 12, Color.BLUE);
             DrawText(objectName + " Global", (int)globalTransform.X, (int)globalTransform.Y, 12, Color.BLUE);
 #endif
         }
