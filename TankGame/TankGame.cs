@@ -28,7 +28,7 @@ namespace Project2D
 
         public  void SetupTankGame()
         {
-            Tank playerT = new Tank("Player-Tank", Color.PINK);
+            Tank playerT = new Tank("Player-Tank", Color.GRAY);
             TryCreate(playerT);
           
             player = new PlayerController(playerT);

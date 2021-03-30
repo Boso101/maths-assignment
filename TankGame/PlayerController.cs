@@ -54,12 +54,10 @@ namespace Project2D
                 // Movement
                 if (IsKeyDown(KeyboardKey.KEY_W))
                 {
-                    player.Move(player.GlobalTransform.Forward, deltatime);
                 }
 
                 if (IsKeyDown(KeyboardKey.KEY_S))
                 {
-                    player.Move(player.GlobalTransform.Backward, deltatime);
 
                 }
                 #endregion

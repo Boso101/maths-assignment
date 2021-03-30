@@ -19,10 +19,13 @@ namespace Project2D
 
         protected SpriteObject tankHull;
         protected SpriteObject tankTurret;
+        protected SceneObject turretObject;
 
 
         public SpriteObject TankHull => tankHull;
-        public SpriteObject TankTurret => tankTurret;
+        public SpriteObject TurretSprite => tankTurret;
+        public SceneObject TankTurret => turretObject;
+
 
         public Color TankColor { get => tankColor; set => tankColor = value; }
 
@@ -53,30 +56,52 @@ namespace Project2D
         }
 
 
-        public void SetupChildren()
-        {
-            tankHull = new SpriteObject(tankColor);
-            tankTurret = new SpriteObject(tankColor);
 
-            AddChild(tankHull);
-            AddChild(tankTurret);
 
-            tankHull.Load("../Images/Tanks/Tank_White.png");
-            tankTurret.Load("../Images/Tanks/Barrel_White.png");
 
-            //offset Turret
-            tankTurret.SetPosition(0, 24);
-        }
 
-     
-       
 
         #endregion
 
 
+        public void SetupChildren()
+        {
+            // Setup Colors
+            tankHull = new SpriteObject(tankColor);
+            tankTurret = new SpriteObject(tankColor);
+            turretObject = new SceneObject("Turret Object");
 
+            //Load sprites
+            tankHull.Load("../Images/Tanks/Tank_White.png");
+            tankTurret.Load("../Images/Tanks/Barrel_White.png");
 
+            tankHull.SetPosition(-tankHull.Width / 2, -tankHull.Height / 2);
 
+            //Add Tank Hull sprite as a child
+            AddChild(tankHull);
+
+            // Add turret sprite as a child to turret object
+            turretObject.AddChild(tankTurret);
+
+            //Offset turret
+            tankTurret.SetPosition(-tankTurret.Width / 2, -23);
+
+            // Add turret object as a child to the tank
+            AddChild(turretObject);
+
+           
+
+        }
+
+        public override void OnDraw()
+        {
+            base.OnDraw();
+        }
+
+        public override void OnUpdate(float deltaTime)
+        {
+            base.OnUpdate(deltaTime);
+        }
 
 
 
