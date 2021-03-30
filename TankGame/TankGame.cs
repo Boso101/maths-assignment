@@ -28,9 +28,13 @@ namespace Project2D
 
         public  void SetupTankGame()
         {
-            Tank playerT = new Tank("Player-Tank", Color.RED, true);
+            Tank playerT = new Tank("Player-Tank", Color.RED, false);
             TryCreate(playerT);
-          
+            TryCreate(new Tank("Enemy 01",Color.GOLD));
+            TryCreate(new Tank("Enemy 02", Color.GOLD));
+
+
+
             player = new PlayerController(playerT);
 
 
@@ -38,6 +42,8 @@ namespace Project2D
             Vector2 pos = new Vector2(Raylib.Raylib.GetScreenWidth() / 2, Raylib.Raylib.GetScreenHeight() / 2);
             playerT.Translate(pos.x, pos.y);
 
+            root.GetChild(1).SetPosition(pos.x, 60);
+            root.GetChild(2).SetPosition(pos.x+100, 60);
 
 
 
