@@ -15,30 +15,13 @@ namespace Project2D
 
      
 
-        public override void DrawWorld()
-        {
-            base.DrawWorld();
-
-            DrawPlayerHealth();
-
-
-            root.Draw();
-        }
-
-        public override void UpdateWorld()
-        {
-            base.UpdateWorld();
-           
-
-            root.Update(deltaTime);
-        }
-
+       
         public void DrawPlayerHealth()
         {
             // Draw Player stats
             if (player.player != null)
             {
-                Raylib.Raylib.DrawText($"Health: {player?.player.CurrentHealth}", 0, 0, 24, Color.RED);
+                Raylib.Raylib.DrawText($"Health: {player.player?.CurrentHealth}", 6, 730, 36, Color.BLACK);
 
             }
         }
@@ -85,24 +68,35 @@ namespace Project2D
         }
 
 
-        public void ChangeTankColor()
+      
+
+
+
+
+
+
+
+
+
+
+
+        public override void DrawWorld()
         {
-            player.player.TankColor = new Color(Raylib.Raylib.GetRandomValue(0, 255), Raylib.Raylib.GetRandomValue(0, 255), Raylib.Raylib.GetRandomValue(0, 255), 255);
-            player.player.TankHull.Color = player.player.TankColor;
-            player.player.TankTurret.Color = player.player.TankColor;
+            base.DrawWorld();
+
+            DrawPlayerHealth();
+
+
+            root.Draw();
         }
 
+        public override void UpdateWorld()
+        {
+            base.UpdateWorld();
 
 
-
-
-
-
-
-
-
-
-
+            root.Update(deltaTime);
+        }
 
 
 
