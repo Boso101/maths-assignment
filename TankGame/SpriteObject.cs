@@ -1,6 +1,7 @@
 ﻿using Raylib;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -40,6 +41,14 @@ namespace Project2D
              
 
                 texture = Raylib.Raylib.LoadTexture(fileName);
+            }
+
+            if (texture.width == 0 || texture.height == 0)
+            {
+                // Error so load the placeHolder
+                texture = Raylib.Raylib.LoadTexture("../Images/Error/Error.png");
+                Debug.WriteLine("Could not find " + fileName);
+                
             }
         }
 
