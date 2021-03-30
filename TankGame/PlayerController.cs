@@ -32,7 +32,7 @@ namespace Project2D
                   
                 }
 
-                if (IsKeyDown(KeyboardKey.KEY_D))
+                else if (IsKeyDown(KeyboardKey.KEY_D))
                 {
               
 
@@ -43,7 +43,7 @@ namespace Project2D
                 {
                 }
 
-                if (IsKeyDown(KeyboardKey.KEY_E))
+                else if (IsKeyDown(KeyboardKey.KEY_E))
                 {
 
 
@@ -54,10 +54,13 @@ namespace Project2D
                 // Movement
                 if (IsKeyDown(KeyboardKey.KEY_W))
                 {
+                    player.Move(new MathClasses.Vector3(0, 1,0), deltatime);
+
                 }
 
-                if (IsKeyDown(KeyboardKey.KEY_S))
+                else if (IsKeyDown(KeyboardKey.KEY_S))
                 {
+                    player.Move(new MathClasses.Vector3(0, -1, 0), deltatime);
 
                 }
                 #endregion
@@ -86,6 +89,8 @@ namespace Project2D
         {
             player = newTank;
         }
+
+        
 
 
 

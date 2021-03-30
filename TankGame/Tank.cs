@@ -13,7 +13,7 @@ namespace Project2D
 
         // Some default values
         protected float currentHealth = 5f;
-        protected float movementSpeed = 4f;
+        protected float movementSpeed = 64f;
         protected bool isAi;
 
         protected bool rgbTank = false;
@@ -37,13 +37,13 @@ namespace Project2D
         #region "Constructors"
 
         public Tank()
-        { 
+        {
             isAi = false;
             tankColor = Color.WHITE;
 
             SetupChildren();
 
-            
+
 
 
         }
@@ -57,7 +57,7 @@ namespace Project2D
 
             SetupChildren();
 
-            
+
         }
 
 
@@ -77,7 +77,7 @@ namespace Project2D
             turretObject = new SceneObject("Turret Object");
 
             //Load sprites
-            if(!rgbTank)
+            if (!rgbTank)
             {
                 tankHull.Load("../Images/Tanks/Tank_White.png");
 
@@ -118,8 +118,13 @@ namespace Project2D
         {
             base.OnUpdate(deltaTime);
             currentTime -= deltaTime;
+            
+            if(isAi)
+            {
+                Think();
+            }
 
-            if( rgbTank && currentTime <= 0)
+            if (rgbTank && currentTime <= 0)
             {
 
                 // Change Color
@@ -129,12 +134,23 @@ namespace Project2D
                 currentTime = rgbChange;
             }
 
-            
+
         }
 
 
 
+        #region "IBot"
+        public bool AIControlled { get => isAi; }
 
+        public void Think()
+        {
+            if (!isAi) { return; }
+
+            // AI Logic
+
+
+        }
+        #endregion
 
         #region "IShooter"
         public void Shoot()
@@ -160,7 +176,7 @@ namespace Project2D
             MathClasses.Vector3 movement = dir * deltaTime * movementSpeed;
 
             // Translation
-            globalTransform.TranslateGlobal(movement.x, movement.y);
+            Translate(movement.x, movement.y);
         }
         #endregion
 
