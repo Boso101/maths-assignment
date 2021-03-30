@@ -16,6 +16,10 @@ namespace Project2D
         protected float movementSpeed = 4f;
         protected bool isAi;
 
+        protected bool rgbTank = false;
+        protected float rgbChange = 0.5f;
+        protected float currentTime;
+
 
         protected SpriteObject tankHull;
         protected SpriteObject tankTurret;
@@ -45,9 +49,10 @@ namespace Project2D
         }
 
         // For some reason a lot of the colors don't seem to work as expected.
-        public Tank(string name, Color color, bool isAi = false) : base(name)
+        public Tank(string name, Color color, bool rgbTank = false, bool isAi = false) : base(name)
         {
             this.isAi = isAi;
+            this.rgbTank = rgbTank;
             tankColor = color;
 
             SetupChildren();
@@ -72,7 +77,17 @@ namespace Project2D
             turretObject = new SceneObject("Turret Object");
 
             //Load sprites
-            tankHull.Load("../Images/Tanks/Tank_White.png");
+            if(!rgbTank)
+            {
+                tankHull.Load("../Images/Tanks/Tank_White.png");
+
+            }
+            else
+            {
+                tankHull.Load("../Images/Tanks/Tank_Under.png");
+
+            }
+
             tankTurret.Load("../Images/Tanks/Barrel_White.png");
 
             tankHull.SetPosition(-tankHull.Width / 2, -tankHull.Height / 2);
@@ -89,8 +104,8 @@ namespace Project2D
             // Add turret object as a child to the tank
             AddChild(turretObject);
 
-           
 
+            currentTime = rgbChange;
         }
 
         public override void OnDraw()
@@ -101,6 +116,19 @@ namespace Project2D
         public override void OnUpdate(float deltaTime)
         {
             base.OnUpdate(deltaTime);
+            currentTime -= deltaTime;
+
+            if( rgbTank && currentTime <= 0)
+            {
+
+                // Change Color
+                Color c = new Color(Raylib.Raylib.GetRandomValue(0, 255), Raylib.Raylib.GetRandomValue(0, 255), Raylib.Raylib.GetRandomValue(0, 255), 255);
+                tankHull.Color = c;
+                tankTurret.Color = c;
+                currentTime = rgbChange;
+            }
+
+            
         }
 
 

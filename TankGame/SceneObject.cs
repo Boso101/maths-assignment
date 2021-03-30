@@ -171,7 +171,7 @@ namespace Project2D
         /// </summary>
         public virtual void OnDraw()
         {
-#if DEBUG
+#if false
 
             DrawText(objectName + " Global", (int)globalTransform.X, (int)globalTransform.Y, 12, Color.BLUE);
 #endif
