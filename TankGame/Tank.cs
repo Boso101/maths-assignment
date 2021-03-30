@@ -14,6 +14,10 @@ namespace Project2D
         // Some default values
         protected float currentHealth = 5f;
         protected float movementSpeed = 64f;
+        protected float rotationSpeed = 2f;
+
+        public float RotationSpeed { get => rotationSpeed; }
+
         protected bool isAi;
 
         protected bool rgbTank = false;
@@ -121,7 +125,7 @@ namespace Project2D
             
             if(isAi)
             {
-                Think();
+                Think(deltaTime);
             }
 
             if (rgbTank && currentTime <= 0)
@@ -142,12 +146,13 @@ namespace Project2D
         #region "IBot"
         public bool AIControlled { get => isAi; }
 
-        public void Think()
+        public void Think(float deltaTime)
         {
             if (!isAi) { return; }
 
             // AI Logic
-
+            //Look at player
+            TankTurret.Rotate(rotationSpeed * deltaTime);
 
         }
         #endregion
@@ -173,7 +178,7 @@ namespace Project2D
 
         public void Move(MathClasses.Vector3 dir, float deltaTime)
         {
-            MathClasses.Vector3 movement = dir * deltaTime * movementSpeed;
+            MathClasses.Vector3 movement = dir * movementSpeed * deltaTime;
 
             // Translation
             Translate(movement.x, movement.y);

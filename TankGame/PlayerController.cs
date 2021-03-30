@@ -11,7 +11,7 @@ namespace Project2D
     /// </summary>
     public class PlayerController
     {
-        public Tank player;
+        public  Tank player;
 
         public PlayerController(Tank controllingTank)
         {
@@ -29,23 +29,26 @@ namespace Project2D
                 // Rotate Whole Tank
                 if (IsKeyDown(KeyboardKey.KEY_A))
                 {
-                  
+                    player.Rotate(player.RotationSpeed * deltatime);
                 }
 
                 else if (IsKeyDown(KeyboardKey.KEY_D))
                 {
-              
+                    player.Rotate(-player.RotationSpeed * deltatime);
+
 
                 }
 
                 // Rotate Turret
                 if (IsKeyDown(KeyboardKey.KEY_Q))
                 {
+                    player.TankTurret.Rotate(player.RotationSpeed * deltatime);
                 }
 
                 else if (IsKeyDown(KeyboardKey.KEY_E))
                 {
 
+                    player.TankTurret.Rotate(-player.RotationSpeed * deltatime);
 
                 }
 

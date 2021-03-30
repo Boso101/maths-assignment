@@ -10,7 +10,7 @@ namespace Project2D
     {
          bool AIControlled { get; }
 
-        void Think();
+        void Think(float deltaTime);
 
     }
 }

@@ -10,7 +10,7 @@ namespace Project2D
    public class TankGame : Game
     {
 
-        private PlayerController player;
+        private static PlayerController player;
         readonly static SceneObject root = new SceneObject("World");
 
      
@@ -30,8 +30,8 @@ namespace Project2D
         {
             Tank playerT = new Tank("Player-Tank", Color.RED, false);
             TryCreate(playerT);
-            TryCreate(new Tank("Enemy 01",Color.GOLD));
-            TryCreate(new Tank("Enemy 02", Color.GOLD));
+            TryCreate(new Tank("Enemy 01",Color.GOLD, false, true));
+            TryCreate(new Tank("Enemy 02", Color.GOLD, false, true));
 
 
 
