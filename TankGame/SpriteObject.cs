@@ -41,15 +41,16 @@ namespace Project2D
              
 
                 texture = Raylib.Raylib.LoadTexture(fileName);
-            }
 
+            }
             if (texture.width == 0 || texture.height == 0)
             {
                 // Error so load the placeHolder
                 texture = Raylib.Raylib.LoadTexture("../Images/Error/Error.png");
-                Debug.WriteLine("Could not find " + fileName);
+                Debug.WriteLine("Could not find " + fileName +" Loaded placeholder.");
                 
             }
+           
         }
 
         public override void OnDraw()
