@@ -172,10 +172,9 @@ namespace Project2D
         public virtual void OnDraw()
         {
 #if false
-
-            DrawText(objectName + " Global", (int)globalTransform.X, (int)globalTransform.Y, 12, Color.BLUE);
+            Raylib.Raylib.DrawRectangle((int)globalTransform.X, (int)globalTransform.Y, 4, 4, Color.BLUE);
 #endif
-        }
+            }
 
         /// <summary>
         /// constantly updates both global and local transform data
@@ -239,6 +238,24 @@ namespace Project2D
         public override string ToString()
         {
             return $"Parent: {parent?.objectName}\nSceneObject: {objectName}\nLocalCoordinates: {localTransform.GetColumn(1)}\nGlobalCoordinates: {globalTransform.GetColumn(1)}";
+        }
+
+        /// <summary>
+        /// Used to copy over other orientations easily
+        /// </summary>
+        /// <param name="transform"></param>
+        public void CopyTransformToLocal(Matrix3 transform)
+        {
+            localTransform.CopyFrom(transform);
+            UpdateTransform();
+        }
+
+
+
+        public void TranslateLocal(float rightAmount, float forwardAmount)
+        {
+            localTransform.Translate(rightAmount, forwardAmount);
+            UpdateTransform();
         }
 
     }

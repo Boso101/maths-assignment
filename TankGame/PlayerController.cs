@@ -69,9 +69,9 @@ namespace Project2D
                 #endregion
 
                 // Shoot
-                if (IsKeyDown(KeyboardKey.KEY_SPACE))
+                if (IsKeyReleased(KeyboardKey.KEY_SPACE))
                 {
-             
+                    HumanShoot();
 
                 }
 
@@ -85,7 +85,7 @@ namespace Project2D
 
         public void HumanShoot()
         {
-           
+            player?.Shoot();
         }
 
         public void ChangeTank(Tank newTank)

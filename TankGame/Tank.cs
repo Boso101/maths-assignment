@@ -161,10 +161,19 @@ namespace Project2D
         public void Shoot()
         {
             // Create Bullet
-            SceneObject bullet = new SceneObject("Bullet");
+            Bullet bullet = new Bullet("Bullet", TankColor);
 
             // Do stuff to it
+            //bullet.Translate(turretObject.GlobalTransform.X, turretObject.GlobalTransform.Y);
 
+           
+
+           
+            //Orientation
+            bullet.CopyTransformToLocal(TankTurret.GlobalTransform);
+
+            //Shift a little bit so it comes from top of barrel
+            bullet.Translate(-6, 4);
 
             // Spawn in World
             TankGame.TryCreate(bullet);
