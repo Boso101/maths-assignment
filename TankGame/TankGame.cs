@@ -12,6 +12,7 @@ namespace Project2D
 
         private static PlayerController player;
         readonly static SceneObject root = new SceneObject("World");
+
         public static List<SceneObject> toRemoveList = new List<SceneObject>();
 
      
