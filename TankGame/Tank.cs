@@ -7,6 +7,9 @@ namespace Project2D
     /// <summary>
     /// Main Tank Class
     /// </summary>
+    /// 
+
+    //TODO: Collisions
     public class Tank : SceneObject, ILivingEntity, IMoveable, IShooter
     {
         protected Color tankColor;
