@@ -12,6 +12,7 @@ namespace Project2D
 
         private static PlayerController player;
         readonly static SceneObject root = new SceneObject("World");
+        public static List<SceneObject> toRemoveList = new List<SceneObject>();
 
      
 
@@ -102,6 +103,22 @@ namespace Project2D
 
 
             root.Update(deltaTime);
+
+            RemoveObjects();
+
+        }
+
+        private void RemoveObjects()
+        {
+
+            //At the end of the root update, then go through all the objects we want removed
+            foreach (SceneObject obj in toRemoveList)
+            {
+                root.RemoveChild(obj);
+            }
+
+            //Then Clear
+            toRemoveList.Clear();
         }
 
 
@@ -113,7 +130,9 @@ namespace Project2D
         /// <param name="obj"></param>
         public static void TryRemove(SceneObject obj)
         {
-            root.RemoveChild(obj);
+
+            toRemoveList.Add(obj);
+
         }
 
         /// <summary>
