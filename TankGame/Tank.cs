@@ -59,13 +59,23 @@ namespace Project2D
 
         }
 
-        // For some reason a lot of the colors don't seem to work as expected.
         public Tank(string name, Color color, bool rgbTank = false, bool isAi = false) : base(name)
         {
             this.isAi = isAi;
             this.rgbTank = rgbTank;
             tankColor = color;
 
+            SetupChildren();
+
+        }
+
+        // Modded FireRate
+        public Tank(string name, Color color, float fireRate, bool rgbTank = false, bool isAi = false) : base(name)
+        {
+            this.isAi = isAi;
+            this.rgbTank = rgbTank;
+            tankColor = color;
+            this.fireRate = fireRate;
             SetupChildren();
 
         }
@@ -78,11 +88,7 @@ namespace Project2D
 
         #endregion
 
-        private void InitFireRate()
-        {
-            currentFireRate = fireRate;
-
-        }
+      
 
         public void SetupChildren()
         {
@@ -165,6 +171,7 @@ namespace Project2D
             // AI Logic
             //Look at player
             TankTurret.Rotate(rotationSpeed * deltaTime);
+            Shoot();
 
         }
         #endregion

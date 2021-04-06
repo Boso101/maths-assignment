@@ -40,6 +40,8 @@ namespace Project2D
 
             player = new PlayerController(playerT);
 
+            // Force an Update so far they can be added to the root object
+            UpdateWorld();
 
             // Teleport to middle
             Vector2 pos = new Vector2(Raylib.Raylib.GetScreenWidth() / 2, Raylib.Raylib.GetScreenHeight() / 2);
@@ -105,9 +107,10 @@ namespace Project2D
 
 
             root.Update(deltaTime);
-
+            
             RemoveObjects();
             AddObjects();
+
 
         }
 
@@ -158,7 +161,7 @@ namespace Project2D
         /// <param name="obj"></param>
         public static void TryCreate(SceneObject obj)
         {
-            root.AddChild(obj);
+            toAddList.Add(obj);
         }
     }
 }

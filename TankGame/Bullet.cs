@@ -32,12 +32,23 @@ namespace Project2D
         {
             // Fly Forward
             TranslateLocal(0, moveSpeed * deltaTime);
+            CheckDespawn();
         }
 
-
+        /// <summary>
+        /// Should the bullet despawn
+        /// </summary>
         public void CheckDespawn()
         {
-            
+            // Honestly not a fan of grabbing screen width and height on update but it'll do
+            if ((globalTransform.X < 0) || (globalTransform.X > Raylib.Raylib.GetScreenWidth()) || (globalTransform.Y < 0) || (globalTransform.Y > Raylib.Raylib.GetScreenHeight()))
+            {
+                // Try delete/remove from game
+                TankGame.TryRemove(this);
+
+            }
+
+
         }
     }
 }
