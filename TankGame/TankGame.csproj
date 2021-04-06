@@ -49,6 +49,7 @@
     <Compile Include="Bullet.cs" />
     <Compile Include="Game.cs" />
     <Compile Include="IBot.cs" />
+    <Compile Include="ICollider.cs" />
     <Compile Include="ILivingEntity.cs" />
     <Compile Include="IMoveable.cs" />
     <Compile Include="IShooter.cs" />
