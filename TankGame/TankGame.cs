@@ -33,8 +33,8 @@ namespace Project2D
         {
             Tank playerT = new Tank("Player-Tank", Color.DARKGREEN, false);
             TryCreate(playerT);
-            TryCreate(new Tank("Enemy 01",Color.GOLD, false, true));
-            TryCreate(new Tank("Enemy 02", Color.GOLD, false, true));
+            TryCreate(new Tank("Enemy 01",Color.GOLD,  0.2f, false, true));
+            TryCreate(new Tank("Enemy 02", Color.GOLD, 0.2f, false, true));
 
 
 
@@ -150,7 +150,7 @@ namespace Project2D
         /// <param name="obj"></param>
         public static void TryRemove(SceneObject obj)
         {
-
+            Console.WriteLine($"Removing {obj.ObjectName}");
             toRemoveList.Add(obj);
 
         }
