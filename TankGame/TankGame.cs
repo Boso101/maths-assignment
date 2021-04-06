@@ -111,6 +111,7 @@ namespace Project2D
 
         }
 
+        // These two functions are called after the world updates so things don't break
         private void AddObjects()
         {
 
