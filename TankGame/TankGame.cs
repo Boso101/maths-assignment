@@ -14,6 +14,7 @@ namespace Project2D
         readonly static SceneObject root = new SceneObject("World");
 
         public static List<SceneObject> toRemoveList = new List<SceneObject>();
+        public static List<SceneObject> toAddList = new List<SceneObject>();
 
      
 
@@ -106,7 +107,21 @@ namespace Project2D
             root.Update(deltaTime);
 
             RemoveObjects();
+            AddObjects();
 
+        }
+
+        private void AddObjects()
+        {
+
+            //At the end of the root update, then go through all the objects we want removed
+            foreach (SceneObject obj in toAddList)
+            {
+                root.AddChild(obj);
+            }
+
+            //Then Clear
+            toAddList.Clear();
         }
 
         private void RemoveObjects()

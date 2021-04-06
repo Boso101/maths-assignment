@@ -18,6 +18,7 @@ namespace Project2D
         protected float currentHealth = 5f;
         protected float movementSpeed = 64f;
         protected float rotationSpeed = 2f;
+        
 
         public float RotationSpeed { get => rotationSpeed; }
 
@@ -39,6 +40,9 @@ namespace Project2D
 
 
         public Color TankColor { get => tankColor; set => tankColor = value; }
+
+
+
 
 
         #region "Constructors"
