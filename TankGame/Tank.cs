@@ -28,6 +28,8 @@ namespace Project2D
         protected float rgbChange = 0.5f;
         protected float currentTime;
 
+        protected float fireRate = 2f;
+        protected float currentFireRate;
 
         protected SpriteObject tankHull;
         protected SpriteObject tankTurret;
@@ -55,8 +57,6 @@ namespace Project2D
             SetupChildren();
 
 
-
-
         }
 
         // For some reason a lot of the colors don't seem to work as expected.
@@ -68,7 +68,6 @@ namespace Project2D
 
             SetupChildren();
 
-
         }
 
 
@@ -79,6 +78,11 @@ namespace Project2D
 
         #endregion
 
+        private void InitFireRate()
+        {
+            currentFireRate = fireRate;
+
+        }
 
         public void SetupChildren()
         {
@@ -127,6 +131,7 @@ namespace Project2D
 
         public override void OnUpdate(float deltaTime)
         {
+            currentFireRate -= deltaTime;
             base.OnUpdate(deltaTime);
             currentTime -= deltaTime;
             
@@ -165,8 +170,23 @@ namespace Project2D
         #endregion
 
         #region "IShooter"
+
+        public float FireRate { get => fireRate; }
+        public bool CanShoot
+        {
+            get
+            {
+                return currentFireRate <= 0;
+            }
+        }
+
+
         public void Shoot()
         {
+            if(CanShoot)
+            {
+                currentFireRate = fireRate;
+         
             // Create Bullet
             Bullet bullet = new Bullet("Bullet", TankColor);
 
@@ -183,7 +203,7 @@ namespace Project2D
 
             // Spawn in World
             TankGame.TryCreate(bullet);
-            
+            }
         }
         #endregion
 

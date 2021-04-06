@@ -69,7 +69,7 @@ namespace Project2D
                 #endregion
 
                 // Shoot
-                if (IsKeyReleased(KeyboardKey.KEY_SPACE))
+                if (IsKeyDown(KeyboardKey.KEY_SPACE))
                 {
                     HumanShoot();
 
