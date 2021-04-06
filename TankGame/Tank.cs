@@ -166,8 +166,7 @@ namespace Project2D
             // Create Bullet
             Bullet bullet = new Bullet("Bullet", TankColor);
 
-            // Do stuff to it
-            //bullet.Translate(turretObject.GlobalTransform.X, turretObject.GlobalTransform.Y);
+          
 
            
 
