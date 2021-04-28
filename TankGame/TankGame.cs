@@ -33,8 +33,8 @@ namespace Project2D
         {
             Tank playerT = new Tank("Player-Tank", Color.DARKGREEN, false);
             TryCreate(playerT);
-            TryCreate(new Tank("Enemy 01",Color.GOLD,  0.2f, false, true));
-            TryCreate(new Tank("Enemy 02", Color.GOLD, 0.2f, false, true));
+            TryCreate(new Tank("Enemy 01",Color.GOLD,  0.2f, false, false));
+            TryCreate(new Tank("Enemy 02", Color.GOLD, 0.2f, false, false));
 
 
 
